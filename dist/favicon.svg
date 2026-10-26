@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- 背景流光渐变：科技蓝到极客紫蓝 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <!-- 高光渐变 -->
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <!-- A 字符晶体投影 -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- 外层微倒角矩形容器 (Apple / Modern App Icon 风格) -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  
+  <!-- 顶部轻微反光高光层 -->
+  <rect width="512" height="256" rx="128" fill="url(#shine)" />
+
+  <!-- 科技光环装饰 (表示开放共享与连接) -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.15" stroke-dasharray="24 16" />
+
+  <!-- 核心品牌符号：现代科技几何 'A' + 共享核心节点 -->
+  <g filter="url(#dropShadow)">
+    <!-- 粗壮现代 A 字母主骨架 -->
+    <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff" />
+    
+    <!-- A 字中心的共享光芒核心点 -->
+    <circle cx="256" cy="316" r="22" fill="#38bdf8" />
+    <circle cx="256" cy="316" r="12" fill="#ffffff" />
+  </g>
+</svg>

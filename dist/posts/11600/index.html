@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 - Aron 资源库</title><meta name="description" content="NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。 很多人的日常工作流已经被拆分到了不同工具里：用 Notion 管理笔记，用 Todoist 记录任务，用 Google Calendar 安排日程，再通过各种 AI 服务辅助处理内容。工具越来越丰富，但个人数据也逐渐分散在不同服务之间。 NeumanOS 将这些功能集中到一个本地优先的工作空间中：把笔记、看板、日历、表格和 AI 终端整合到一个应用里。它不依赖后端数据库，也不需要注册账号，用户创建的数据..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11600/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 - Aron 资源库"><meta property="og:description" content="NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。 很多人的日常工作流已经被拆分到了不同工具里：用 Notion 管理笔记，用 Todoist 记录任务，用 Google Calendar 安排日程，再通过各种 AI 服务辅助处理内容。工具越来越丰富，但个人数据也逐渐分散在不同服务之间。 NeumanOS 将这些功能集中到一个本地优先的工作空间中：把笔记、看板、日历、表格和 AI 终端整合到一个应用里。它不依赖后端数据库，也不需要注册账号，用户创建的数据..."><meta property="og:url" content="https://aronshare.com/posts/11600/"><meta property="og:image" content="https://aronshare.com/covers/cover_11600.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 - Aron 资源库"><meta name="twitter:description" content="NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。 很多人的日常工作流已经被拆分到了不同工具里：用 Notion 管理笔记，用 Todoist 记录任务，用 Google Calendar 安排日程，再通过各种 AI 服务辅助处理内容。工具越来越丰富，但个人数据也逐渐分散在不同服务之间。 NeumanOS 将这些功能集中到一个本地优先的工作空间中：把笔记、看板、日历、表格和 AI 终端整合到一个应用里。它不依赖后端数据库，也不需要注册账号，用户创建的数据..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11600.webp"><meta name="twitter:image:alt" content="NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">AI 智能体与工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">NeumanOS 本地优先个人OS，整合笔记、AI与办公工具</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> AI 智能体与工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。 很多人的日常工作流已经被拆分到了不同工具里：用 Notion 管理笔记，用 Todoist 记录任务，用 Google Calendar 安排日程，再通过各种 AI 服务辅助处理内容。工具越来越丰富，但个人数据也逐渐分散在不同服务之间。 NeumanOS 将这些功能集中到一个本地优先的工作空间中：把笔记、看板、日历、表格和 AI 终端整合到一个应用里。它不依赖后端数据库，也不需要注册账号，用户创建的数据... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11600.webp" alt="NeumanOS 本地优先个人OS，整合笔记、AI与办公工具 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/travisjneuman/NeumanOS" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/travisjneuman/NeumanOS/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p><strong>NeumanOS</strong> 是一个运行在浏览器中的本地优先个人工作空间。</p>
+<p>很多人的日常工作流已经被拆分到了不同工具里：用 Notion 管理笔记，用 Todoist 记录任务，用 Google Calendar 安排日程，再通过各种 AI 服务辅助处理内容。工具越来越丰富，但个人数据也逐渐分散在不同服务之间。</p>
+<p>NeumanOS 将这些功能集中到一个本地优先的工作空间中：把笔记、看板、日历、表格和 AI 终端整合到一个应用里。它不依赖后端数据库，也不需要注册账号，用户创建的数据默认存储在浏览器本地，减少对第三方服务的依赖。</p>
+<p>NeumanOS 基于 React 19 和 TypeScript 构建，采用纯前端架构。它通过 IndexedDB 保存本地数据，并支持 PWA 安装为桌面应用。同时，项目提供 Ollama 本地模型和多种 AI API 接入方式，适合希望尝试本地 AI 工作流、并愿意自行管理数据备份的开发者和创作者。</p>
+<div style="background-color: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; margin-bottom: 20px;"><strong>快速了解：</strong><br>
+NeumanOS 是一款本地优先个人OS，将笔记、任务管理、日历、表格和 AI 功能集中到一个浏览器应用中。它无需账号和后端服务，数据默认存储在浏览器 IndexedDB 中，支持 PWA 使用、Ollama 本地模型以及多种 AI API 接入，适合希望减少第三方服务依赖的开发者和创作者。</div>
+<h2>NeumanOS 是什么？为什么会出现本地优先个人OS</h2>
+<p>不少开源效率工具需要额外配置数据库、运行 Docker 服务，甚至维护长期运行的服务器环境。NeumanOS 采用纯前端架构，不需要单独部署后端，直接通过浏览器运行，并将数据存储在本地浏览器环境中。</p>
+<p>作为一个个人生产力工作空间，NeumanOS 将多种功能整合到同一个应用中，包括：</p>
+<ul>
+<li><strong>文档与笔记：</strong>支持 Markdown、富文本、双向链接以及知识图谱视图。</li>
+<li><strong>任务与看板：</strong>提供 Kanban 看板、任务依赖、甘特图和燃尽图等项目管理功能。</li>
+<li><strong>表格工具：</strong>内置支持 400 多种 Excel 兼容公式的表格组件，可用于日常数据整理。</li>
+<li><strong>PWA 离线使用：</strong>支持安装为桌面应用，并在部分场景下无需联网使用。</li>
+</ul>
+<h2>AI 终端与 Ollama 本地模型支持</h2>
+<p>NeumanOS 内置 AI 终端模块，可以连接多种大模型服务，包括 OpenAI、Claude、DeepSeek 等 API，同时支持接入 Ollama 本地模型。</p>
+<p>对于已经在电脑上运行本地模型的用户，这个功能可以把 AI 能力直接加入个人工作空间中，不需要在多个工具之间切换。用户可以根据自己的需求选择云端 API 或本地模型方案。</p>
+<div style="background-color: #eef2ff; border-left: 4px solid #6366f1; padding: 15px; margin-bottom: 20px;">
+<p><strong>本地模型与 API 模式的区别：</strong><br>
+使用 Ollama 本地模型时，模型推理过程在用户设备上完成；如果连接 OpenAI、Claude、DeepSeek 等第三方 API，请求内容会按照对应服务商的接口规则处理。NeumanOS 中创建的文档、表格等应用数据默认存储在浏览器本地环境中，项目说明中提到 API 密钥会进行本地加密存储。</p>
+</div>
+<h2>NeumanOS 现在适合作为主力工具吗？</h2>
+<p>除了功能之外，工具本身的发展阶段也是选择时需要考虑的因素。</p>
+<p>NeumanOS 目前只有少量社区关注，由个人开发者维护，仍属于早期项目阶段。虽然它已经集成了笔记、看板、表格和 AI 终端等功能，但复杂场景下的稳定性还需要更多用户验证。</p>
+<p>例如大型表格计算、复杂项目管理流程以及长期数据管理，都建议先进行实际测试。如果准备尝试 NeumanOS，不建议直接迁移全部重要资料，可以先从非关键数据开始使用，并保持定期备份。</p>
+<h3>NeumanOS 和 Notion 这类工具有什么区别？</h3>
+<p>如果你习惯使用 Notion 这类云端生产力工具，NeumanOS 的定位并不是简单替代它，而是提供另一种使用方式：将更多数据和工作流程保存在本地环境中。</p>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>NeumanOS</th>
+<th>Notion 等云端工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行方式</td>
+<td>浏览器运行，支持 PWA 安装</td>
+<td>以云端服务为核心</td>
+</tr>
+<tr>
+<td>数据存储</td>
+<td>默认存储在本地浏览器 IndexedDB</td>
+<td>数据存储在服务商服务器</td>
+</tr>
+<tr>
+<td>账号需求</td>
+<td>无需注册账号即可体验</td>
+<td>通常需要账号体系</td>
+</tr>
+<tr>
+<td>同步能力</td>
+<td>需要自行管理数据迁移和备份</td>
+<td>提供成熟的多设备同步</td>
+</tr>
+<tr>
+<td>协作功能</td>
+<td>更偏个人使用场景</td>
+<td>支持团队协作和权限管理</td>
+</tr>
+<tr>
+<td>AI 能力</td>
+<td>支持 Ollama 本地模型和第三方 API</td>
+<td>通常依赖官方 AI 服务</td>
+</tr>
+</tbody>
+</table>
+<p>简单来说，Notion 这类工具更适合需要多人协作、多设备同步和成熟生态的用户；NeumanOS 更适合希望减少第三方服务依赖、偏好本地工作环境，并愿意自行管理数据备份的个人用户。</p>
+<h2>NeumanOS 如何部署？本地存储有哪些限制</h2>
+<p>由于采用纯静态站点架构，NeumanOS 不需要配置后端服务。你可以直接使用官方 Demo，也可以将源码部署到 Cloudflare Pages、Vercel 等静态托管平台。</p>
+<div style="background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 15px; margin-bottom: 20px;"><strong>数据管理需要注意：</strong><br>
+NeumanOS 的应用数据默认存储在浏览器 IndexedDB 中。这种方式减少了对第三方服务器的依赖，但也意味着数据迁移、设备更换和浏览器环境变化需要用户自行管理。建议定期导出重要数据备份。</div>
+<p><strong>适合：</strong></p>
+<ul>
+<li>希望减少第三方服务依赖，偏好本地工作环境的用户。</li>
+<li>已经使用 Ollama 本地模型，希望将 AI 加入个人工作流的开发者和创作者。</li>
+<li>能够接受早期项目状态，并愿意自行管理数据备份的极客用户。</li>
+</ul>
+<p><strong>不太适合：</strong></p>
+<ul>
+<li>需要手机、电脑、平板多端实时同步的用户。</li>
+<li>需要多人协作和团队权限管理的企业场景。</li>
+<li>希望直接使用成熟商业软件生态的用户。</li>
+</ul>
+<p>综合来看，NeumanOS 更适合希望将笔记、任务和 AI 工具集中到本地环境中的个人用户。它目前仍处于早期阶段，建议先用于个人笔记、实验性项目或本地 AI 场景，并根据实际体验判断是否适合作为长期工具。</p>
+<hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<h2>NeumanOS 源码、在线体验与部署说明</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; margin-bottom: 36px;">
+<p><a href="https://os.neuman.dev" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🌐 NeumanOS 官方 Demo 与在线体验<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">无需注册账号，在浏览器中即可直接体验集成笔记、看板、表格与 AI 终端的本地系统。</span><br>
+</a></p>
+<p><a href="https://github.com/travisjneuman/NeumanOS" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🐙 NeumanOS GitHub 项目主页<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看 MIT 开源协议说明、React 19 前端源码，以及静态站点部署指南。</span><br>
+</a></p>
+</div> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/travisjneuman/NeumanOS/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11599" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">ImgZilla Mac 图片压缩工具，原地压缩不改变文件路径</div> </a> <a href="/posts/11601" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Port22 Claude Code、Codex 远程控制工具，用手机管理 AI Agent</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11025/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11025.webp" alt="默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-13</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11027/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11027.webp" alt="录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-10</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11032/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11032.webp" alt="Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11439/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11439.webp" alt="Inpaint 图片去水印、删除人物和多余物体的修图工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Inpaint 图片去水印、删除人物和多余物体的修图工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

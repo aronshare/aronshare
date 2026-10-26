@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ - Aron 资源库</title><meta name="description" content="Apple 欧盟 App Store 新规 重新调整了开发者的成本结构：从 2026 年 10 月 1 日起，过去按安装量计算的 Core Technology Fee（CTF）将被 Core Technology Commission（CTC）取代，App Store 外分发应用的相关数字交易适用 5% CTC。但有一点很容易看错： 5% 并不是所有第三方支付统一适用的费率。 Apple 在 2026 年 8 月 18 日公布了新的欧盟 App 商业条款，将此前并行的..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11588/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ - Aron 资源库"><meta property="og:description" content="Apple 欧盟 App Store 新规 重新调整了开发者的成本结构：从 2026 年 10 月 1 日起，过去按安装量计算的 Core Technology Fee（CTF）将被 Core Technology Commission（CTC）取代，App Store 外分发应用的相关数字交易适用 5% CTC。但有一点很容易看错： 5% 并不是所有第三方支付统一适用的费率。 Apple 在 2026 年 8 月 18 日公布了新的欧盟 App 商业条款，将此前并行的..."><meta property="og:url" content="https://aronshare.com/posts/11588/"><meta property="og:image" content="https://aronshare.com/covers/cover_11588.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ - Aron 资源库"><meta name="twitter:description" content="Apple 欧盟 App Store 新规 重新调整了开发者的成本结构：从 2026 年 10 月 1 日起，过去按安装量计算的 Core Technology Fee（CTF）将被 Core Technology Commission（CTC）取代，App Store 外分发应用的相关数字交易适用 5% CTC。但有一点很容易看错： 5% 并不是所有第三方支付统一适用的费率。 Apple 在 2026 年 8 月 18 日公布了新的欧盟 App 商业条款，将此前并行的..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11588.webp"><meta name="twitter:image:alt" content="Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">实用工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 实用工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> Apple 欧盟 App Store 新规 重新调整了开发者的成本结构：从 2026 年 10 月 1 日起，过去按安装量计算的 Core Technology Fee（CTF）将被 Core Technology Commission（CTC）取代，App Store 外分发应用的相关数字交易适用 5% CTC。但有一点很容易看错： 5% 并不是所有第三方支付统一适用的费率。 Apple 在 2026 年 8 月 18 日公布了新的欧盟 App 商业条款，将此前并行的... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>前往官方发布页</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11588.webp" alt="Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？ 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 -->  </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<div style="background-color: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; margin-bottom: 20px;"><strong>Apple 欧盟 App Store 新规</strong>重新调整了开发者的成本结构：从 2026 年 10 月 1 日起，过去按安装量计算的 Core Technology Fee（CTF）将被 Core Technology Commission（CTC）取代，App Store 外分发应用的相关数字交易适用 5% CTC。但有一点很容易看错：<strong>5% 并不是所有第三方支付统一适用的费率。</strong></div>
+<p>Apple 在 2026 年 8 月 18 日公布了新的欧盟 App 商业条款，将此前并行的多套收费规则统一到一套商业条款下。</p>
+<p>CTF 被 CTC 取代最容易引起注意，但做订阅 App、SaaS、游戏内购或者接 Stripe 的开发者，首先要算的还是：<strong>我的 App 到底要给 Apple 交多少？</strong></p>
+<p>答案取决于你的 App 从哪里分发、钱在哪里收。继续留在 App Store、在 App 内接第三方支付、把用户带到网站付款，以及完全绕开 App Store 分发，收费方式都不一样。</p>
+<h2>Apple 欧盟 App Store 新规到底改了什么？</h2>
+<p>这轮调整主要从 2026 年 10 月 1 日起生效。</p>
+<p>其中变化最大的是收费方式。原来针对大规模应用、按照“首次年度安装量”收费的 Core Technology Fee，也就是 CTF，将被新的 Core Technology Commission 取代。</p>
+<p><strong>CTC 不再按安装次数计算，而是和数字交易挂钩。</strong></p>
+<p>对于通过替代应用市场或 Web Distribution 等方式在 App Store 之外分发的 iOS、iPadOS App，付费 App、数字商品和数字服务交易适用的 CTC 费率为 <strong>5%</strong>。</p>
+<p>Apple 还取消了旧条款体系中的 Initial Acquisition Fee 和 Store Services Fee，并重新调整 App Store、第三方支付以及外部分发场景下的佣金结构。<br>
+另一个变化是，欧盟 App 可以同时提供 <strong>Apple In-App Purchase 和替代支付方式</strong>，不过选定支付组合后需要维持 12 个月。上述调整均来自 Apple 2026 年 8 月 18 日公布的欧盟 App 新商业条款。<br>
+<a href="https://developer.apple.com/news/?id=gmws0jgp" rel="noopener noreferrer" target="_blank">查看 Apple Developer 官方公告</a></p>
+<h2>Apple IAP、第三方支付和 5% CTC 分别收多少？</h2>
+<p>这里先区分两个范围。欧盟 App Store 内的支付新条款适用于 <strong>iOS、iPadOS、macOS、tvOS、visionOS 和 watchOS</strong> App；通过替代应用市场或 Web Distribution 进行的 App Store 外分发，目前主要针对 <strong>iOS 和 iPadOS</strong>。</p>
+<p>如果只看到“CTF 改成 5% CTC”，很容易得出一个错误结论：以后欧盟 App 接 Stripe，只需要给 Apple 5%。</p>
+<p><strong>并不是这样。</strong>App 仍然通过 App Store 分发，只是在 App 内使用第三方支付，和直接通过替代应用市场或 Web Distribution 分发，是两套不同的收费路径。</p>
+<div style="overflow-x: auto; margin: 20px 0;">
+<table style="width: 100%; border-collapse: collapse; min-width: 760px;">
+<thead>
+<tr>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">分发 / 支付方式</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Apple 佣金</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">适用情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>App Store + Apple IAP</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>26% / 15%</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">标准费率为 26%；App Store Small Business Program、Mini Apps Partner Program、Video Partner Program 参与者，以及自动续订订阅第一年之后的符合条件交易适用 15%。</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>App Store + App 内第三方支付</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>20% / 10%</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">标准费率为 20%；App Store Small Business Program、Mini Apps Partner Program、Video Partner Program 参与者，以及自动续订订阅第一年之后的符合条件交易适用 10%。Stripe 等第三方支付服务商的手续费另算。</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>App Store + 可点击外部购买链接</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>15% / 10%</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">用户点击 App 内可操作链接后 7 天内完成的符合条件数字交易适用。标准费率为 15%；App Store Small Business Program、Mini Apps Partner Program、Video Partner Program 参与者，以及自动续订订阅第一年之后的符合条件交易适用 10%。</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>替代应用市场 / Web Distribution</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>5% CTC</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">适用于替代应用市场、通过替代应用市场分发的 App，以及通过 Web Distribution 分发的 iOS / iPadOS App。CTC 覆盖付费 App、数字商品和服务、一次性购买、自动续订订阅，以及部分用于访问或下载 App、应用市场或 App 目录的收费。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size: 14px; color: #666; line-height: 1.7;">以上费率根据 Apple 最新欧盟 App 商业条款整理。App Store 内的 Apple IAP、App 内第三方支付、外部购买链接，以及 App Store 外分发采用不同的佣金结构。其中，App Store 外分发 App 如果通过可点击链接引导用户到网页购买数字商品或服务，也可能适用 5% CTC，仅计算点击链接后 7 天内完成的符合条件交易。具体适用条件可查看<a href="https://developer.apple.com/support/apps-in-the-eu/" rel="noopener noreferrer" target="_blank">Apple 官方欧盟 App 条款说明</a>。</p>
+<p><strong>5% CTC 的范围不只是在 App 内卖数字商品。</strong>Apple 还把替代应用市场或 App 目录的下载费、访问订阅，以及 App Store 外分发 App 通过可点击链接引导至网页完成的相关数字交易纳入 CTC。对于后一种外链交易，只计算用户点击链接后 7 天内完成的符合条件销售。</p>
+<h2>CTF 和 CTC 有什么区别？</h2>
+<p>旧的 CTF 最大的问题，是它和收入没有直接挂钩。</p>
+<p>按照此前的欧盟替代商业条款，大规模 iOS 和 iPadOS App 在达到相关条件后，需要按照首次年度安装量计算 Core Technology Fee。标准费率是超过免费额度后的每次首次年度安装 €0.50，同时还有针对小型开发者、非营利机构等不同豁免和过渡条件。</p>
+<p>这会产生一个比较尴尬的情况：<strong>用户装了 App，并不代表开发者一定从这个用户身上赚到了钱。</strong></p>
+<p>免费 App、低客单价 App，或者下载量很大但付费率很低的产品，会特别在意这种按安装量计算成本的方式。</p>
+<p>CTC 把逻辑换了过来。</p>
+<p>App Store 外分发的应用不再因为安装本身触发这类按安装计费，而是对符合范围的数字商品和服务销售收取 5% 佣金。对很多开发者来说，这至少让 Apple 的费用和实际数字交易收入绑得更紧。</p>
+<p>但它也不是“彻底零平台成本”。只要你的 App 产生符合 CTC 范围的数字交易，这笔 5% 仍然需要计算进去。</p>
+<h2>接 Stripe 等第三方支付，并不是直接从 26% 降到 5%</h2>
+<p>这应该是 SaaS 开发者最需要看清楚的一部分。</p>
+<p>假设一笔 €10 的数字订阅，不考虑税费和第三方 PSP 手续费：Apple IAP 标准档对应 €2.60 Apple 佣金，App 内第三方支付为 €2，外部购买链接为 €1.50；只有 App 本身通过替代应用市场或 Web Distribution 分发时，相关数字交易才进入 5% CTC，也就是约 €0.50。</p>
+<p>这里比较的只是 Apple 收取的部分。使用 Stripe 等第三方支付后，PSP 手续费、税务和退款处理仍需另外计算。</p>
+<h2>旧 Store Services Fee 取消了，为什么外链仍收 15%？</h2>
+<p>Apple 这次的命名很容易让人看迷糊。</p>
+<p>8 月 18 日的公告明确表示，新条款取消此前体系中的 Initial Acquisition Fee 和 Store Services Fee。但在统一商业条款下面，如果 App Store 应用通过可点击链接把用户带到网站、其他 App 或替代应用市场完成数字购买，仍然存在一项新的 <strong>Store services commission</strong>。</p>
+<p>它的标准费率为 15%，符合 Small Business Program 等条件的交易可以降到 10%，而且只计算用户点击链接之后 7 天内完成的相关交易。</p>
+<p>也就是说，旧收费模型被取消，并不代表“从 App Store 引流到网页支付以后 Apple 完全不收费”。看具体费率时，还是要按新统一条款里的支付路径判断。</p>
+<h2>Apple IAP 和第三方支付现在可以同时提供</h2>
+<p>对欧盟 App 来说，对产品设计影响更直接的一项变化，是 Apple IAP 和第三方支付可以同时提供。</p>
+<p>开发者可以在 App Store 应用中同时保留 Apple In-App Purchase，并提供 App 内替代支付、网页购买链接等其他方式。</p>
+<p>这意味着开发者可以把 Apple IAP 留给习惯 Apple 支付体系的用户，同时给其他用户提供自己的支付渠道。</p>
+<p>不过这里也不是想怎么切就怎么切。</p>
+<p>Apple 要求开发者选定 Apple IAP、App 内替代支付、网页跳转或者这些方式的组合后，<strong>维持该支付方案 12 个月</strong>。</p>
+<p>所以对于订阅型 App 或 SaaS 来说，这已经不是单纯的技术接入问题，而是一个需要提前计算的商业决策：支付转化率、Apple 佣金、Stripe 等 PSP 费用、税务处理、退款和客服成本都需要一起算。</p>
+<p>使用第三方支付后，开发者也会接手更多支付和合规事务。在 App Store 内使用第三方支付或外部购买链接时，开发者需要自行处理适用税费，并向 Apple 报告相关替代支付交易；月度报告需要在每个自然月结束后的 15 天内提交。</p>
+<h2>儿童 App 使用第三方支付还有额外限制</h2>
+<p>欧盟 App 可以同时提供 Apple IAP 和第三方支付，但涉及儿童和未成年用户时，Apple 另外设置了支付限制。</p>
+<p>Kids 分类中的 App，如果使用第三方支付处理购买，需要把支付流程放在 <strong>Parental Gate（家长门）</strong>之后，同时不能向用户提供跳转网站购买数字商品或服务的外部购买选项。</p>
+<p>对于未满 13 岁的用户，第三方支付同样需要经过家长门，而且不能提供 App 外购买选项；13 至 17 岁用户使用 App 内第三方支付或外部购买链接时，也必须经过家长门。</p>
+<p>如果某个欧盟国家或地区规定的家长同意年龄高于 13 岁，则按照当地更高的年龄门槛执行。例如当地要求 16 岁以下需要家长同意，相关限制也会相应延伸到 16 岁。</p>
+<p style="font-size: 14px; color: #666;">这部分规则属于 Apple 2026 年欧盟商业条款更新中的儿童安全要求，使用第三方支付或外部购买链接前，可查看<br>
+<a href="https://developer.apple.com/support/apps-in-the-eu/" rel="noopener noreferrer" target="_blank">Apple Developer 官方说明</a>确认当前年龄和支付限制。</p>
+<h2>完全离开 App Store，5% CTC 就一定更便宜吗？</h2>
+<p>只看 Apple 佣金，5% CTC 明显低于 App Store 内的几档费率，但这并不等于总成本一定更低。</p>
+<p>App Store 同时承担了应用分发、支付、部分税务与退款支持，也给开发者提供现成的用户支付习惯。改用替代应用市场或 Web Distribution 后，开发者获得更多分发和支付控制权，但支付处理、税务申报、退款和部分用户支持也需要自己承担。</p>
+<p>判断哪种方案更划算，可以把下面几项一起算进去：</p>
+<ul>
+<li>Apple 实际佣金；</li>
+<li>Stripe 等第三方支付服务商手续费；</li>
+<li>支付转化率变化；</li>
+<li>税务、退款和客服成本；</li>
+<li>失去 App Store 分发后增加的获客成本。</li>
+</ul>
+<p>已经有稳定品牌流量、官网账户体系和订阅用户的 App，更有条件尝试 App Store 外分发。主要依靠 App Store 搜索和推荐获客的小团队，则不适合只因为 5% 这个数字就迁移。</p>
+<h2>替代应用市场和 Web Distribution 的门槛也放宽了</h2>
+<p>收费调整之外，Apple 也放宽了替代分发的部分资格要求。</p>
+<p>从 2026 年 10 月 1 日起，企业不再必须在欧盟设立法律实体。Apple 同时扩大了资格路径，包括满足 Dun &#x26; Bradstreet 财务稳定性要求、上市公司背景、获得成熟投资机构融资、完成持牌会计师审计、符合条件的政府/教育/非营利机构，以及原有的 100 万美元备用信用证或全球 100 万次首次年度安装等路径。</p>
+<p>这些资格路径和具体要求由 Apple 单独列在欧盟替代分发政策中，申请 Web Distribution 或运营替代应用市场前，建议直接核对最新官方条件。</p>
+<p>这对原本因为欧盟实体要求而无法直接参与替代分发的海外开发团队更友好，但也不能理解成“任何开发者都可以直接从自己网站安装 iOS App”。Web Distribution 和替代应用市场依然需要满足 Apple 的授权、Notarization 和相关资格要求。</p>
+<div style="background-color: #f5f7fa; border-left: 4px solid #64748b; padding: 15px; margin: 20px 0;">
+<p><strong>小型替代应用市场还有一项 CTC 豁免：</strong></p>
+<p style="margin: 8px 0 0;">如果替代应用市场运营商过去 12 个月的全球收入低于 <strong>1000 万欧元</strong>，同时其欧盟 marketplace App 的下载价格，或用户为访问该市场分发 App 而支付的订阅费用历史累计收入低于 <strong>100 万欧元</strong>，符合条件的这部分下载费或订阅费可以免除 CTC。</p>
+<p style="margin: 8px 0 0; font-size: 14px; color: #666;">这项豁免针对符合条件的小型替代应用市场运营商，并不代表通过该市场分发的所有 App 都免收 5% CTC。具体资格和计算范围以<a href="https://developer.apple.com/support/apps-in-the-eu/" rel="noopener noreferrer" target="_blank">Apple Developer 最新欧盟条款</a>为准。</p>
+</div>
+<h2>哪些开发者最需要重新算一次成本？</h2>
+<p><strong>已经有官网订阅和 Stripe 支付的 SaaS：</strong>这类产品本来就有自己的账户和支付体系，现在可以直接比较 Apple IAP、App 内第三方支付、网页购买和 App Store 外分发的成本，规则变化对它们最实际。</p>
+<p><strong>下载量很大、付费率却不高的 App：</strong>过去 CTF 和安装量挂钩，即使大量用户没有付费，也可能产生技术费用。CTC 改为与符合条件的数字交易挂钩后，这类 App 的成本模型变化会比较明显。</p>
+<p><strong>准备使用替代应用市场或 Web Distribution 的团队：</strong>除了 5% CTC，本轮调整还涉及申请资格和分发条件。原来受欧盟实体要求限制的海外团队，可以重新看看自己是否满足新的准入路径。</p>
+<p><strong>主要靠 App Store 自然流量的独立开发者：</strong>暂时没必要因为 5% CTC 就急着改变分发方式。佣金降低多少是一回事，离开 App Store 后还能不能维持下载量和付费转化，是另一回事。</p>
+<h2>开发者该怎么选？别只比较 26%、20%、15% 和 5%</h2>
+<p>四档费率的差距很大，但 Apple 佣金只是成本的一部分。已经有官网账户、稳定订阅收入和自有获客渠道的 SaaS，更有条件评估第三方支付或 App Store 外分发。</p>
+<p>如果主要依赖 App Store 获客，就不能只看佣金，还要把支付转化率、PSP 手续费、税务、退款和额外获客成本一起算进去。</p>
+<p>这轮调整并不是简单把 App Store 抽成降到 5%，而是让开发者在 Apple IAP、第三方支付、外部购买链接和 App Store 外分发之间有了更多选择。具体选哪一种，最终还是取决于自己的用户来源和支付模型。</p>
+<hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<h2>Apple 官方条款与资料</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
+<p><a href="https://developer.apple.com/news/?id=gmws0jgp" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🌐 Apple Developer 官方公告<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">查看 2026 年 8 月 18 日公布的欧盟 App 商业条款调整。</span><br>
+</a></p>
+<p><a href="https://developer.apple.com/support/apps-in-the-eu/" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+📄 欧盟 App 新条款说明<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看 IAP、第三方支付、网页跳转、5% CTC 和替代分发的最新费率与适用条件。</span><br>
+</a></p>
+</div>
+<div style="margin-top: 35px; border-top: 1px solid #eee; padding-top: 15px;">
+<p style="margin: 0; font-size: 12px; color: #999; line-height: 1.6;"><strong>免责声明：</strong>本文根据 Apple Developer 截至 2026 年 8 月 19 日公开的欧盟商业条款整理，主要用于帮助理解不同分发和支付方式的成本差异。Apple 后续仍可能调整具体规则、资格和费率，实际结算请以 Apple Developer Program License Agreement、App Store Connect 及开发者账户显示的信息为准。</p>
+</div> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">   <!-- 通用官方发布 / 官网文档通道 --> <a href="https://aronshare.com" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-sky-500 bg-slate-50/60 hover:bg-white hover:shadow-md transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">官网</span> <div> <div class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 transition-colors">
+项目官方网站 / 官方发布渠道
+</div> <div class="text-[11px] text-slate-400">一手原作者主页与在线体验</div> </div> </div> <span class="text-xs font-bold text-sky-600 group-hover:translate-x-0.5 transition-transform">
+访问官方 →
+</span> </a> </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11589" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步</div> </a> <a href="/posts/11590" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11023/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11023.webp" alt="M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-18</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11026/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11026.webp" alt="EasyPick 易切 把一张商品海报拆成多个独立 PNG" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> EasyPick 易切 把一张商品海报拆成多个独立 PNG </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-12</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11029/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11029.webp" alt="萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11028/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11028.webp" alt="凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

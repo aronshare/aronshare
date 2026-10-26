@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 - Aron 资源库</title><meta name="description" content="用 Cursor、Claude Code 或 Codex CLI 写完代码，架构图通常还得另外画。团队评审、代码交接都要用的，比较麻烦的是代码一改，然后原来的图很快就对不上了。 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。它不是在线画图网站，也没有拖拽编辑器，比较适合已经在用命令行 Agent、需要准备评审或交接文档的开发者。 安装后，..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11581/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 - Aron 资源库"><meta property="og:description" content="用 Cursor、Claude Code 或 Codex CLI 写完代码，架构图通常还得另外画。团队评审、代码交接都要用的，比较麻烦的是代码一改，然后原来的图很快就对不上了。 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。它不是在线画图网站，也没有拖拽编辑器，比较适合已经在用命令行 Agent、需要准备评审或交接文档的开发者。 安装后，..."><meta property="og:url" content="https://aronshare.com/posts/11581/"><meta property="og:image" content="https://aronshare.com/covers/cover_11581.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 - Aron 资源库"><meta name="twitter:description" content="用 Cursor、Claude Code 或 Codex CLI 写完代码，架构图通常还得另外画。团队评审、代码交接都要用的，比较麻烦的是代码一改，然后原来的图很快就对不上了。 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。它不是在线画图网站，也没有拖拽编辑器，比较适合已经在用命令行 Agent、需要准备评审或交接文档的开发者。 安装后，..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11581.webp"><meta name="twitter:image:alt" content="Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">实用工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 实用工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> 用 Cursor、Claude Code 或 Codex CLI 写完代码，架构图通常还得另外画。团队评审、代码交接都要用的，比较麻烦的是代码一改，然后原来的图很快就对不上了。 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。它不是在线画图网站，也没有拖拽编辑器，比较适合已经在用命令行 Agent、需要准备评审或交接文档的开发者。 安装后，... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11581.webp" alt="Archify 让 Claude Code 和 Codex 根据代码库生成交互式架构图 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/tt-a1i/archify" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/tt-a1i/archify/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>用 Cursor、Claude Code 或 Codex CLI 写完代码，架构图通常还得另外画。团队评审、代码交接都要用的，比较麻烦的是代码一改，然后原来的图很快就对不上了。</p>
+<p><strong>Archify</strong> 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。它不是在线画图网站，也没有拖拽编辑器，比较适合已经在用命令行 Agent、需要准备评审或交接文档的开发者。</p>
+<p>安装后，可以直接对 Agent 说：“读取当前仓库，画一张运行时架构图。”模型负责分析代码并生成结构化描述，Archify 负责检查图表规则和完成渲染，减少在代码与画图软件之间重复整理的工作。</p>
+<h2>Archify 是什么？和在线架构图工具有什么不同</h2>
+<p>Archify 和 GitDiagram 这类“输入 GitHub 链接生成图表”的在线工具并不是一回事。它主要作为 Agent Skill 接入 Cursor、Claude Code、Codex CLI 和 OpenCode，也提供用于校验和渲染的 Node.js CLI。Archify 本身不包含大模型。</p>
+<p>需要分析代码库时，宿主 Agent 使用的模型会读取其能够访问的代码或系统描述，并生成带有类型的 JSON IR（中间表示）。Archify 接收这份结构化数据，检查 Schema、组件布局和连线路由等图表规则，再渲染成自包含的交互式 HTML。代码是否会发送到云端，取决于你使用的 Agent、模型服务及相关设置。</p>
+<p><strong>Archify 的处理流程：</strong><br>
+Agent 读取可访问的代码库或系统描述 → 模型生成带有类型的 JSON IR → Archify 检查 Schema、布局和连线路由 → 渲染成交互式 HTML 图表。</p>
+<h2>Archify 如何生成和校验交互式架构图</h2>
+<p>这份 JSON IR 进入 Archify 后，会接受 Schema、组件布局、HTML/SVG、连线路由以及标签与线路间距等检查。检查失败时，工具会返回对应的规则、对象和修正信息，让 Agent 针对有问题的部分调整，不需要重新生成整张图。</p>
+<p>在 Preview 和 Deliver 工作流中，新版本只有通过检查才会更新；如果发现问题，Archify 会保留上一次可用的图表，并返回具体的错误位置，让 Agent 只修改有问题的部分。这样做主要解决的是图表容易报错、连线混乱和反复返工的问题。至于图里应该有哪些组件、服务和调用关系，则由 Agent 根据代码库内容来整理。</p>
+<h2>支持的图表类型和导出格式</h2>
+<p>Archify 不只生成系统架构图。想看系统由哪些服务组成、一次 API 请求经过了什么、数据流向哪里，可以选择不同的图表类型：</p>
+<p><strong>1、架构图（Architecture）：</strong>展示服务、数据库、缓存、外部系统和安全边界，适合查看系统整体结构。</p>
+<p><strong>2、工作流图（Workflow）：</strong>梳理 CI/CD、审批流程、运维步骤和 Agent 工具调用。</p>
+<p><strong>3、时序图（Sequence）：</strong>按照先后顺序展示 API 请求、鉴权、缓存回退和异步调用。</p>
+<p><strong>4、数据流图（Data Flow）：</strong>说明数据从哪里进入、经过哪些处理、保存在哪里，以及由谁继续使用。</p>
+<p><strong>5、生命周期图（Lifecycle）：</strong>展示任务或对象从创建、运行、等待、重试到结束的状态变化。</p>
+<p>Archify 的主要产出是一个自包含的 HTML 文件，直接用浏览器打开即可。图表支持深浅主题切换、节点搜索、上下游查看和路径追踪，也能导出为 PNG、JPEG、WebP 或 SVG；启用动态效果后，还可以导出 WebM 动画。</p>
+<h2>如何在 Claude Code、Codex 和 Cursor 中安装并使用 Archify</h2>
+<p><strong>安装前确认：</strong><br>
+要在本地运行 Archify 的完整生成、校验和导出流程，需要安装 Node.js，并准备好 Cursor、Claude Code、Codex CLI 或 OpenCode 等兼容环境。<br>
+</p>
+<p>需要长期使用，可以通过下面的命令全局安装：</p>
+<pre><code>npx skills add tt-a1i/archify -g</code></pre>
+<p>如果只是想在 Codex CLI 中临时试用，不想安装到全局，可以使用：</p>
+<pre><code>npx skills use tt-a1i/archify@archify --agent codex</code></pre>
+<p>安装完成后，在需要分析的项目目录中打开 Agent，直接输入类似下面的要求：</p>
+<pre><code>请分析当前仓库，并使用 Archify 生成一张运行时架构图。</code></pre>
+<p>Claude.ai 也可以通过上传 <code>archify.zip</code> 添加 Archify Skill，但能否使用完整的渲染与校验功能，取决于沙盒是否提供 Node.js 访问权限。如果只是把 Archify 放入 Project Knowledge，它主要用于提供绘图规则和结构参考，无法调用完整的本地渲染与校验流程。想稳定使用全部功能，建议选择 Claude Code、Codex CLI、Cursor、OpenCode 或 Raven 等支持完整工作流的环境。</p>
+<h2>Archify、GitDiagram 和 Mermaid 怎么选</h2>
+<p>这三个工具都能生成技术图表，但使用方式并不相同。Archify 接入现有的 AI Agent，GitDiagram 从 GitHub 仓库链接开始分析，Mermaid 则由用户编写文本语法来生成图表。</p>
+<div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px;">
+<table style="width: 100%; min-width: 820px; border-collapse: collapse;">
+<thead>
+<tr style="background-color: #f1f5f9; text-align: left;">
+<th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">对比项</th>
+<th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Archify</th>
+<th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">GitDiagram</th>
+<th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Mermaid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" style="padding: 12px; border: 1px solid #cbd5e1; text-align: left;">产品形态</th>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">Agent Skill，同时包含图表校验与渲染工具。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">面向 GitHub 仓库的在线代码可视化工具。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">通过文本语法生成图表的开源渲染工具。</td>
+</tr>
+<tr>
+<th scope="row" style="padding: 12px; border: 1px solid #cbd5e1; text-align: left;">主要输入</th>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">系统描述，或宿主 Agent 能够访问的代码库。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">GitHub 仓库链接、仓库树和 README。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">用户或 AI 编写的 Mermaid 文本。</td>
+</tr>
+<tr>
+<th scope="row" style="padding: 12px; border: 1px solid #cbd5e1; text-align: left;">生成方式</th>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">Agent 生成带有类型的 JSON IR，Archify 检查 Schema、布局和连线路由后再渲染。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">模型根据仓库信息生成图表 AST，检查标识符、连接和文件路径后编译成 Mermaid。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">解析 Mermaid 语法并渲染成 SVG 等网页图表。</td>
+</tr>
+<tr>
+<th scope="row" style="padding: 12px; border: 1px solid #cbd5e1; text-align: left;">主要产出</th>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">可交互的独立 HTML，以及 PNG、JPEG、WebP、SVG 和 WebM。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">与 GitHub 文件路径关联的交互式架构图，可复制 Mermaid 或下载 PNG。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">适合嵌入 Markdown、文档或网页的图表。</td>
+</tr>
+<tr>
+<th scope="row" style="padding: 12px; border: 1px solid #cbd5e1; text-align: left;">更适合谁</th>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">已经在用 Claude Code、Codex 或 Cursor，希望在同一工作流中生成多类技术图表的开发者。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">想通过 GitHub 链接快速了解陌生仓库结构的用户。</td>
+<td style="padding: 12px; border: 1px solid #cbd5e1;">习惯以代码维护文档，需要轻量、可版本控制图表的团队。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如果只是想快速浏览一个 GitHub 项目，GitDiagram 更直接；</p>
+<p>如果图表需要长期放在 Markdown 或技术文档里维护，Mermaid 更轻量；</p>
+<p>Archify 更适合已经在使用 AI 编程 Agent，并且需要架构图、时序图或数据流图等交互式交付物的开发者。</p>
+<h2>Archify 适合谁？使用前要注意什么</h2>
+<p>Archify 要不要安装，主要看你平时怎么写代码、怎么交付技术图表。它比较像是 Claude Code、Codex 和 Cursor 的配套工具，不是传统的画图软件。</p>
+<p><strong>1、没有可视化拖拽画布：</strong>常规用法是在对话中让 Agent 调整节点、颜色和连线，也可以直接修改 JSON。需要用鼠标精细控制版式的话，draw.io、ProcessOn 这类工具更合适。</p>
+<p><strong>2、“零依赖”只指生成结果：</strong>导出的 HTML 文件不需要服务器或额外运行环境，直接用浏览器就能打开。生成图表时仍然需要 Node.js、兼容的 Agent，并可能消耗模型的 API 费用或订阅额度。</p>
+<p><strong>3、代码如何处理取决于宿主 Agent：</strong>Archify 本身不包含大模型。代码是否发送到云端，由你使用的 Agent、模型服务和相关设置决定。生成的图表也可能包含内部服务名称或文件路径，对外分享前需要自行检查。</p>
+<p><strong>4、没有多人实时编辑：</strong>Archify 交付的是独立 HTML 文件，不提供在线白板、评论和多人同时修改等协作功能。</p>
+<p><strong>5、项目仍在开发：</strong>截至 2026 年 8 月，官方页面显示的版本为 <code>development · v2.16.0-dev.0</code>。后续安装命令、支持环境和交互功能都可能调整。</p>
+<p>如果你已经在用 Claude Code、Codex 或 Cursor，并且经常需要把代码库整理成架构图、时序图或数据流图，Archify 比单独打开画图软件更顺手。如果只是偶尔画一张简单流程图，或者需要团队在线协作，Mermaid、draw.io 或 ProcessOn 会更省事。</p>
+<p>如果你需要的是可以直接在画布上修改节点和连线的方案，可以看看站内介绍的 Next AI Draw.io 对话式图表工具。它和 Archify 的使用方式不同，更接近传统的可视化编辑器。</p>
+<h2>Archify 常见问题</h2>
+<h3>Archify 是免费的吗？</h3>
+<p>Archify 采用 MIT 协议，项目代码可以免费使用、修改和分发。宿主 Agent 调用模型时，仍可能消耗 API 费用或订阅额度。</p>
+<h3>不用 Cursor 或 Claude Code 能用吗？</h3>
+<p>可以。Archify 的完整工作流还支持 Codex CLI、OpenCode 和 Raven，项目也带有用于校验和渲染的 Node.js CLI。不同环境的安装方式并不完全相同。</p>
+<h3>能把已有的 Mermaid 图表转换成 Archify 吗？</h3>
+<p>Archify 没有通用的 Mermaid 自动导入功能。如果宿主 Agent 能够理解现有的 Mermaid 文本，可以让模型将其重新整理成 Archify 使用的 JSON IR，但这属于模型转换，不是 Archify 自带的解析器。</p>
+<h3>代码修改后，Archify 会自动更新架构图吗？</h3>
+<p>不会自动持续同步。代码发生变化后，需要重新让 Agent 分析仓库并生成图表。架构图还支持比较两份经过校验的快照，用来查看新增、删除、移动和连线路由变化。</p>
+<h2>Archify 源码与官方文档入口</h2>
+<p>Archify GitHub 项目主页：<a href="https://github.com/tt-a1i/archify" rel="noopener noreferrer" target="_blank" title="Archify GitHub 项目主页，查看源码、MIT 开源许可证信息，以及与其他 Agent 的集成说明。">https://github.com/tt-a1i/archify</a></p>
+<p>Archify 官方文档：<a href="https://tt-a1i.github.io/archify/" rel="noopener noreferrer" target="_blank" title="Archify 官方文档，查阅具体的安装命令、JSON Schema 格式定义与交互式图表 Demo。">https://tt-a1i.github.io/archify/</a></p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/tt-a1i/archify/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11580" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Free Claude Code 给 Claude Code、Codex 接入 Ollama 和第三方模型</div> </a> <a href="/posts/11582" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">InvoiceFlowAI 开源发票自动整理工具，邮箱下载、OCR 与 Excel 汇总</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11023/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11023.webp" alt="M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-18</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11026/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11026.webp" alt="EasyPick 易切 把一张商品海报拆成多个独立 PNG" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> EasyPick 易切 把一张商品海报拆成多个独立 PNG </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-12</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11029/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11029.webp" alt="萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11028/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11028.webp" alt="凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

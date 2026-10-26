@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 - Aron 资源库</title><meta name="description" content="AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。 它不需要注册账号，也不需要下载客户端，打开网页就能开始进行波形剪辑。 在日常办公或内容创作中，我们经常会遇到这种场景：仅仅是为了截取一段十几秒的音频素材，或者把一段会议录音的前后空白剪掉，专门去下载安装像 Audacity 这样的专业软件显然有些折腾。但如果随手去搜各种“免费在线剪辑”网站，又会担心录音文件需要上传到不熟悉的第三..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11635/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 - Aron 资源库"><meta property="og:description" content="AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。 它不需要注册账号，也不需要下载客户端，打开网页就能开始进行波形剪辑。 在日常办公或内容创作中，我们经常会遇到这种场景：仅仅是为了截取一段十几秒的音频素材，或者把一段会议录音的前后空白剪掉，专门去下载安装像 Audacity 这样的专业软件显然有些折腾。但如果随手去搜各种“免费在线剪辑”网站，又会担心录音文件需要上传到不熟悉的第三..."><meta property="og:url" content="https://aronshare.com/posts/11635/"><meta property="og:image" content="https://aronshare.com/covers/cover_11635.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 - Aron 资源库"><meta name="twitter:description" content="AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。 它不需要注册账号，也不需要下载客户端，打开网页就能开始进行波形剪辑。 在日常办公或内容创作中，我们经常会遇到这种场景：仅仅是为了截取一段十几秒的音频素材，或者把一段会议录音的前后空白剪掉，专门去下载安装像 Audacity 这样的专业软件显然有些折腾。但如果随手去搜各种“免费在线剪辑”网站，又会担心录音文件需要上传到不熟悉的第三..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11635.webp"><meta name="twitter:image:alt" content="AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">开源自托管项目</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> DOCKER </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 开源自托管项目 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Docker / Linux </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。 它不需要注册账号，也不需要下载客户端，打开网页就能开始进行波形剪辑。 在日常办公或内容创作中，我们经常会遇到这种场景：仅仅是为了截取一段十几秒的音频素材，或者把一段会议录音的前后空白剪掉，专门去下载安装像 Audacity 这样的专业软件显然有些折腾。但如果随手去搜各种“免费在线剪辑”网站，又会担心录音文件需要上传到不熟悉的第三... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11635.webp" alt="AudioMass 免费开源在线音频编辑器，支持剪辑、录音与多轨编辑 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/pkalogiros/AudioMass" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/pkalogiros/AudioMass/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p><strong>AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。</strong>它不需要注册账号，也不需要下载客户端，打开网页就能开始进行波形剪辑。</p>
+<p>在日常办公或内容创作中，我们经常会遇到这种场景：仅仅是为了截取一段十几秒的音频素材，或者把一段会议录音的前后空白剪掉，专门去下载安装像 Audacity 这样的专业软件显然有些折腾。但如果随手去搜各种“免费在线剪辑”网站，又会担心录音文件需要上传到不熟悉的第三方服务器。</p>
+<div style="background-color: #eef2ff; border-left: 4px solid #6366f1; padding: 15px; margin-bottom: 20px;"><strong>音频文件会上传吗？</strong><br>
+AudioMass 本身没有后端服务，音频编辑主要在浏览器里完成。和需要先上传文件的在线转换器不同，它更适合处理会议录音、临时配音这类不想随便上传的音频文件。特别敏感的内容，还是建议在自己的设备和可信网络环境下使用。</div>
+<h2>AudioMass 在线音频编辑器能做什么？裁剪、多轨与效果器</h2>
+<p>AudioMass 看起来很轻，但功能并不只停留在“剪一刀”这种基础操作。导入音频后，它会直接生成波形图，你可以选中其中一段内容进行删除、复制、粘贴、静音、反转，也可以配合过零点选择（Zero-crossing）来减少剪辑点的突兀感。</p>
+<p>它还内置了一些常见音频效果，比如均衡器、压缩器、混响、延迟、失真，以及音高和速度调整。对于简单处理录音、给配乐做淡入淡出、临时调整音量或变速来说，这些功能已经够用。需要录音时，也可以授权浏览器调用麦克风，直接在网页里录一段音频再继续编辑。</p>
+<h2>AudioMass 怎么用？导入音频、剪辑波形和导出文件</h2>
+<p>实际用起来，可以把 AudioMass 理解成一个浏览器里的波形编辑器：打开网页，把音频拖进去，等波形加载出来，再选中需要处理的片段进行剪辑、加效果或导出。</p>
+<ol>
+<li><strong>导入音频：</strong>将 MP3、WAV、FLAC、OGG 等音频文件拖入页面，也可以授权浏览器调用麦克风直接录音。</li>
+<li><strong>选中片段：</strong>音频加载后会生成波形图，用鼠标框选需要保留、删除或处理的部分。</li>
+<li><strong>编辑波形：</strong>可以对选区进行裁剪、复制、粘贴、静音、反转、淡入淡出、变速、音量调整等操作。</li>
+<li><strong>处理多轨：</strong>如果需要拼接多段素材，可以把不同音频放到多轨里，再调整片段位置、音量和声相。</li>
+<li><strong>导出文件：</strong>处理完成后，可以导出为 WAV 或 MP3；多轨项目也可以保存为 <code>.amss</code> 会话文件，方便下次继续编辑。</li>
+</ol>
+<p>这套流程更适合剪短音频、处理配音片段和做简单素材拼接。如果是几个小时的会议录音或复杂混音项目，桌面端音频软件会更稳。</p>
+<h3>AudioMass 的多轨编辑能做到什么程度？</h3>
+<p>AudioMass 现在已经支持多轨模式。你可以把不同音频文件拖入轨道，生成可移动的片段（Clip），再进行裁剪、分割、复制、淡入淡出等操作。两个片段在同一轨道上重叠时，会自动生成交叉淡化（Crossfade），减少拼接处的突兀感。</p>
+<p>每条轨道都有独立的音量、声相、静音、独奏和录音准备控制。多轨项目还可以保存为 <code>.amss</code> 会话文件，里面包含音频数据和轨道布局信息，方便下次继续编辑。这个功能更适合播客片段、短视频配音和素材拼接，不建议直接当成专业 DAW 使用。</p>
+<h2>AudioMass 和 Audacity 有什么区别？适合谁使用？</h2>
+<p>和 Audacity 这样成熟的桌面端软件相比，AudioMass 赢在<strong>零摩擦</strong>。如果你只是偶尔需要剪一下 MP3、处理一下 WAV 录音的音量、给配乐加个淡入淡出，它的学习成本极低，甚至你在 Chromebook 或公共电脑上也能随时打开用。</p>
+<p>它比较适合下面这些场景：</p>
+<ul>
+<li>只是剪录音、截取片段，不想为此专门安装客户端的用户。</li>
+<li>需要快速拼接背景音乐、处理人声音量的短视频创作者。</li>
+<li>对会议录音隐私敏感，不想把文件上传到第三方服务器的办公用户。</li>
+</ul>
+<p>不过，它的优势主要在快速处理，不适合把浏览器当成完整音频工作站。如果音频文件太长，就要稍微谨慎一点。</p>
+<div style="background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 15px; margin: 20px 0;"><strong>长音频能处理吗？</strong><br>
+AudioMass 更适合剪短音频、处理配音片段和中短录音，不太适合直接丢进几个小时的会议录音原文件。它主要依赖浏览器内存运行，音频越长，对电脑性能和浏览器稳定性的要求越高。遇到大文件时，可能会出现卡顿、加载慢，甚至处理过程中产生爆音的情况。需要精细修音、批量处理或 VST 插件支持的话，还是用 Audacity、Adobe Audition 这类桌面软件更稳。</div>
+<h2>使用 AudioMass 前要注意什么？格式、导出和大文件限制</h2>
+<p>AudioMass 上手不难，但它毕竟是浏览器里的音频编辑器，使用前有几个细节值得看一下，尤其是格式、导出和大文件处理。</p>
+<ul>
+<li><strong>可以离线使用：</strong>网页首次加载完成后，即使断网，也可以继续进行基础编辑和导出，适合临时处理录音或配音素材。</li>
+<li><strong>常见格式基本够用：</strong>支持导入 MP3、WAV、FLAC、OGG 等常见音频格式；多轨项目可以混音导出为 WAV 或 MP3，也可以保存为 <code>.amss</code> 工程文件，方便下次继续编辑。</li>
+<li><strong>大文件不太友好：</strong>导入超大音频时，页面没有明显进度条，也不方便中途取消。如果文件过长，可能会出现加载慢、卡顿，甚至浏览器无响应的情况。</li>
+<li><strong>界面是英文：</strong>目前没有看到官方内置中文语言包，菜单和效果名称主要是英文。只是做裁剪、录音、淡入淡出这类基础操作，影响不大；复杂效果需要稍微适应一下。</li>
+</ul>
+<p>所以，AudioMass 更适合临时剪一段音频、处理一小段录音、给配乐做简单调整。如果是长时间录音整理、批量音频处理，或者需要 VST 插件、精细修音和专业混音，Audacity、Adobe Audition 这类桌面软件会更稳。</p>
+<hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<h2>AudioMass 官方入口与开源项目资料</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; margin-bottom: 36px;">
+<p><a href="https://audiomass.co/" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🌐 AudioMass 官方网站与在线编辑器<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">浏览器内直接运行的免安装音频编辑主页，建议在桌面端打开。</span><br>
+</a></p>
+<p><a href="https://github.com/pkalogiros/AudioMass" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🐙 AudioMass GitHub 项目主页<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看前端源码（MIT 许可）、更新日志，以及离线自托管部署说明。</span><br>
+</a></p>
+</div> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/pkalogiros/AudioMass/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11634" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">AuraShare 免注册临时文件传输工具，支持 2GB 文件分享</div> </a> <a href="/posts/11636" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Mac 访问 Android 文件用什么工具？AndroMeld 支持 Finder 挂载</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11019/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11019.webp" alt="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-22</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11024/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11024.webp" alt="Filee 文件转换器 不上传文件的开源本地转换工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Filee 文件转换器 不上传文件的开源本地转换工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-15</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11575/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11575.webp" alt="Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-21</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11579/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11579.webp" alt="OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？ </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-02</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

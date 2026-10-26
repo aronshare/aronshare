@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App - Aron 资源库</title><meta name="description" content="在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器 。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。 Mac.apk 的做法有点不一样。它不是模拟器，也不靠虚拟机，而是在 macOS 上补出 Android App 需要的运行环境。APK 装好后会单独开窗口，也能出现在 Dock 和 Command + Tab 里，看起来更像普通 Mac 软件。 不过现在还没到“装上就什么都能跑”的程度。Mac.ap..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11020/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App - Aron 资源库"><meta property="og:description" content="在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器 。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。 Mac.apk 的做法有点不一样。它不是模拟器，也不靠虚拟机，而是在 macOS 上补出 Android App 需要的运行环境。APK 装好后会单独开窗口，也能出现在 Dock 和 Command + Tab 里，看起来更像普通 Mac 软件。 不过现在还没到“装上就什么都能跑”的程度。Mac.ap..."><meta property="og:url" content="https://aronshare.com/posts/11020/"><meta property="og:image" content="https://aronshare.com/covers/cover_11020.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App - Aron 资源库"><meta name="twitter:description" content="在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器 。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。 Mac.apk 的做法有点不一样。它不是模拟器，也不靠虚拟机，而是在 macOS 上补出 Android App 需要的运行环境。APK 装好后会单独开窗口，也能出现在 Dock 和 Command + Tab 里，看起来更像普通 Mac 软件。 不过现在还没到“装上就什么都能跑”的程度。Mac.ap..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11020.webp"><meta name="twitter:image:alt" content="不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">Mac / iOS 精选</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> MAC </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> Mac / iOS 精选 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> macOS (Apple M/Intel) </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> 在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器 。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。 Mac.apk 的做法有点不一样。它不是模拟器，也不靠虚拟机，而是在 macOS 上补出 Android App 需要的运行环境。APK 装好后会单独开窗口，也能出现在 Dock 和 Command + Tab 里，看起来更像普通 Mac 软件。 不过现在还没到“装上就什么都能跑”的程度。Mac.ap... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11020.webp" alt="不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/kksimp/Mac" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/kksimp/Mac/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>在 Mac 上跑 Android App，最常见的办法还是装 <strong>Mac 安卓模拟器</strong>。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。</p>
+<p><strong>Mac.apk</strong> 的做法有点不一样。它不是模拟器，也不靠虚拟机，而是在 macOS 上补出 Android App 需要的运行环境。APK 装好后会单独开窗口，也能出现在 Dock 和 Command + Tab 里，看起来更像普通 Mac 软件。</p>
+<p>不过现在还没到“装上就什么都能跑”的程度。Mac.apk 仍然是 Alpha，只支持 Apple Silicon 和较新的 macOS，一些 App 会卡在登录、Google 服务或其他兼容问题上。只想在 Mac 上跑几个特定 APK，可以试试；如果需要完整、稳定的 Android 环境，传统模拟器目前还是更省心。</p>
+<h2>Mac.apk 是什么？为什么不用安卓模拟器也能运行 App</h2>
+<p>Mac.apk 不使用 Android 模拟器或虚拟机，后台也不会另外运行 Linux 或完整 Android 系统。</p>
+<p>更准确地说，它更像一层 Android 兼容环境。</p>
+<p>Android App 里的 Java、Kotlin 和原生 ARM 代码，会由 Mac.apk 提供的 Runtime 和兼容层接到 macOS 上。项目会重新实现一部分 Android Framework 接口，涉及图形和系统能力时，再映射到 Mac 自己的 API。</p>
+<p>其中 64 位 ARM 原生代码可以直接运行在 Apple Silicon 上，32 位 ARM 代码则需要提前转译。图形部分通过 ANGLE、MoltenVK 等组件，把 Android 常见的 OpenGL ES 和 Vulkan 调用接到 macOS 图形环境。</p>
+<p>这也是它目前只支持 Apple Silicon Mac 的原因之一。</p>
+<p>简单理解，传统安卓模拟器更像是在 Mac 里再开一台 Android 设备；Mac.apk 则尽量让 Android App 直接接进 macOS 自己的运行环境。</p>
+<h2>哪些 Mac 可以使用 Mac.apk？</h2>
+<p>目前它的门槛并不低。</p>
+<p><strong>Mac.apk 只支持 Apple Silicon Mac，不支持 Intel Mac，同时要求 macOS 26.4 Tahoe 或更高版本。</strong></p>
+<p>M1、M2、M3、M4 以及后续 Apple Silicon 机型都支持。如果还在使用 Intel Mac，就不用继续折腾了。</p>
+<p>第一次安装 Mac.apk 后，还需要在应用里安装 Runtime。Android App 首次启动时也会进行额外的准备和转换，所以第一次打开明显慢一些属于正常情况。</p>
+<p>官方也说了，每个安装后的 App 通常会占用原 APK 大约 <strong>1.5～3 倍</strong>的空间，因为还要保存转换后的代码、原生库和应用数据。</p>
+<h2>Mac 上怎么用 Mac.apk 安装 APK</h2>
+<p>安装过程倒没有技术原理听起来那么复杂。</p>
+<p>从项目的 GitHub Releases 下载 DMG，把 Mac.apk 放进 Applications 后打开，第一次使用先完成 Runtime 安装。之后可以把 Mac.apk 设置为 APK 文件的默认打开程序，也可以直接把 Android 安装包拖进应用窗口。</p>
+<p>目前除了最常见的 <code>.apk</code>，它还支持 <code>.apkm</code>、<code>.xapk</code>、<code>.apks</code> 和 <code>.apkx</code> 等格式。</p>
+<p>这点挺实用。现在不少 Android App 已经不再只是一个独立 APK，而是使用拆分安装包或者应用商店自己的封装格式。</p>
+<p><strong>但能安装和能正常使用是两回事。</strong></p>
+<p>不少 Android App 会依赖 Google Play Services、设备认证、相机、传感器、DRM、反作弊或者特定厂商接口，这些能力未必已经被 Mac.apk 完整实现。</p>
+<p>所以真正决定它能不能满足需求的，不是支持多少种安装包格式，而是你想用的那个 App 到底兼不兼容。</p>
+<h2>Mac.apk 现在能运行哪些 Android App？</h2>
+<p>项目官方维护了一份 Compatibility List，会记录具体 App 的测试结果和已知问题。</p>
+<p>截至 <strong>2026 年 10 月 20 日</strong>，官方列表已经测试 71 个 Android App，其中 58 个标记为可用，10 个属于部分可用，3 个暂时无法正常运行。</p>
+<p>目前确认可以运行的应用和游戏包括 Minecraft、Telegram、Signal、VLC、F-Droid、Aurora Store、Epic Games Store、Subway Surfers、Candy Crush Saga 和 Rocket League Sideswipe 等。</p>
+<p>Minecraft 已经可以完成 Xbox 登录和多人服务器连接；Rocket League Sideswipe 可以通过 Epic Games Store 安装，并支持手柄和在线比赛。Telegram、Signal、VLC 这类普通应用也已经进入可用列表。</p>
+<p>但这不代表 Android 生态已经基本兼容。</p>
+<p>Instagram 仍有布局、视频和声音方面的问题，Reddit 的 Google 登录和滚动存在限制，Duolingo 也出现过账号注册或登录异常。</p>
+<p>同一个 App 的不同版本甚至可能出现完全不同的结果。但是官方这份列表更新得的比较快，适合看当前支持APP状态进度。准备安装某个 App 前，看一眼最新版比较好。</p>
+<p>官方APP兼容性列表：<a href="https://github.com/kksimp/Mac.apk/blob/main/COMPATIBILITY.md" rel="noopener noreferrer" target="_blank">Compatibility List</a></p>
+<h2>没有 Google Play，Android App 从哪里安装？</h2>
+<p>Mac.apk 没有提供一套完整的 Google Play Store 环境，不过也不需要所有 App 都靠自己找 APK。</p>
+<p>官方目前已经测试了 <strong>F-Droid、Aurora Store 和 Epic Games Store</strong>。</p>
+<p>其中 Aurora Store 最有代表性。它本身是一个开源的 Google Play 客户端，可以访问 Google Play 的应用目录，因此很多没有单独提供 APK 下载地址的 Android App，也有机会通过它安装。</p>
+<p>不过，能通过 Aurora Store 下载 Google Play 里的 App，不等于 Mac.apk 拥有完整的 Google Play 环境。</p>
+<p>依赖 Google Play Services、Play Integrity、设备认证、支付或者反作弊系统的应用，依然可能无法正常运行。</p>
+<p>像 Fortnite 这类依赖反作弊机制的游戏，目前就在官方不支持列表中，Mac.apk 也没有尝试绕过这些验证。</p>
+<h2>Mac.apk 和传统 Mac 安卓模拟器有什么区别</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Mac.apk</th>
+<th>传统安卓模拟器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>完整 Android 系统</td>
+<td>否</td>
+<td>通常有</td>
+</tr>
+<tr>
+<td>虚拟机</td>
+<td>否</td>
+<td>常见</td>
+</tr>
+<tr>
+<td>安装 APK</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>独立 macOS 窗口</td>
+<td>支持</td>
+<td>取决于产品</td>
+</tr>
+<tr>
+<td>Apple Silicon</td>
+<td>支持</td>
+<td>取决于产品</td>
+</tr>
+<tr>
+<td>Intel Mac</td>
+<td>不支持</td>
+<td>部分产品支持</td>
+</tr>
+<tr>
+<td>Google Play 环境</td>
+<td>不完整</td>
+<td>部分产品提供</td>
+</tr>
+<tr>
+<td>当前成熟度</td>
+<td>Alpha</td>
+<td>主流产品更成熟</td>
+</tr>
+</tbody>
+</table>
+<p>Mac.apk 的核心区别其实很简单：为了运行一个 Android App，它不需要先启动一整套 Android 系统。</p>
+<p>如果需求只是某个没有 Mac 版本的 Android 工具，或者偶尔开几个轻量 App，这种方式会比较合适。</p>
+<p>如果需要手游多开、复杂键位映射、完整 Google Play、虚拟定位，或者一套稳定完整的 Android 系统，成熟安卓模拟器目前依然更合适。</p>
+<h2>Mac.apk 最大的风险，其实不是兼容性</h2>
+<p>相比某个 App 能不能打开，Mac.apk 当前更该注意的是安全模型。</p>
+<p>Android 手机上，不同 App 通常运行在各自的应用沙箱中。文件权限、进程隔离以及不同 App 之间的数据访问，都由 Android 系统负责控制。</p>
+<p><strong>Mac.apk 当前并没有为 Android App 提供完全等同于 Android 手机的系统级沙箱。</strong></p>
+<p>Mac.apk 里的 Android App 会直接使用当前 macOS 用户权限运行。它虽然保留了一部分 Android 权限机制，但并没有手机系统那种完整的应用隔离。</p>
+<p>这意味着来源不明的 APK，不能因为“它原本是手机 App”就默认风险比较低。</p>
+<p>更稳的做法是把 APK 当成准备在 Mac 上执行的软件，只从官方开发者、可信应用商店或者自己确认过的来源获取安装包。</p>
+<p>尤其不要为了测试 Mac.apk，随便下载所谓修改版、破解版本或者来历不明的重新打包 APK。</p>
+<h2>Mac.apk 是开源项目吗？</h2>
+<p>是。Mac.apk 的主仓库已经公开源码，目前采用 <strong>AGPL-3.0</strong> 许可证。</p>
+<p>如果只是下载官方版本自己用，其实不用太纠结许可证细节。对开发者来说，这个项目更有意思的地方在于 Runtime、Android Framework 兼容层、ARM 转译这些核心部分都能在仓库里看到。</p>
+<p>不过如果你准备修改源码、重新分发，或者拿去做商业产品，就不能只看“开源”两个字。项目还有单独的商业授权说明，这种情况最好直接以仓库里的最新 LICENSE 和商业条款为准。</p>
+<h2>Mac.apk 现在适合什么人？</h2>
+<p>如果你已经有 Apple Silicon Mac，而且正好有一个没有 macOS 版本的 Android App，Mac.apk 可以试试看。</p>
+<p>对喜欢折腾新项目或者研究兼容层的用户来说，这个仓库本身也挺有看头，里面公开了 Runtime、Framework 重实现和 ARM 转译相关代码。</p>
+<p>但如果追求的是稳定，现在还不用急着把已有模拟器卸掉。</p>
+<p>Mac.apk 依然处于 Alpha 阶段。部分 App 登录不完整，一些系统 API 尚未覆盖，Google Play Services 和反作弊相关功能也存在明显限制。</p>
+<p><strong>现在的 Mac.apk 已经能实际跑一批 Android App，但离“装什么都能用”的通用方案还很远。</strong></p>
+<h2>常见问题</h2>
+<h3>Mac.apk 是 Mac 安卓模拟器吗？</h3>
+<p>严格来说不是。Mac.apk 不运行完整 Android 系统，也没有传统虚拟机，而是在 macOS 上提供 Android App 所需的兼容运行环境。它解决的需求和安卓模拟器相似，但技术路线不同。</p>
+<h3>Mac 上不用安卓模拟器可以运行 Android App 吗？</h3>
+<p>可以，但仍然需要类似 Mac.apk 这样的兼容运行环境。Mac.apk 不启动完整 Android 虚拟机，而是在 Apple Silicon Mac 上提供 Android App 所需的运行能力。目前项目仍处于 Alpha 阶段，能不能正常使用取决于具体 App 的兼容情况。</p>
+<h3>Mac 可以直接安装 APK 吗？</h3>
+<p>macOS 本身不能直接运行普通 Android APK。安装 Mac.apk 和它的 Runtime 后，可以打开 APK、XAPK、APKM、APKS 等 Android 安装包，但具体 App 是否可用仍取决于兼容性。</p>
+<h3>Mac.apk 支持 Intel Mac 吗？</h3>
+<p>不支持。目前官方要求 Apple Silicon Mac，并且需要 macOS 26.4 Tahoe 或更高版本。</p>
+<h3>Mac.apk 能运行 Google Play 里的 App 吗？</h3>
+<p>可以通过 Aurora Store 获取 Google Play 应用目录中的部分 App，但 Mac.apk 并没有完整 Google Play Services 环境。涉及设备认证、Play Integrity、支付、Google 服务或者反作弊的应用可能无法正常使用。</p>
+<h3>Mac.apk 安全吗？</h3>
+<p>不能简单回答“安全”或“不安全”。项目本身公开了源代码，但运行的 APK 并不具备和 Android 手机完全相同的应用沙箱。来源不明的 APK 仍然可能接触当前 macOS 用户能够访问的数据，所以只建议安装可信来源的应用。</p>
+<h2>现在要不要装 Mac.apk？</h2>
+<p>目前，Mac.apk 已经适合 Apple Silicon 用户拿来运行几个明确兼容的 Android App，但还不适合作为完整安卓模拟器的通用替代。</p>
+<p>如果你只是想在 Mac 上跑几个特定 APK，可以先去兼容性列表确认一下。已经明确支持的应用，现在拿来尝鲜问题不大；但如果更看重完整 Google Play、手游多开或者长期稳定性，传统安卓模拟器目前还是省心一些。</p>
+<p>Mac.apk 后面能不能真正变成日常工具，主要还是看应用兼容、安全隔离和稳定性还能完善到什么程度。</p>
+<p><strong>项目官网：</strong><a href="https://projects.voltare.us/macapk" rel="noopener noreferrer" target="_blank">https://projects.voltare.us/macapk</a></p>
+<p><strong>GitHub：</strong><a href="https://github.com/kksimp/Mac.apk" rel="noopener noreferrer" target="_blank">https://github.com/kksimp/Mac.apk</a></p>
+<p><strong>兼容性列表：</strong><a href="https://github.com/kksimp/Mac.apk/blob/main/COMPATIBILITY.md" rel="noopener noreferrer" target="_blank">Mac.apk Compatibility List</a></p>
+<p><small>本文基于项目公开文档与官方兼容性列表整理，信息核对时间为 2026 年 10 月。Mac.apk 仍处于快速更新阶段，具体系统要求、兼容状态和许可条款请以项目最新说明为准。</small></p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/kksimp/Mac/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11019" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新</div> </a> <a href="/posts/11021" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11018/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11018.webp" alt="Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> Mac / iOS 精选 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-24</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11021/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11021.webp" alt="Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> Mac / iOS 精选 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-19</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11585/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11585.webp" alt="Port Radar Mac 端口占用查看工具，还能一键分享 localhost" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> Mac / iOS 精选 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Port Radar Mac 端口占用查看工具，还能一键分享 localhost </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-08-23</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11591/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11591.webp" alt="Dayflow AI 时间追踪工具 Mac 自动生成工作日志与周报" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> Mac / iOS 精选 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Dayflow AI 时间追踪工具 Mac 自动生成工作日志与周报 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-08-17</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11024" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Filee 文件转换器 不上传文件的开源本地转换工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-15</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>ai-memory 让 Claude Code 与 Codex 共享项目记忆 - Aron 资源库</title><meta name="description" content="用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，都需要重新说明。 ai-memory 会把这些项目上下文保存下来，供之后打开的 AI 编程工具调用。 概览： ai-memory 是一套给 AI 编程工具共用的项目记忆服务。它通过 Hooks 记录提示词、工具调用和会话进度，再整理成由 Git 管理的 Markdown..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11577/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="ai-memory 让 Claude Code 与 Codex 共享项目记忆 - Aron 资源库"><meta property="og:description" content="用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，都需要重新说明。 ai-memory 会把这些项目上下文保存下来，供之后打开的 AI 编程工具调用。 概览： ai-memory 是一套给 AI 编程工具共用的项目记忆服务。它通过 Hooks 记录提示词、工具调用和会话进度，再整理成由 Git 管理的 Markdown..."><meta property="og:url" content="https://aronshare.com/posts/11577/"><meta property="og:image" content="https://aronshare.com/covers/cover_11577.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="ai-memory 让 Claude Code 与 Codex 共享项目记忆 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="ai-memory 让 Claude Code 与 Codex 共享项目记忆 - Aron 资源库"><meta name="twitter:description" content="用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，都需要重新说明。 ai-memory 会把这些项目上下文保存下来，供之后打开的 AI 编程工具调用。 概览： ai-memory 是一套给 AI 编程工具共用的项目记忆服务。它通过 Hooks 记录提示词、工具调用和会话进度，再整理成由 Git 管理的 Markdown..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11577.webp"><meta name="twitter:image:alt" content="ai-memory 让 Claude Code 与 Codex 共享项目记忆 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">AI 智能体与工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">ai-memory 让 Claude Code 与 Codex 共享项目记忆</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> AI 智能体与工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> ai-memory 让 Claude Code 与 Codex 共享项目记忆 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> 用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，都需要重新说明。 ai-memory 会把这些项目上下文保存下来，供之后打开的 AI 编程工具调用。 概览： ai-memory 是一套给 AI 编程工具共用的项目记忆服务。它通过 Hooks 记录提示词、工具调用和会话进度，再整理成由 Git 管理的 Markdown... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11577.webp" alt="ai-memory 让 Claude Code 与 Codex 共享项目记忆 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/akitaonrails/ai-memory" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/akitaonrails/ai-memory/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，都需要重新说明。<strong>ai-memory</strong> 会把这些项目上下文保存下来，供之后打开的 AI 编程工具调用。</p>
+<div style="background-color: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; margin-bottom: 20px;"><strong>概览：</strong>ai-memory 是一套给 AI 编程工具共用的项目记忆服务。它通过 Hooks 记录提示词、工具调用和会话进度，再整理成由 Git 管理的 Markdown Wiki。换用 Claude Code、Codex 或 Cursor 后，新工具可以查到之前做过什么、哪些方法没有成功，以及接下来还有哪些任务。ai-memory 采用 MIT 许可证，但不负责同步代码文件、依赖和运行环境。</div>
+<h2>ai-memory 与内置记忆有什么不同</h2>
+<p>Claude Code 已经支持 <code>CLAUDE.md</code> 和自动记忆，Cursor 也有项目规则等上下文功能。只使用一款工具时，这些功能往往已经能保存常用指令和项目约定。换到 Codex 或其他编程助手后，原工具记录的排错过程、技术决定和未完成事项，通常不会自动出现在新会话里。</p>
+<p>ai-memory 在这些工具之外运行一套共享记忆服务。它通过生命周期钩子记录提示词、工具调用和会话边界等信息，在会话结束后整理成 Markdown Wiki，供之后的会话检索和交接。</p>
+<p>Markdown 文件是这套记忆的主要事实来源，并由 Git 记录版本；SQLite 用于全文检索、实体和可选向量等索引，需要时可以根据文件重新构建。开发者可以直接查看、修改和备份这些 Markdown 文件，不必依赖专有格式才能读取已有记忆。</p>
+<h2>从 Claude Code 换到 Codex，能交接什么</h2>
+<p>配置好 ai-memory 后，Claude Code 可以把当前任务的进度、尝试过的方法和剩余问题留在 Handoff（交接）中。之后在同一项目里打开 Codex，它可以读取这份交接记录，不用再从头询问项目背景。两边需要连接到同一套 ai-memory 服务，并对应到同一个项目。</p>
+<p>只想让 Codex 知道上次做到哪里，使用基础的 Hooks 和 Handoff 即可。项目提供的 managed workstreams 属于可选功能，它会记录跨工具工作流中的可见事件和工具调用历史，并关联 Claude Code、Codex 等客户端各自的原生会话。它提供的是可供新 Agent 参考的任务记录，并不会把 Claude Code 当时的完整会话状态原样搬进 Codex。</p>
+<h3>同机同目录切换：可以直接读取现有代码</h3>
+<p>如果 Claude Code 和 Codex 打开的是同一个项目目录，Codex 可以直接查看目录里的现有代码，包括还没有提交的修改。单纯从 Claude Code 换到 Codex，不要求先提交或推送 Git。</p>
+<p>这时，ai-memory 提供的是代码文件里不容易看出来的信息，例如为什么采用当前方案、哪些办法已经试过、报错查到了哪里，以及接下来准备处理什么。Codex 接手后仍会以当前目录里的文件和项目指令为准，记忆记录只作为历史背景。</p>
+<h3>跨机器继续：代码和环境需要另外同步</h3>
+<p>把 ai-memory 服务放在 Homelab、局域网主机或远程服务器上，可以让多台电脑读取同一套项目记忆。代码文件不会跟着记忆一起同步，另一台电脑仍需通过 Git 或其他方式取得最新代码，并准备好对应的分支、依赖和环境变量。</p>
+<p>因此，跨机器继续任务通常需要处理两部分：用 ai-memory 取得上一次的任务记录，再单独同步代码和开发环境。没有传到另一台电脑的本地修改，ai-memory 不会替你补过去。</p>
+<h2>ai-memory 支持哪些 AI 编程工具</h2>
+<p>ai-memory 已经适配多款 AI 编程工具。下面选取本文主要涉及的 Claude Code、Codex、Cursor、Gemini CLI 和 VS Code Copilot，比较它们目前的接入方式。</p>
+<div style="width: 100%; overflow-x: auto; margin-bottom: 20px;">
+<table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 1.7;">
+<caption style="text-align: left; font-weight: bold; padding: 0 0 10px;">ai-memory 常用客户端接入方式</caption>
+<thead>
+<tr style="background-color: #f1f5f9; text-align: left;">
+<th scope="col" style="border: 1px solid #cbd5e1; padding: 10px;">客户端</th>
+<th scope="col" style="border: 1px solid #cbd5e1; padding: 10px;">接入方式</th>
+<th scope="col" style="border: 1px solid #cbd5e1; padding: 10px;">使用时需要注意什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">Claude Code</th>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">MCP + 生命周期 Hooks</td>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">配置后可以采集生命周期事件，实际保存内容受采集规则和排除设置影响。采集助手最终回复需要在安装 Hooks 时加入 <code>--capture-assistant</code>，并在服务端启用 <code>capture_assistant</code>，默认关闭。</td>
+</tr>
+<tr>
+<th scope="row" style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">Codex</th>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">MCP + 生命周期 Hooks</td>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">支持生命周期事件采集，但没有真正的自动会话结束钩子。需要最终摘要或 Handoff 时，应执行 <code>ai-memory finalize-session</code>。目前不支持采集 Codex 的助手最终回复，安装程序会拒绝对 Codex 使用 <code>--capture-assistant</code>。</td>
+</tr>
+<tr>
+<th scope="row" style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">Cursor</th>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">MCP + 生命周期 Hooks</td>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">支持记忆工具调用和生命周期采集，需要分别安装对应配置。具体采集事件可能随 Cursor 的接口变化而调整。</td>
+</tr>
+<tr>
+<th scope="row" style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">Gemini CLI</th>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">MCP + 生命周期 Hooks</td>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">支持记忆工具调用和生命周期采集，需要为 Gemini CLI 安装对应的 MCP 与 Hooks 配置。</td>
+</tr>
+<tr>
+<th scope="row" style="border: 1px solid #cbd5e1; padding: 10px; text-align: left;">VS Code Copilot</th>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">仅 MCP 接入</td>
+<td style="border: 1px solid #cbd5e1; padding: 10px;">可以在 Copilot Agent 模式中调用 ai-memory 提供的记忆工具，但目前没有生命周期 Hooks，无法获得与 Claude Code 相同的自动采集流程。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如果主要使用 Claude Code、Codex、Cursor 或 Gemini CLI，可以同时接入记忆工具与生命周期采集。Codex 在会话收尾时多一个手动步骤；VS Code Copilot 目前只有 MCP 接入，更适合在需要时主动调用记忆工具。</p>
+<h2>部署 ai-memory，需要配置 LLM 吗</h2>
+<h3>不接入外部 LLM 也能使用吗？</h3>
+<p>ai-memory 的基础功能不要求配置外部 LLM。项目记忆保存在由 Git 管理的 Markdown Wiki 中，SQLite 负责建立派生索引；没有模型服务时，系统仍能通过 FTS5、实体和关联关系完成检索，并生成基于规则的会话摘要与 Handoff。</p>
+<p>从 v2.0 开始，全新安装在没有指定 embedding 服务时，会尝试启用进程内运行的本地 embedding。首次启动需要下载约 87MB 的模型文件，通常在下次重启后加入混合检索；如果模型无法下载或当前构建不支持，本地向量不会启用，基础全文检索仍可继续使用。</p>
+<p>需要模型参与会话整理时，可以另外配置 LLM。项目也支持 OpenAI、Voyage、Gemini 等云端 embedding 服务，以及 Ollama、LM Studio 等兼容端点。已有安装会保留原来的 embedding 配置，不会因为升级而自动改用本地模型。</p>
+<p><strong>不调用外部 LLM，不代表整套工作流没有成本。</strong>本机或服务器仍会占用存储、内存和计算资源，备份、升级与兼容性维护也需要时间。Claude Code、Codex 等 AI 编程工具自身的订阅或模型调用费用，需要另外计算。</p>
+<h3>使用云端模型时，记忆数据会离开本机吗？</h3>
+<p>自托管只能说明 ai-memory 服务和数据目录由自己管理，数据是否会发送到外部服务，还要看模型配置。使用云端模型生成摘要或嵌入时，相关内容需要交给对应的服务商处理，部署前应检查发送范围、保留规则和数据处理政策。</p>
+<p>改用本地模型，可以让 ai-memory 对应的摘要或嵌入处理留在自己的环境中。不过，Claude Code、Codex 等编程助手有各自的模型连接方式。即使 ai-memory 没有调用云端模型，编程助手本身仍可能把代码或项目上下文发送到其模型服务。</p>
+<h3>本机、Homelab 和 VPS 怎么选</h3>
+<p>只在一台电脑上使用时，可以将 ai-memory 运行在本机。需要在台式机、笔记本或多名开发者之间共享记忆时，可以把服务放在常开的 Homelab、局域网主机或远程 VPS 上，再让不同设备连接同一个服务地址。</p>
+<p>官方快速启动示例默认绑定本地回环地址 <code>127.0.0.1</code>，不启用认证，其他设备无法直接连接。准备从局域网或公网访问时，需要重新配置监听地址，并加入身份认证、允许访问的主机和 HTTPS。</p>
+<div style="background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 15px; margin-bottom: 20px;"><strong>远程部署需要注意：</strong>Bearer Token 用于验证访问者身份，HTTPS 用于保护传输过程，两项不能互相替代。ai-memory 支持多用户认证、写入归属和审计记录，但目前采用单租户数据架构，没有逐页面 RBAC 权限控制。团队可以共享一套服务，但不适合直接作为面向互不信任用户的公共知识平台。</div>
+<p>如果你还想了解把项目记忆、工具和任务放进同一个工作区的方案，可以参考本站的holaOS AI Agent 工作区介绍，再根据自己的使用习惯选择独立记忆服务或统一工作区。</p>
+<h2>哪些开发者适合使用 ai-memory</h2>
+<p>是否需要部署 ai-memory，主要看你切换工具和设备的频率。它会增加一套需要配置、更新和备份的服务，如果现有工作方式已经够用，就没有必要为了长期记忆再增加维护环节。</p>
+<h3>经常切换工具或电脑的开发者</h3>
+<p>1、经常在 Claude Code、Codex、Cursor 等工具之间切换，不想反复说明项目架构、排错过程和剩余任务。</p>
+<p>2、同时使用台式机、笔记本或多套开发环境，希望集中保存项目决策和调试记录。</p>
+<p>3、团队成员需要查询同一项目的历史经验，并且能够自行管理服务器、认证和备份。</p>
+<p>4、希望记忆以 Markdown 文件保存，可以直接查看、修改，并通过 Git 追踪版本。</p>
+<h3>这些使用场景未必需要</h3>
+<p>1、长期只使用一款 AI 编程工具，原生记忆、项目规则和会话历史已经够用。</p>
+<p>2、很少处理长期项目，也不常遇到跨会话或跨工具交接。</p>
+<p>3、不想额外维护服务、配置客户端 Hooks，或处理远程访问与备份。</p>
+<p>4、主要需求是同步代码、依赖和运行环境；这些工作不在 ai-memory 的功能范围内。</p>
+<p>对个人开发者来说，最直接的判断方法是回顾最近几次切换工具的经历：如果经常需要重新解释已经做过的工作，ai-memory 才更可能带来实际帮助。</p>
+<h2>ai-memory 项目地址、版本与官方文档</h2>
+<p><a href="https://github.com/akitaonrails/ai-memory" rel="noopener noreferrer" target="_blank">ai-memory GitHub 项目主页</a>：查看源码、许可证和项目介绍。</p>
+<p><a href="https://github.com/akitaonrails/ai-memory/releases" rel="noopener noreferrer" target="_blank">ai-memory Releases</a>：查看最新版本与更新内容。</p>
+<p><a href="https://github.com/akitaonrails/ai-memory/blob/main/docs/install.md" rel="noopener noreferrer" target="_blank">安装文档</a>：查看各平台和客户端的安装方式。</p>
+<p><a href="https://github.com/akitaonrails/ai-memory/blob/main/docs/support-matrix.md" rel="noopener noreferrer" target="_blank">客户端支持矩阵</a>：核对 MCP、Hooks 和会话交接差异。</p>
+<p><a href="https://github.com/akitaonrails/ai-memory/blob/main/docs/deploy.md" rel="noopener noreferrer" target="_blank">部署文档</a>：查看 Homelab、局域网与远程部署说明。</p>
+<p><a href="https://github.com/akitaonrails/ai-memory/blob/main/docs/security.md" rel="noopener noreferrer" target="_blank">安全文档</a>：查看认证、权限和网络访问条件。</p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/akitaonrails/ai-memory/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11576" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">NiubiGEO 开源自托管 AI 品牌可见度检测工具，可查看竞品与引用来源</div> </a> <a href="/posts/11578" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11025/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11025.webp" alt="默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-13</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11027/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11027.webp" alt="录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-10</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11032/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11032.webp" alt="Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11439/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11439.webp" alt="Inpaint 图片去水印、删除人物和多余物体的修图工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Inpaint 图片去水印、删除人物和多余物体的修图工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

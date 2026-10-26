@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 - Aron 资源库</title><meta name="description" content="Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。它把不同服务商分散的公开报价统一成 $/GPU-hour，帮助你判断当前 H100 SXM、H200 SXM、B200、B300 等高端 GPU 的公开租赁价格大概处在什么水平。 现在租用云端 GPU 跑大模型，不同平台的计费方式和按需报价差异很大。以 NVIDIA H100 为例，CGI 当前追踪的..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11578/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 - Aron 资源库"><meta property="og:description" content="Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。它把不同服务商分散的公开报价统一成 $/GPU-hour，帮助你判断当前 H100 SXM、H200 SXM、B200、B300 等高端 GPU 的公开租赁价格大概处在什么水平。 现在租用云端 GPU 跑大模型，不同平台的计费方式和按需报价差异很大。以 NVIDIA H100 为例，CGI 当前追踪的..."><meta property="og:url" content="https://aronshare.com/posts/11578/"><meta property="og:image" content="https://aronshare.com/covers/cover_11578.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 - Aron 资源库"><meta name="twitter:description" content="Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。它把不同服务商分散的公开报价统一成 $/GPU-hour，帮助你判断当前 H100 SXM、H200 SXM、B200、B300 等高端 GPU 的公开租赁价格大概处在什么水平。 现在租用云端 GPU 跑大模型，不同平台的计费方式和按需报价差异很大。以 NVIDIA H100 为例，CGI 当前追踪的..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11578.webp"><meta name="twitter:image:alt" content="Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">实用工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 实用工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。它把不同服务商分散的公开报价统一成 $/GPU-hour，帮助你判断当前 H100 SXM、H200 SXM、B200、B300 等高端 GPU 的公开租赁价格大概处在什么水平。 现在租用云端 GPU 跑大模型，不同平台的计费方式和按需报价差异很大。以 NVIDIA H100 为例，CGI 当前追踪的... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11578.webp" alt="Computable GPU Index 查看 H100/H200/B200 GPU 云算力价格 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/getcomputable/gpu-index" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/getcomputable/gpu-index/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 <strong>GPU 云算力价格</strong> 的市场参考指数。它把不同服务商分散的公开报价统一成 $/GPU-hour，帮助你判断当前 H100 SXM、H200 SXM、B200、B300 等高端 GPU 的公开租赁价格大概处在什么水平。</p>
+<p>现在租用云端 GPU 跑大模型，不同平台的计费方式和按需报价差异很大。以 NVIDIA H100 为例，CGI 当前追踪的是 H100 SXM。不同服务商的公开按需报价可能出现明显的价格差距。</p>
+<div style="background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 15px; margin-bottom: 20px; font-size: 14px; line-height: 1.6;"><strong>速览摘要：</strong>Computable GPU Index 是一个开源的 GPU 云算力价格指数，目前覆盖 H100 SXM、H200 SXM、B200 和 B300。它每 15 分钟根据公开 On-demand 报价更新市场参考价，计算方法、历史记录和代码都可以公开查看并复算，同时提供免密钥 REST API 与只读 MCP 接口。它不是最低价排行，也不包含 Spot、Reserved 等价格。</div>
+<h2>它和普通 GPU 比价网站有什么不同</h2>
+<p>GPU 比价网站通常会保留具体服务商、实例规格和对应价格，方便用户直接比较哪家当前报价更低。而CGI 不是服务商排行，而是把固定 Provider Panel 中符合条件的公开报价合成一个统一指数。</p>
+<p>不同平台的实例条件、计费方式和附加费用并不完全一样，所以最低挂牌价不一定适合直接拿来做长期预算。</p>
+<p>CGI 使用固定服务商面板、异常值筛选和加权聚合来计算参考价，不会简单把所有服务商报价直接取平均。</p>
+<p>所以它更适合拿来判断<strong>“现在 H100、H200 这些 GPU 的公开租赁价格大概在什么水平”</strong>。拿到某家服务商的报价后，可以先和指数对一下，再结合实际的计费条件判断价格是否合适。</p>
+<h2>H100、H200、B200、B300 现在大概多少钱？</h2>
+<p>CGI 每 15 分钟更新一次，所以这里的数字只能代表当时的市场情况。截至 2026 年 9 月 4 日 12:15 UTC，官方实时看板显示的指数价格如下：</p>
+<table>
+<thead>
+<tr>
+<th>GPU</th>
+<th>CGI 参考价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NVIDIA H100 SXM</td>
+<td>$3.54 / GPU-hour</td>
+</tr>
+<tr>
+<td>NVIDIA H200 SXM</td>
+<td>$4.29 / GPU-hour</td>
+</tr>
+<tr>
+<td>NVIDIA B200</td>
+<td>$6.65 / GPU-hour</td>
+</tr>
+<tr>
+<td>NVIDIA B300</td>
+<td>$7.81 / GPU-hour</td>
+</tr>
+</tbody>
+</table>
+<p>比如 B300 当时的指数约为每小时 7.83 美元，这个数字可以拿来了解当前 <strong>B300 租赁价格</strong>大概处在什么位置。不过它不是某一家云厂商的实际成交价，也不包含 Spot、Reserved、存储、网络和企业合同折扣等费用。</p>
+<p>由于价格会持续变化，如果需要最新数据，还是应该以 CGI 实时看板为准。</p>
+<h2>Computable GPU Index 的价格是怎么算出来的？</h2>
+<p>CGI 不是把所有报价加起来取个平均数。它会先采集公开报价，再按照不同 GPU 分组计算，并尽量减少异常价格和长期没有变化的数据源对结果的影响。</p>
+<p><strong>1、采集公开报价：</strong>CGI 每 15 分钟采集一次公开价格。截至本文整理时，官方 Methodology 记录的采集范围为 29 家服务商、31 条采集源。采集范围并不等于最终指数使用的服务商数量。</p>
+<p><strong>2、不同 GPU 分开计算：</strong>H100 SXM、H200 SXM、B200、B300 都有各自固定的 Provider Panel，不会把不同型号和所有服务商的报价直接混在一起。</p>
+<p><strong>3、不同数据源的权重会变化：</strong>CGI 会观察各个来源过去的价格变化是否及时、是否长期落后于其他服务商，再据此调整它们对指数的影响。</p>
+<p><strong>4、不是简单取平均：</strong>最终采用分位数均值（IQM）计算中间一段价格投票，减少异常高价和异常低价对结果的影响。</p>
+<h3>B300 的服务商报价差多少？</h3>
+<p>以 2026 年 9 月 4 日 12:15 UTC 的 B300 指数为例，当时通过筛选的 8 个来源里，不同服务商的公开价格差距很明显：</p>
+<p>同一时间的 B300 CGI 指数是 <strong>$7.81 / GPU-hour</strong>。可以看到，Latitude 的 $16 明显高于大部分服务商，但 CGI 并不会把这些报价简单相加再除以服务商数量，也不会直接采用最低的 $6.60，而是按照自己的筛选、权重和 IQM 规则计算参考价格。</p>
+<h3>怎么在本地复算 CGI 指数？</h3>
+<p>项目在 GitHub 上公开了计算代码和历史记录，并提供了 <code>reproduce</code> 脚本。克隆项目并安装依赖后，例如要重新计算当天的 H100 指数，可以运行：</p>
+<pre><code>./reproduce h100 "$(date -u +%F)"</code></pre>
+<p>也可以指定 GPU 和日期，例如重新计算 2026 年 9 月 4 日的 B300：</p>
+<pre><code>./reproduce b300 2026-09-04</code></pre>
+<p>脚本会根据公开历史重新计算已经发布的指数，并核对计算结果和对应哈希。如果全部匹配，就能确认本地重新算出的结果与官方公开记录一致。</p>
+<h2>开发者与 AI Agent 怎么接入 CGI</h2>
+<p>除了网页看板，CGI 也提供 REST API、历史数据文件和 MCP Server。现在这些接口都是只读的，不需要先注册账号，也不用申请 API Key。</p>
+<h3>REST API：直接查询最新 GPU 价格</h3>
+<p>例如查询最新的 H100 指数，可以直接请求：</p>
+<pre><code>curl "https://api.getcomputable.com/v1/index/H100/latest"</code></pre>
+<p>如果还想查看这次指数对应的数据来源和 receipts，可以使用：</p>
+<pre><code>curl "https://api.getcomputable.com/v1/index/H100/latest?include=receipts"</code></pre>
+<p>需要历史价格时，也可以通过 history 接口查询，例如：</p>
+<pre><code>curl "https://api.getcomputable.com/v1/index/H100/history?limit=4"</code></pre>
+<p>这种方式比较适合把 GPU 价格接进内部成本面板、监控脚本或其他自动化工具，而不用手动打开网页查看。</p>
+<h3>怎么下载 CGI 的历史价格数据？</h3>
+<p>CGI 的公开历史记录还会以 JSON 文件形式放在 <code>data.getcomputable.com</code>。如果需要做离线分析、保存历史价格或自己重新计算指数，可以直接使用这些归档数据。</p>
+<h3>怎么让 AI Agent 通过 MCP 查询 GPU 价格？</h3>
+<p>CGI 还提供了只读 MCP Server：</p>
+<pre><code>https://mcp.getcomputable.com/mcp</code></pre>
+<p>官方目前通过这个 MCP Server 提供 3 个只读工具，客户端不需要另外配置 CGI 账号或 API Key。</p>
+<p>在支持 MCP 的客户端中加入这个地址后，Agent 就可以直接查询 CGI 的 GPU 价格数据。例如在讨论训练预算时，可以让 Agent 查询当前 H100 或 B200 的指数，而不是只依赖模型原本记住的价格。</p>
+<div style="background-color: #eef2ff; border-left: 4px solid #6366f1; padding: 15px; margin-bottom: 20px; font-size: 14px; line-height: 1.6;"><strong>接口与安全提示：</strong>CGI 的 REST API 和 MCP Server 目前都是匿名只读接口，不需要提交云平台 API Key、OAuth 凭据或账号权限。不过它仍属于第三方网络服务，企业环境使用前应按自己的安全要求评估。</div>
+<h2>用 CGI 看 GPU 云算力价格，有哪些限制？</h2>
+<p>CGI 反映的是公开 On-demand GPU 租赁市场的参考价格，拿它和实际云厂商报价比较时，还要注意下面几个限制。</p>
+<p><strong>1、目前只提供 4 款 GPU 的实时价格指数：</strong>CGI 当前公开发布的指数只有 NVIDIA H100 SXM、H200 SXM、B200 和 B300。采集层虽然会记录更多硬件型号，但 RTX 4090、A100、L40S 等型号目前没有对应的实时 CGI 指数。</p>
+<p><strong>2、指数只采用 公开 On-demand（按需租用）报价：</strong>Spot、Preemptible、Reserved、Committed、Monthly-commit、Serverless 等价格不会进入当前指数。因此，CGI 不适合直接拿来比较抢占式实例、包月套餐或长期承诺价格。</p>
+<p><strong>3、GPU 每小时价格不等于最终使用成本：CGI 统计的是 GPU 本身的租赁价格，实际使用时还可能产生网络出网、存储、跨区域传输等额外费用。</strong></p>
+<p><strong>4、代码能开源使用，不代表价格数据也能直接商用：项目代码采用 Apache-2.0 协议；CGI 发布的指数数据和历史归档采用 CC BY-NC 4.0，默认限制商业用途。如果要把这些指数用于收费产品、结算或金融产品，还需要另外确认项目方的授权条件。</strong></p>
+<p><strong>5、项目上线时间还不长：Computable GPU Index 的代码、计算方法和历史数据已经公开，不过目前上线时间还不长，数据覆盖、社区规模和长期维护情况还需要继续观察。</strong></p>
+<h2>Computable GPU Index 常见问题</h2>
+<h3>CGI 的数据和接口目前免费吗？</h3>
+<p>目前可以免费使用。在线看板、REST API 和 MCP 都支持免注册、免 API Key 的只读访问。</p>
+<h3>CGI 发布的 GPU 价格数据可以商用吗？</h3>
+<p>项目代码采用 Apache-2.0 协议，但发布的指数数据和历史归档采用 CC BY-NC 4.0，默认不适用于商业用途。如果准备用在收费产品、结算或金融产品中，需要进一步确认项目方的授权条件。</p>
+<h3>为什么 CGI 没有 RTX 4090、A100 或 L40S 的价格指数？</h3>
+<p>底层采集器会收集更多硬件数据，但目前官方公开发布的实时指数只有 NVIDIA H100 SXM、H200 SXM、B200 和 B300。RTX 4090、A100、L40S 等型号当前没有对应的实时 CGI 指数。</p>
+<h3>接入 CGI 的 MCP Server 需要 API Key 吗？</h3>
+<p>不需要。目前官方 MCP Server 是公开的只读服务，无需注册账号或配置 API Key，按照所使用客户端的 MCP 配置方式添加官方端点即可。</p>
+<h3>CGI 的 GPU 价格是实际成交价吗？</h3>
+<p>不是。CGI 是根据固定服务商面板中的公开 On-demand 报价计算出的市场参考指数，不代表某一家云厂商的最终成交价，也不包含 Spot、Reserved、私有合同折扣、存储和网络等成本。</p>
+<h2>Computable GPU Index 官方入口与项目资料</h2>
+<p>Computable GPU Index 实时看板：<a href="https://market.getcomputable.com/gpu-index" rel="noopener noreferrer" target="_blank" title="Computable GPU Index 实时看板">https://market.getcomputable.com/gpu-index</a></p>
+<p>Computable GPU Index 官方网站：<a href="https://www.getcomputable.com/" rel="noopener noreferrer" target="_blank" title="Computable GPU Index 官方网站，在线查看 H100、H200、B200 等芯片的实时按需租赁价格指数、波动曲线与方法论说明。">https://www.getcomputable.com/</a></p>
+<p>Computable GPU Index GitHub 项目主页：<a href="https://github.com/getcomputable/gpu-index" rel="noopener noreferrer" target="_blank" title="Computable GPU Index GitHub 项目主页，查阅指数算法源代码、本地数据复现验证脚本，以及只读 REST API 与 MCP 接口说明。">https://github.com/getcomputable/gpu-index</a></p>
+<p>API / MCP 文档：<a href="https://docs.getcomputable.com/" rel="noopener noreferrer" target="_blank" title="API / MCP 文档">https://docs.getcomputable.com/</a></p>
+<p>Computable 还提供 GPU 算力市场等其他业务，本文介绍的是其中的 GPU Index，不是算力交易服务。</p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/getcomputable/gpu-index/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11577" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">ai-memory 让 Claude Code 与 Codex 共享项目记忆</div> </a> <a href="/posts/11579" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11023/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11023.webp" alt="M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-18</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11026/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11026.webp" alt="EasyPick 易切 把一张商品海报拆成多个独立 PNG" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> EasyPick 易切 把一张商品海报拆成多个独立 PNG </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-12</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11029/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11029.webp" alt="萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11028/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11028.webp" alt="凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

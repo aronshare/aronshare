@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>同花顺金融数据API A股数据接口支持 MCP 和 AI Agent - Aron 资源库</title><meta name="description" content="如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。 同花顺金融数据API （Financial-API）提供了一套连接程序与金融数据的数据服务方案，通过 REST API、Python SDK、CLI 与 MCP 等方式，让程序能够调用行情、历史数据和财务信息。 过去开发者搭建量化工具或数据分析系统时，通常需要自行维护数据抓取脚本，面对网页结构变化、接口调整以及字段清洗等问题。Financial-API 的主要价值..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11587/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="同花顺金融数据API A股数据接口支持 MCP 和 AI Agent - Aron 资源库"><meta property="og:description" content="如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。 同花顺金融数据API （Financial-API）提供了一套连接程序与金融数据的数据服务方案，通过 REST API、Python SDK、CLI 与 MCP 等方式，让程序能够调用行情、历史数据和财务信息。 过去开发者搭建量化工具或数据分析系统时，通常需要自行维护数据抓取脚本，面对网页结构变化、接口调整以及字段清洗等问题。Financial-API 的主要价值..."><meta property="og:url" content="https://aronshare.com/posts/11587/"><meta property="og:image" content="https://aronshare.com/covers/cover_11587.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="同花顺金融数据API A股数据接口支持 MCP 和 AI Agent - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="同花顺金融数据API A股数据接口支持 MCP 和 AI Agent - Aron 资源库"><meta name="twitter:description" content="如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。 同花顺金融数据API （Financial-API）提供了一套连接程序与金融数据的数据服务方案，通过 REST API、Python SDK、CLI 与 MCP 等方式，让程序能够调用行情、历史数据和财务信息。 过去开发者搭建量化工具或数据分析系统时，通常需要自行维护数据抓取脚本，面对网页结构变化、接口调整以及字段清洗等问题。Financial-API 的主要价值..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11587.webp"><meta name="twitter:image:alt" content="同花顺金融数据API A股数据接口支持 MCP 和 AI Agent - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">AI 智能体与工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">同花顺金融数据API A股数据接口支持 MCP 和 AI Agent</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> AI 智能体与工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> 同花顺金融数据API A股数据接口支持 MCP 和 AI Agent </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> 如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。 同花顺金融数据API （Financial-API）提供了一套连接程序与金融数据的数据服务方案，通过 REST API、Python SDK、CLI 与 MCP 等方式，让程序能够调用行情、历史数据和财务信息。 过去开发者搭建量化工具或数据分析系统时，通常需要自行维护数据抓取脚本，面对网页结构变化、接口调整以及字段清洗等问题。Financial-API 的主要价值... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11587.webp" alt="同花顺金融数据API A股数据接口支持 MCP 和 AI Agent 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/HiThink-Tech/Financial-API" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/HiThink-Tech/Financial-API/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。<strong>同花顺金融数据API</strong>（Financial-API）提供了一套连接程序与金融数据的数据服务方案，通过 REST API、Python SDK、CLI 与 MCP 等方式，让程序能够调用行情、历史数据和财务信息。</p>
+<p>过去开发者搭建量化工具或数据分析系统时，通常需要自行维护数据抓取脚本，面对网页结构变化、接口调整以及字段清洗等问题。Financial-API 的主要价值在于减少数据采集和接口适配工作，让 AI 应用、量化脚本能够通过标准接口获取结构化金融数据。<br>
+<strong><br>
+同花顺金融数据API 是面向开发者的 A 股金融数据接口，支持 REST API、Python SDK、CLI、DuckDB 本地库与 MCP 协议。它将行情快照、历史 K 线、财务报表等数据提供给程序调用，可用于 AI Agent 和量化分析场景；主要限制在于需要申请 API Key、当前主要覆盖 A 股市场且不提供实盘交易功能。<br>
+</strong></p>
+<h2>同花顺金融数据API 是什么？</h2>
+<p>同花顺金融数据API（Financial-API）是一个面向开发者的 A 股金融数据接口项目，基于同花顺金融数据服务提供的数据接口能力，将行情、历史 K 线、财务报表、行业板块等数据提供给程序调用。</p>
+<p>Financial-API 并不是面向普通用户的行情软件，而是连接金融数据和应用程序的数据服务层。开发者可以通过 REST API、Python SDK、CLI 或 MCP 协议，将数据接入量化脚本、数据分析工具以及 AI Agent 工作流。</p>
+<p>相比自行维护网页抓取脚本，Financial-API 可以减少数据解析和接口适配工作。不过实际调用权限、额度和商业使用范围，需要以官方平台规则为准。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>A 股金融数据接口</td>
+</tr>
+<tr>
+<td>数据来源</td>
+<td>同花顺金融数据服务</td>
+</tr>
+<tr>
+<td>支持方式</td>
+<td>REST API、Python SDK、CLI、MCP</td>
+</tr>
+<tr>
+<td>主要数据</td>
+<td>行情快照、历史 K 线、财务报表、板块数据等</td>
+</tr>
+<tr>
+<td>适用对象</td>
+<td>开发者、量化研究者、AI Agent 开发者</td>
+</tr>
+<tr>
+<td>限制</td>
+<td>需要 API Key，不提供交易接口，主要覆盖 A 股</td>
+</tr>
+</tbody>
+</table>
+<p>目前该项目主要面向 A 股数据应用场景，不适合作为多市场金融数据统一入口。</p>
+<h2>同花顺金融数据API 支持哪些接入方式</h2>
+<p>与单纯提供 HTTP 请求的传统接口不同，该项目针对不同的开发场景提供了四种主要的取数路径：</p>
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0 20px 0; font-size: 14px;">
+<thead>
+<tr style="background-color: #f1f5f9; text-align: left;">
+<th style="padding: 10px 12px; border: 1px solid #cbd5e1;">接入形态</th>
+<th style="padding: 10px 12px; border: 1px solid #cbd5e1;">典型应用场景</th>
+<th style="padding: 10px 12px; border: 1px solid #cbd5e1;">核心特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;"><strong>REST API</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">Web 应用、移动端后台、轻量监控服务</td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">标准 JSON 响应，通用性强，随用随调</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;"><strong>Python SDK / CLI</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">Jupyter Notebook、量化研究、自动化脚本</td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">方便 Python 环境调用接口数据，适合进一步结合 Pandas 等工具分析</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;"><strong>MCP Tools</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">Claude Desktop、Cursor、Dify、AI Agent</td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">原生协议挂载，大模型可通过自然语言直接调数</td>
+</tr>
+<tr>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;"><strong>本地 marketdb</strong></td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">批量历史数据分析、因子研究、本地 SQL 查询</td>
+<td style="padding: 10px 12px; border: 1px solid #e2e8f0;">基于 DuckDB 与 Parquet 离线查询，适合已同步数据后的本地分析，减少重复接口调用。</td>
+</tr>
+</tbody>
+</table>
+<h2>为什么同花顺金融数据API 适合通过 MCP 接入 AI Agent？</h2>
+<p>如果没有连接外部数据源，大模型本身无法直接获取行情快照和财务数据。在面对“分析今天盘面异动”“对比两家公司近三年净资产收益率”等具体金融查询时，仅依靠模型自身知识可能出现数据不准确的问题。</p>
+<p>过去实现这类能力，通常需要开发者自行编写工具调用逻辑，并完成数据格式转换和清洗工作。Financial-API 通过 MCP 协议提供了一种更标准化的数据连接方式，让支持 MCP 的 AI Agent 可以调用金融数据工具。</p>
+<p>该项目支持 Anthropic 推出的 MCP 协议。在完成环境配置后，AI Agent 可以根据需求调用对应的数据接口：</p>
+<ul>
+<li><strong>工具调用与数据选择</strong>：项目提供 Agent Skill，可帮助大模型根据任务需求选择调用远端行情接口或本地历史数据库。</li>
+<li><strong>自然语言交互</strong>：用户可以在支持 MCP 的客户端中提出查询需求，Agent 根据配置调用数据工具，并辅助完成数据获取和结果整理，降低构建金融助手的开发成本。</li>
+</ul>
+<h2>同花顺金融数据API 是否适合替代 Tushare 和 AKShare？</h2>
+<p>Tushare、AKShare 和 Financial-API 都能用于获取 A 股数据，但三者的侧重点并不一样。Financial-API 更强调 API、MCP 和 Agent 接入，Tushare、AKShare 则更常见于 Python 数据分析和量化研究。</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>更适合场景</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Financial-API</strong></td>
+<td>AI Agent、应用开发、接口集成</td>
+<td>提供 REST API、Python SDK、MCP 等接入方式，更关注程序调用和 AI 工作流场景</td>
+</tr>
+<tr>
+<td><strong>Tushare</strong></td>
+<td>量化研究、数据分析</td>
+<td>社区使用时间较长，资料和案例较丰富，适合 Python 数据分析、量化研究等场景</td>
+</tr>
+<tr>
+<td><strong>AKShare</strong></td>
+<td>金融数据研究、快速探索</td>
+<td>覆盖多个金融数据领域，适合研究分析和探索不同数据源</td>
+</tr>
+</tbody>
+</table>
+<p>如果目标是搭建 AI Agent，让 Claude、Cursor 或其他支持 MCP 的工具调用 A 股数据，Financial-API 的 MCP 支持是它与传统金融数据方案之间较明显的区别。</p>
+<p>如果主要需求是传统量化研究、因子分析，或者已经有成熟的 Python 数据分析流程，Tushare 和 AKShare 凭借多年社区积累，仍然具有较高的使用价值。</p>
+<p>简单来说，Financial-API 更偏向“把金融数据接入应用和 AI 工作流”，而 Tushare、AKShare 更偏向“研究者直接获取和分析数据”。三者并不是完全替代关系，而是适用于不同开发场景。</p>
+<h2>同花顺金融数据API 的使用门槛与限制</h2>
+<p>虽然 Financial-API 提供了多种数据接入方式，但它本质上仍然是一套面向开发者的数据接口，并不是面向普通用户的股票软件。在接入前，需要了解它的数据范围、调用方式以及使用边界。</p>
+<div style="background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 15px; margin-bottom: 20px;">
+<p><strong>使用 Financial-API 前需要注意：</strong></p>
+<ol style="margin-bottom: 0; padding-left: 20px;">
+<li><strong>不是看盘交易软件</strong>：Financial-API 面向程序调用场景，提供 API 与 SDK 接口，不包含普通用户使用的行情界面和交易功能。</li>
+<li><strong>当前数据覆盖范围有限</strong>：目前主要覆盖 A 股相关数据，不包含港股、美股以及期货、期权等衍生品市场。</li>
+<li><strong>不提供实盘交易接口</strong>：项目主要用于行情、历史数据和财务信息查询，无法直接发送交易指令。</li>
+<li><strong>调用额度与授权规则需要确认</strong>：API Key、调用频率、免费额度以及商业使用范围，需要以同花顺开放平台最新规则为准。</li>
+</ol>
+</div>
+<p>因此，Financial-API 更适合作为 AI Agent、量化脚本和数据分析系统的数据来源，而不是替代同花顺客户端的普通投资工具。</p>
+<h2>同花顺金融数据API 适合哪些开发场景？</h2>
+<p>Financial-API 更偏向开发者工具，而不是普通投资者使用的股票软件。是否适合接入，主要取决于你的数据需求和使用方式。</p>
+<ul>
+<li><strong>适合使用的场景</strong>：需要为 Claude、Cursor、Dify 等 AI Agent 接入 A 股数据能力的开发者；需要行情数据进行策略回测的量化研究者；希望通过 DuckDB 和 SQL 分析历史金融数据的数据分析人员。</li>
+<li><strong>不太适合的场景</strong>：只想使用现成界面查看行情的普通投资者；需要覆盖美股、港股、加密货币等多市场数据的项目；不希望配置代码环境或 API Key 的用户。</li>
+</ul>
+<hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<h2>Financial-API GitHub 项目与官方文档</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; margin-bottom: 36px;">
+<p><a href="https://github.com/HiThink-Tech/Financial-API" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🐙 Financial-API GitHub 项目主页<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">查看 Python SDK 安装方法、MCP Tools 配置指南与 DuckDB 本地库同步示例。</span><br>
+</a></p>
+<p><a href="https://fuyao.aicubes.cn" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🌐 同花顺扶摇开放平台<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">注册开发者账号、获取 API Key，并核对接口调用配额与官方服务条款。</span><br>
+</a></p>
+</div> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/HiThink-Tech/Financial-API/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11586" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Dockhand Docker 管理面板 能替代 Portainer 吗？支持多主机与漏洞扫描</div> </a> <a href="/posts/11589" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11025/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11025.webp" alt="默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-13</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11027/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11027.webp" alt="录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-10</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11032/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11032.webp" alt="Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11439/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11439.webp" alt="Inpaint 图片去水印、删除人物和多余物体的修图工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Inpaint 图片去水印、删除人物和多余物体的修图工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

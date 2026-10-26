@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown - Aron 资源库</title><meta name="description" content="Firecrawl PDF Inspector （仓库名 pdf-inspector ）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。它可以判断 PDF 中的文字是否能够直接提取，读取文本和版面信息并转换为 Markdown，同时返回需要进一步 OCR 的页面。 在私有知识库、RAG 或批量文档处理流程中，PDF 通常要先经过文本提取，再进入切分、Embedding 或后续模型处理。如果不区分文档类型就把所有 PDF 都送进云端 ..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11590/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown - Aron 资源库"><meta property="og:description" content="Firecrawl PDF Inspector （仓库名 pdf-inspector ）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。它可以判断 PDF 中的文字是否能够直接提取，读取文本和版面信息并转换为 Markdown，同时返回需要进一步 OCR 的页面。 在私有知识库、RAG 或批量文档处理流程中，PDF 通常要先经过文本提取，再进入切分、Embedding 或后续模型处理。如果不区分文档类型就把所有 PDF 都送进云端 ..."><meta property="og:url" content="https://aronshare.com/posts/11590/"><meta property="og:image" content="https://aronshare.com/covers/cover_11590.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown - Aron 资源库"><meta name="twitter:description" content="Firecrawl PDF Inspector （仓库名 pdf-inspector ）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。它可以判断 PDF 中的文字是否能够直接提取，读取文本和版面信息并转换为 Markdown，同时返回需要进一步 OCR 的页面。 在私有知识库、RAG 或批量文档处理流程中，PDF 通常要先经过文本提取，再进入切分、Embedding 或后续模型处理。如果不区分文档类型就把所有 PDF 都送进云端 ..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11590.webp"><meta name="twitter:image:alt" content="Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">实用工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 实用工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> Firecrawl PDF Inspector （仓库名 pdf-inspector ）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。它可以判断 PDF 中的文字是否能够直接提取，读取文本和版面信息并转换为 Markdown，同时返回需要进一步 OCR 的页面。 在私有知识库、RAG 或批量文档处理流程中，PDF 通常要先经过文本提取，再进入切分、Embedding 或后续模型处理。如果不区分文档类型就把所有 PDF 都送进云端 ... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11590.webp" alt="Firecrawl PDF Inspector 先判断 PDF 是否需要 OCR，再转 Markdown 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/firecrawl/pdf-inspector" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/firecrawl/pdf-inspector/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p><strong>Firecrawl PDF Inspector</strong>（仓库名 <code>pdf-inspector</code>）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。它可以判断 PDF 中的文字是否能够直接提取，读取文本和版面信息并转换为 Markdown，同时返回需要进一步 OCR 的页面。</p>
+<p>在私有知识库、RAG 或批量文档处理流程中，PDF 通常要先经过文本提取，再进入切分、Embedding 或后续模型处理。如果不区分文档类型就把所有 PDF 都送进云端 OCR 或视觉模型，本身已经包含可提取文字的文件也会重复走一次识别流程，增加接口调用、处理时间和费用。</p>
+<div style="background-color: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; margin-bottom: 20px;"><strong>快速了解：</strong>Firecrawl PDF Inspector 核心使用 Rust 编写，通常可在 10~50 毫秒内判断 PDF 属于 TextBased、Scanned、ImageBased 或 Mixed 类型，并返回需要 OCR 的页面信息。可以直接读取的内容会在本地提取并转换为 Markdown；缺少可靠文本层或提取结果不可靠的页面和区域，则可以继续交给本地或云端 OCR。</div>
+<h2>RAG 文档处理为什么要先判断 PDF 是否需要 OCR？</h2>
+<p>企业研报、电子合同、发票和学术论文里，有不少文件本身就是由 Word、LaTeX 或排版软件直接导出的原生文本 PDF。这类 PDF 通常已经包含可提取的文字和位置信息，不需要先把页面转成图片再做 OCR。</p>
+<p>Firecrawl 自己的 PDF 数据里，大约有 <strong>54% 的文件不需要 OCR</strong> 就能直接提取文本。不同业务里的文档来源差别很大，这个比例不一定能直接套用，但也说明了一个问题：并不是每份 PDF 都值得先跑一遍 OCR。</p>
+<p><strong>Firecrawl PDF Inspector</strong> 做的就是把这一步判断放到 OCR 前面。能够可靠提取文字的 TextBased 页面直接在本地解析并转换为 Markdown；对于 Mixed、Scanned、ImageBased 文档中缺少可靠文本层或提取结果不理想的页面，再交给 OCR 处理。</p>
+<h2>Firecrawl PDF Inspector 怎么判断 PDF 是否需要 OCR</h2>
+<p>pdf-inspector 不需要先渲染整份 PDF 再做识别。它会读取 PDF 本身的页面结构和内容流，先判断文件里有没有可以直接提取的文本。</p>
+<h3>四种 PDF 类型与置信度</h3>
+<p>检测时，pdf-inspector 会解析 xref 表和页面树，并检查页面内容流中的文本操作符（<code>Tj</code>/<code>TJ</code>）和图像操作符（<code>Do</code>）。通常在 10~50 毫秒内就能返回结果，将 PDF 分为 <code>TextBased</code>、<code>Scanned</code>、<code>ImageBased</code> 或 <code>Mixed</code>，同时给出 0~1 的置信度分数。</p>
+<h3>可以按页面和区域决定是否需要 OCR</h3>
+<p>分类结果还会返回需要 OCR 的具体页码。比如一份 50 页的财报，前 2 页是扫描封面，后面 48 页都能正常提取原生文本，就可以只处理前 2 页，不需要把整份 PDF 再跑一遍 OCR。</p>
+<p>Node.js 版本还提供 <code>extractTextInRegions()</code> 接口。调用方指定页面区域后，pdf-inspector 会尝试从 PDF 结构中提取该区域的文本，并通过 <code>needsOcr</code> 标记文本为空、乱码或字体编码异常等提取结果不可靠的区域。后续 OCR 只需要处理这些区域，不必默认重新识别整页。</p>
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+<p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #334155;">检测时可以选择四种扫描策略：</p>
+<ul style="margin: 0; padding-left: 18px; font-size: 13px; color: #475569;">
+<li><code>EarlyExit</code>（默认）：遇到第一个非纯文本页面后停止扫描，用于快速判断文档是否可以直接走文本提取。</li>
+<li><code>Full</code>：扫描全部页面，用于进一步区分 Mixed（混合型）和 Scanned（扫描型）文档。</li>
+<li><code>Sample(n)</code>：均匀抽取若干页面检查，适合页数很多、只需要快速判断类型的 PDF。</li>
+<li><code>Pages(vec)</code>：只检查指定页码，适合已经知道目标页面的处理流程。</li>
+</ul>
+</div>
+<h2>Firecrawl PDF Inspector 解析效果怎么样？基准测试与同类工具对比</h2>
+<p>pdf-inspector 不只是判断 PDF 类型，也会处理文本的阅读顺序和版面结构。当前版本支持多栏排版、CID/Type0 字体、标题和列表识别，以及基于矩形边框和文本对齐的两种表格检测方式，提取结果可以直接转换为 Markdown。</p>
+<p>项目 README 还给出了一组 <code>opendataloader-bench</code> 测试结果，共包含 200 份 PDF，比较对象都是未启用 OCR 和模型解析的本地 PDF 引擎。下面的数据更新于 2026 年 7 月 31 日，测试设备为 Apple M4 Pro，成绩取 5 次完整运行的中位数，另有一次 warm-up 不计入结果。</p>
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 20px; overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+<thead>
+<tr style="border-bottom: 2px solid #cbd5e1; color: #334155;">
+<th style="padding: 8px;">解析引擎</th>
+<th style="padding: 8px; text-align: right;">综合评分 (Overall)</th>
+<th style="padding: 8px; text-align: right;">阅读顺序 (NID)</th>
+<th style="padding: 8px; text-align: right;">表格识别 (TEDS)</th>
+<th style="padding: 8px; text-align: right;">标题识别 (MHS)</th>
+<th style="padding: 8px; text-align: right;">200 份文档总耗时</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #e2e8f0;">
+<td style="padding: 8px;"><strong>pdf-inspector</strong></td>
+<td style="padding: 8px; text-align: right;"><strong>0.875</strong></td>
+<td style="padding: 8px; text-align: right;">0.915</td>
+<td style="padding: 8px; text-align: right;"><strong>0.814</strong></td>
+<td style="padding: 8px; text-align: right;">0.788</td>
+<td style="padding: 8px; text-align: right;"><strong>0.470s</strong></td>
+</tr>
+<tr style="border-bottom: 1px solid #e2e8f0;">
+<td style="padding: 8px;">LiteParse</td>
+<td style="padding: 8px; text-align: right;">0.873</td>
+<td style="padding: 8px; text-align: right;">0.913</td>
+<td style="padding: 8px; text-align: right;">0.693</td>
+<td style="padding: 8px; text-align: right;"><strong>0.811</strong></td>
+<td style="padding: 8px; text-align: right;">0.750s</td>
+</tr>
+<tr style="border-bottom: 1px solid #e2e8f0;">
+<td style="padding: 8px;">OpenDataLoader</td>
+<td style="padding: 8px; text-align: right;">0.831</td>
+<td style="padding: 8px; text-align: right;">0.902</td>
+<td style="padding: 8px; text-align: right;">0.489</td>
+<td style="padding: 8px; text-align: right;">0.739</td>
+<td style="padding: 8px; text-align: right;">2.569s</td>
+</tr>
+<tr style="border-bottom: 1px solid #e2e8f0;">
+<td style="padding: 8px;">PyMuPDF4LLM</td>
+<td style="padding: 8px; text-align: right;">0.735</td>
+<td style="padding: 8px; text-align: right;">0.886</td>
+<td style="padding: 8px; text-align: right;">0.401</td>
+<td style="padding: 8px; text-align: right;">0.424</td>
+<td style="padding: 8px; text-align: right;">17.117s</td>
+</tr>
+<tr>
+<td style="padding: 8px;">MarkItDown</td>
+<td style="padding: 8px; text-align: right;">0.589</td>
+<td style="padding: 8px; text-align: right;">0.844</td>
+<td style="padding: 8px; text-align: right;">0.273</td>
+<td style="padding: 8px; text-align: right;">0.000</td>
+<td style="padding: 8px; text-align: right;">16.165s</td>
+</tr>
+</tbody>
+</table>
+<div style="font-size: 12px; color: #64748b; margin-top: 8px;">* 分数越高越好。pdf-inspector 的综合评分为 0.875，与 LiteParse 的 0.873 非常接近；表格识别得分为 0.814，在这组测试中最高，200 份 PDF 的完整运行时间为 0.470 秒。标题识别这一项则是 LiteParse 更高。这组数据来自 pdf-inspector 项目自己的 Benchmark，不同类型 PDF 的实际结果可能会有差异。</div>
+</div>
+<h2>Firecrawl PDF Inspector 怎么接入？CLI、Python、Node.js 与本地 OCR</h2>
+<p>pdf-inspector 的核心用 Rust 编写，可以直接通过命令行使用，也提供 Python、Node.js 和浏览器 WASM 版本。只是想检测 PDF 类型或转 Markdown，不需要另外配置 OCR 服务。</p>
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+<p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #334155;">CLI 命令行：</p>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; margin: 0 0 12px 0;"><code># 安装
+cargo install pdf-inspector
+<h1 id="检测-pdf-类型并输出-json">检测 PDF 类型并输出 JSON</h1>
+<p>detect-pdf document.pdf —json</p>
+<h1 id="转为-markdown">转为 Markdown</h1>
+</code><p><code>pdf2md document.pdf</code></p></pre><p></p>
+<p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #334155;">Node.js：</p>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; margin: 0 0 12px 0;"><code>npm install @firecrawl/pdf-inspector</code></pre>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; margin: 0 0 12px 0;"><code>import { classifyPdf } from '@firecrawl/pdf-inspector';
+import { readFileSync } from 'fs';
+<p>const pdf = readFileSync(‘document.pdf’);
+const result = classifyPdf(pdf);</p>
+</code><p><code>console.log(result.pdfType);
+console.log(result.pagesNeedingOcr);
+console.log(result.confidence);</code></p></pre><p></p>
+<p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #334155;">Python：</p>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; margin: 0;"><code>pip install pdf-inspector</code></pre>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; margin: 12px 0 0 0;"><code>import pdf_inspector
+<p>result = pdf_inspector.process_pdf(“document.pdf”)</p>
+</code><p><code>print(result.pdf_type)
+print(result.pages_needing_ocr)
+print(result.markdown)</code></p></pre><p></p>
+</div>
+<p>默认安装主要使用 PDF 自带的文本和结构信息完成分类、文本提取和 Markdown 转换，不会加载 OCR 模型。需要直接处理扫描页面时，Rust / CLI 版本可以额外启用 <code>ocr</code> feature：</p>
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px;"><code>cargo install pdf-inspector --features ocr --bin pdf2md</code></pre>
+<p>启用后，pdf-inspector 会使用 <code>PP-OCRv6 Small</code> 处理被分流到 OCR 的页面，而不是默认把整份 PDF 都重新识别。OCR 版本还需要 PDFium、ONNX Runtime 和对应模型文件等运行依赖，因此部署方式会比默认解析版本复杂一些。</p>
+<h2>Firecrawl PDF Inspector 适合哪些场景？有哪些限制？</h2>
+<p>pdf-inspector 更适合原生文本 PDF 和扫描页混在一起的文档库，尤其是需要批量处理合同、研报、论文、发票或知识库资料的场景。如果文件来源比较单一，也可以先用自己的文档样本测试一下，再决定有没有必要加这一层判断。</p>
+<p><strong>使用前可以留意这几点：</strong></p>
+<ul>
+<li><strong>复杂扫描件仍可能需要更强的 OCR</strong>：对于字迹模糊、页面倾斜、纸张老化或版面非常复杂的扫描文件，即使启用了 pdf-inspector 的可选本地 OCR，实际识别效果仍要看文档质量；必要时可以继续接其他 OCR 服务或视觉模型。</li>
+<li><strong>网页版 Demo 主要用于体验解析</strong>：官方 WebAssembly 演示主要面向原生文本 PDF，目前单文件限制为 25MB。大文件或完整 OCR 流程更适合使用本地库或 CLI。</li>
+<li><strong>是否上传第三方取决于后续 OCR 怎么接</strong>：PDF 分类和原生文本提取可以在本地完成。如果后面接的是本地 OCR，文件可以继续留在自己的环境里；如果调用云端 OCR API，对应页面或数据就会进入第三方服务。</li>
+<li><strong>特殊部署环境需要检查兼容性</strong>：Python 和 Node.js 已提供常见 Linux、macOS 和 Windows 平台的预编译包。未覆盖的平台或部分受限 Serverless 环境，可能还需要处理原生依赖或自行编译。</li>
+</ul>
+<p>如果每天要处理很多来源不同的 PDF，尤其是原生文本和扫描件混在一起的情况，pdf-inspector 可以先把能够直接解析的页面筛出来，减少后面的 OCR 请求。如果资料基本都是纯扫描档案，这层分类带来的节省就不会那么明显。</p>
+<h2>Firecrawl PDF Inspector 源码、文档与在线演示入口</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; margin-bottom: 36px;">
+<p><a href="https://github.com/firecrawl/pdf-inspector" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🐙 Firecrawl PDF Inspector GitHub 项目主页<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">查看 Rust 源码、CLI 安装指南、基准测试对比数据及 MIT 开源协议说明。</span><br>
+</a></p>
+<p><a href="https://firecrawl.github.io/pdf-inspector/" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🧪 Firecrawl PDF Inspector 浏览器 WebAssembly 在线演示<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">在浏览器本地运行 WASM 解析，直接测试原生文本 PDF 的分类与 Markdown 实时转换。</span><br>
+</a></p>
+</div> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/firecrawl/pdf-inspector/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11588" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？</div> </a> <a href="/posts/11591" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Dayflow AI 时间追踪工具 Mac 自动生成工作日志与周报</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11023/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11023.webp" alt="M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-18</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11026/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11026.webp" alt="EasyPick 易切 把一张商品海报拆成多个独立 PNG" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> EasyPick 易切 把一张商品海报拆成多个独立 PNG </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-12</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11029/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11029.webp" alt="萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 萝卜工坊 Word 文档转手写，支持 PDF、照片和专属字体 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11028/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11028.webp" alt="凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 实用工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 凹凸工坊 手写字体生成器，支持 Word、PDF 和图片转手写 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-09</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

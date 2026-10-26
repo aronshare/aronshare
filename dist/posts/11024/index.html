@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Filee 文件转换器 不上传文件的开源本地转换工具 - Aron 资源库</title><meta name="description" content="HEIC 转 JPG、Word 转 PDF、MOV 转 MP4，这类文件转换现在随便找个在线工具都能完成。但碰到合同、工作文档、私人照片或录音时，把原文件上传到第三方服务器并不一定合适。 Filee 文件转换器 是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。 它目前支持图片、PDF、Office 文档、视频、音频、电子书、压缩包、CAD 和字体等 14 大类、180 种格式，并提供拖放、右键转换、批量处理、监控文件夹..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11024/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Filee 文件转换器 不上传文件的开源本地转换工具 - Aron 资源库"><meta property="og:description" content="HEIC 转 JPG、Word 转 PDF、MOV 转 MP4，这类文件转换现在随便找个在线工具都能完成。但碰到合同、工作文档、私人照片或录音时，把原文件上传到第三方服务器并不一定合适。 Filee 文件转换器 是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。 它目前支持图片、PDF、Office 文档、视频、音频、电子书、压缩包、CAD 和字体等 14 大类、180 种格式，并提供拖放、右键转换、批量处理、监控文件夹..."><meta property="og:url" content="https://aronshare.com/posts/11024/"><meta property="og:image" content="https://aronshare.com/covers/cover_11024.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Filee 文件转换器 不上传文件的开源本地转换工具 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Filee 文件转换器 不上传文件的开源本地转换工具 - Aron 资源库"><meta name="twitter:description" content="HEIC 转 JPG、Word 转 PDF、MOV 转 MP4，这类文件转换现在随便找个在线工具都能完成。但碰到合同、工作文档、私人照片或录音时，把原文件上传到第三方服务器并不一定合适。 Filee 文件转换器 是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。 它目前支持图片、PDF、Office 文档、视频、音频、电子书、压缩包、CAD 和字体等 14 大类、180 种格式，并提供拖放、右键转换、批量处理、监控文件夹..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11024.webp"><meta name="twitter:image:alt" content="Filee 文件转换器 不上传文件的开源本地转换工具 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">开源自托管项目</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Filee 文件转换器 不上传文件的开源本地转换工具</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> DOCKER </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 开源自托管项目 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Docker / Linux </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Filee 文件转换器 不上传文件的开源本地转换工具 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> HEIC 转 JPG、Word 转 PDF、MOV 转 MP4，这类文件转换现在随便找个在线工具都能完成。但碰到合同、工作文档、私人照片或录音时，把原文件上传到第三方服务器并不一定合适。 Filee 文件转换器 是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。 它目前支持图片、PDF、Office 文档、视频、音频、电子书、压缩包、CAD 和字体等 14 大类、180 种格式，并提供拖放、右键转换、批量处理、监控文件夹... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11024.webp" alt="Filee 文件转换器 不上传文件的开源本地转换工具 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/KnifeLemon/Filee" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/KnifeLemon/Filee/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>HEIC 转 JPG、Word 转 PDF、MOV 转 MP4，这类文件转换现在随便找个在线工具都能完成。但碰到合同、工作文档、私人照片或录音时，把原文件上传到第三方服务器并不一定合适。</p>
+<p><strong>Filee 文件转换器</strong>是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。</p>
+<p>它目前支持图片、PDF、Office 文档、视频、音频、电子书、压缩包、CAD 和字体等 14 大类、180 种格式，并提供拖放、右键转换、批量处理、监控文件夹和命令行等使用方式。</p>
+<p>Filee 采用 MIT License。Windows 10/11 为正式支持平台，macOS 14+ 和 Linux 也已经可用，不过目前仍是预览版。</p>
+<h2>不用先上传文件，直接在电脑上转</h2>
+<p>在线转换工具适合临时用一下，打开网页、上传文件、转换完再下载，处理一两张图片很方便。</p>
+<p>Filee 更适合那些不太想把文件传出去的场景。合同、内部 PPT、财务表格、私人照片或录音，都可以直接留在自己的电脑上完成转换，生成的文件也保存在本地。</p>
+<p>这不代表 Filee 完全不联网。检查更新，或者第一次下载 FFmpeg、LibreOffice 这类可选引擎时还是需要网络，只是<strong>真正拿来转换的文件不需要上传到第三方服务器</strong></p>
+<h2>Filee 的拖放转换怎么用</h2>
+<p>Filee 最有辨识度的地方，是文件旁边会直接弹出一个格式圆环。</p>
+<p>在 Windows 中选中文件，按住 Ctrl 开始拖动，光标附近就会出现适合当前文件的目标格式。比如 HEIC 图片可以直接拖到 JPG，DOCX 可以拖到 PDF，MOV 视频则可以选择 MP4。</p>
+<figure><video class="w-full rounded-xl border border-slate-200 my-4" controls height="150" preload="metadata" style="width: 100%; height: auto; border-radius: 12px;" width="300"><source src="https://filee.sh/media/promo-zh-CN.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频播放。</video><figcaption>Filee 文件转换器官方演示：按住 Ctrl 拖动文件，在格式圆环中选择目标格式即可开始转换。</figcaption></figure>
+<p>不喜欢这种操作方式也没关系，它还有文件管理器右键菜单、Windows“发送到”、快捷键以及主窗口拖放区。</p>
+<h3>批量转换、监控文件夹和 CLI</h3>
+<p>真正大量处理文件时，批量转换和预设反而更实用。图片质量、尺寸、DPI、PDF 页码范围、视频分辨率、音频码率、保存目录和文件名规则都可以提前保存，不用每次重新设置。</p>
+<p>Filee 还支持监控文件夹。比如指定一个目录，只要有新的 HEIC 照片放进去，就自动转成 JPG；或者让扫描文件进入某个文件夹后自动生成 PDF。</p>
+<p>需要做自动化的话，还可以直接使用 <code>filee</code> 命令行。</p>
+<pre><code>filee convert photo.heic --to jpg</code></pre>
+<p>批量把 PNG 转成 WebP：</p>
+<pre><code>filee convert *.png --to webp --quality 80 -o converted</code></pre>
+<p>也可以监控一个文件夹：</p>
+<pre><code>filee watch D:\Inbox --to pdf --move-originals</code></pre>
+<p>CLI 支持 JSON 输出和退出状态码，比较容易接进脚本、NAS 或其他自动化流程。普通用户不一定会用到，但需要重复处理大量文件时会方便很多。</p>
+<h2>180 种格式里，有些需要额外的转换引擎</h2>
+<p>Filee 目前支持 180 种格式，其中 111 种装好后就能直接使用。常见的图片、PDF、Office 文档、压缩包和字体，大部分不用另外配置什么。</p>
+<p>覆盖范围也比较杂。像 HEIC 转 JPG、DOCX 转 PDF、PDF 转图片、MOV 转 MP4、EPUB 转 PDF 这类常见需求都在里面，另外还支持相机 RAW、HWP/HWPX、CAD 和部分电子书格式。</p>
+<p>但并不是所有转换都由 Filee 自己完成。碰到视频、音频时，它会用到 FFmpeg；DOC、PPT、ODT 这类旧版或特殊办公格式可能需要 LibreOffice；少见电子书会用到 Calibre，LaTeX、reStructuredText、Word 转 Markdown 这类任务则会交给 Pandoc。</p>
+<p>这些引擎不用一次全部装好。平时只转图片、PDF 和常见 Office 文件，很多时候根本碰不到；等真正需要视频、旧版文档或特殊格式时再装对应组件就行。</p>
+<h2>常见文件怎么转，哪些地方要注意</h2>
+<p>Filee 覆盖的格式不少，但不同文件的转换方式和限制并不一样。图片和视频通常比较直接，Office 和 PDF 则更需要注意排版和文件结构。</p>
+<h3>HEIC 转 JPG、DOCX 转 PDF 这些能做吗？</h3>
+<p>HEIC 转 JPG 属于 Filee 的常规图片转换能力。反过来如果要把图片保存成 HEIC，则会涉及 FFmpeg。</p>
+<p>DOCX 转 PDF 也属于内置支持，不需要 Microsoft Office。实际排版效果还是取决于源文件，如果里面有大量文本框、复杂表格或者特殊字体，转换后最好自己检查一次。</p>
+<p>PDF 转 DOCX 同样支持，但这类转换本身就比 Word 转 PDF 更难。PDF 更像固定版面的最终文件，而不是结构完整的编辑文档，所以复杂排版不能指望百分百恢复。</p>
+<p>MOV 转 MP4 会调用 FFmpeg。如果电脑里已经有兼容的 FFmpeg，Filee 可以直接使用，不一定重新下载。</p>
+<p>EPUB 转 PDF 也在支持范围里。涉及 MOBI、AZW3 等部分电子书格式时，某些输出方向会使用 Calibre。</p>
+<h3>不装 Microsoft Office，也能处理常见 Office 文件</h3>
+<p>Filee 和很多只做图片、视频的转换器不太一样，它对办公文档的覆盖比较深。</p>
+<p>DOCX、XLSX、XLS、CSV 和 PPTX 等不少常见格式可以直接通过内置引擎处理，并不要求电脑上安装 Microsoft Office。</p>
+<p>Filee 还支持韩文 HWP/HWPX，可以在没有安装 Hancom Office 的情况下完成部分 HWP、HWPX、DOCX、PDF 和图片之间的转换。这对大多数中文用户不是刚需，但确实是 Filee 比较少见的一项能力。</p>
+<p>老格式就没那么简单了。像 DOC、PPT、ODT、Keynote、Numbers 等，根据转换方向仍可能需要 LibreOffice。</p>
+<p>所以不能把它理解成“所有 Office 文件都完全不依赖其他软件”。<strong>常见的新 Office 格式很多可以直接处理，旧格式和部分特殊格式再交给额外引擎。</strong></p>
+<h3>复杂 PDF 和 Office 文档，转换后最好检查一下</h3>
+<p>Filee 能处理 PDF、Word、Excel 和 PowerPoint，但格式能转，不代表里面的排版和效果都能原样保留下来。</p>
+<p>碰到复杂表格、图表、特殊字体，或者做了很多动画和版式效果的 PPT，就要多留意。官方文档也列出了一些无法完整保留的内容，所以重要文件转完最好自己打开检查一遍。</p>
+<p>PDF 转 Word 更容易遇到这个问题。普通文字型 PDF 可以提取已有的文字，但如果是扫描出来的合同、书籍或票据，本质上还是一张张图片。Filee 的普通 PDF → DOCX 转换并不会自动把它变成完整的 OCR 识别工具。</p>
+<p>像合同、复杂报表、排版要求高的 PPT，先拿一两个真实文件试一下，比单看“支持 PDF 转 DOCX”更靠谱。</p>
+<h2>Windows 是正式版，macOS 和 Linux 仍是预览版</h2>
+<p>Filee 目前对 Windows 10/11 的支持最完整，既有安装版，也提供便携版。</p>
+<p>macOS 需要 14 或更高版本，同时提供 Apple Silicon 和 Intel 版本。不过当前应用还没有完成 notarization，第一次打开时可能会被 macOS 拦住，需要到“系统设置 → 隐私与安全性”里手动允许。</p>
+<p>Option + 拖动的全局操作还需要辅助功能权限。</p>
+<p>Linux 提供 x64 和 ARM64 版本，但全局拖动手势依赖 X11。Wayland 下不能以同样方式监听全局输入，不过仍然可以使用主窗口拖放区，以及 Nautilus、Nemo、Thunar、Dolphin 等文件管理器的右键入口。</p>
+<h2>什么情况下更适合用 Filee</h2>
+<p>如果你经常处理 HEIC、WEBP、PDF、Office、视频或电子书，而且不太愿意把工作文件上传到在线转换站，Filee 比较值得试。</p>
+<p>批量处理需求多的人也更容易发挥它的优势。右键转换、预设、监控文件夹和 CLI，用久了比反复“打开网页、上传、下载”少很多重复操作。</p>
+<p>它也不是所有人都需要。如果一年只转一两次图片，在线工具通常更省事。主力使用 macOS 或 Linux、又特别在意稳定性，也要考虑目前这两个平台仍处于 Preview。</p>
+<p>对复杂 Word、Excel、PPT 或 PDF 的排版还原要求很高，同样不建议只看“支持格式”就直接拿正式文件处理，最好先用样本确认效果。</p>
+<p>Filee 最吸引人的地方，不是“180 种格式”这个数字本身，而是把图片、PDF、Office、视频和电子书这些原本分散的转换任务放进同一个本地工具里。</p>
+<p>如果经常处理这些文件，又不想每次都上传到第三方服务器，它会比临时找在线转换站更适合长期使用。</p>
+<h2>常见问题</h2>
+<h3>Filee 免费吗？</h3>
+<p>目前 Filee 是免费开源软件，主体代码采用 MIT License。项目使用的第三方转换组件仍有各自的许可证，企业部署或二次分发时建议单独核对。</p>
+<h3>Filee 会上传文件吗？</h3>
+<p>根据官方说明，待转换文件在本机完成处理，不需要上传到第三方转换服务器。检查更新或下载可选转换引擎时仍然可能联网。</p>
+<h3>Filee 支持 macOS 和 Linux 吗？</h3>
+<p>支持，目前两者都属于 Preview。Windows 10/11 是正式支持平台。</p>
+<h3>Filee 能把 PDF 转成 Word 吗？</h3>
+<p>可以转成 DOCX，但复杂排版的恢复效果取决于源文件。扫描版 PDF 还涉及 OCR，不能简单理解成任何 PDF 都能完整恢复成可编辑 Word。</p>
+<p><strong>项目地址：</strong><a href="https://github.com/KnifeLemon/Filee" rel="noopener noreferrer" target="_blank">GitHub</a> · <a href="https://filee.sh/zh-cn/" rel="noopener noreferrer" target="_blank">官网</a> · <a href="https://filee.sh/zh-cn/formats/" rel="noopener noreferrer" target="_blank">格式目录</a> · <a href="https://github.com/KnifeLemon/Filee/blob/main/docs/ENGINES.md" rel="noopener noreferrer" target="_blank">转换引擎说明</a></p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/KnifeLemon/Filee/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11023" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程</div> </a> <a href="/posts/11025" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11019/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11019.webp" alt="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-22</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11575/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11575.webp" alt="Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-21</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11579/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11579.webp" alt="OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？ </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-02</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11584/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11584.webp" alt="OpenLogi Logitech Options+ 替代工具，开源管理罗技鼠标键盘" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> OpenLogi Logitech Options+ 替代工具，开源管理罗技鼠标键盘 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-08-25</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

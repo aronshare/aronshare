@@ -1,0 +1,53 @@
+{
+  "$ref": "#/definitions/posts",
+  "definitions": {
+    "posts": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "published_at": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string",
+          "default": "Aron "
+        },
+        "cover": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "repo_url": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "category",
+        "tags",
+        "published_at",
+        "summary"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

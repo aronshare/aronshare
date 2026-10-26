@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 禁止爬取未编译的临时构建或私有资源
+Disallow: /_astro/
+Disallow: /api/
+
+# 搜索引擎 Sitemap 索引入口
+Sitemap: https://aronshare.com/sitemap-index.xml
+Sitemap: https://aronshare.com/sitemap-0.xml

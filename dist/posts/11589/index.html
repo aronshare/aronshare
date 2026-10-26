@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 - Aron 资源库</title><meta name="description" content="Cursor AI 编程工具 现在已经不只是用 AI 生成和修改代码，还加入了 Coding Agent、Cloud Agents 和 Origin 代码托管。Origin 于 2026 年 8 月 17 日开始以 Early Beta 向付费用户分批开放，可以直接托管 Git 仓库，也可以同步现有 GitHub 项目。使用 GitHub Sync 不需要迁移原仓库，GitHub 仍然是主要代码源，不过 Issues、GitHub Actions 和 Secrets 目前不会..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11589/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 - Aron 资源库"><meta property="og:description" content="Cursor AI 编程工具 现在已经不只是用 AI 生成和修改代码，还加入了 Coding Agent、Cloud Agents 和 Origin 代码托管。Origin 于 2026 年 8 月 17 日开始以 Early Beta 向付费用户分批开放，可以直接托管 Git 仓库，也可以同步现有 GitHub 项目。使用 GitHub Sync 不需要迁移原仓库，GitHub 仍然是主要代码源，不过 Issues、GitHub Actions 和 Secrets 目前不会..."><meta property="og:url" content="https://aronshare.com/posts/11589/"><meta property="og:image" content="https://aronshare.com/covers/cover_11589.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 - Aron 资源库"><meta name="twitter:description" content="Cursor AI 编程工具 现在已经不只是用 AI 生成和修改代码，还加入了 Coding Agent、Cloud Agents 和 Origin 代码托管。Origin 于 2026 年 8 月 17 日开始以 Early Beta 向付费用户分批开放，可以直接托管 Git 仓库，也可以同步现有 GitHub 项目。使用 GitHub Sync 不需要迁移原仓库，GitHub 仍然是主要代码源，不过 Issues、GitHub Actions 和 Secrets 目前不会..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11589.webp"><meta name="twitter:image:alt" content="Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">AI 智能体与工具</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> APP </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> AI 智能体与工具 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Windows / macOS 通用 </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> Cursor AI 编程工具 现在已经不只是用 AI 生成和修改代码，还加入了 Coding Agent、Cloud Agents 和 Origin 代码托管。Origin 于 2026 年 8 月 17 日开始以 Early Beta 向付费用户分批开放，可以直接托管 Git 仓库，也可以同步现有 GitHub 项目。使用 GitHub Sync 不需要迁移原仓库，GitHub 仍然是主要代码源，不过 Issues、GitHub Actions 和 Secrets 目前不会... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>前往官方发布页</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11589.webp" alt="Cursor AI 编程工具 Agent、Origin 代码托管与 GitHub 同步 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 -->  </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<div style="background: #f4f6f8; border-left: 4px solid #6366f1; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+<p style="margin: 0;"><strong>Cursor AI 编程工具</strong>现在已经不只是用 AI 生成和修改代码，还加入了 Coding Agent、Cloud Agents 和 Origin 代码托管。Origin 于 2026 年 8 月 17 日开始以 Early Beta 向付费用户分批开放，可以直接托管 Git 仓库，也可以同步现有 GitHub 项目。使用 GitHub Sync 不需要迁移原仓库，GitHub 仍然是主要代码源，不过 Issues、GitHub Actions 和 Secrets 目前不会同步。</p>
+</div>
+<h2>Cursor AI 编程工具是什么？</h2>
+<p><strong>Cursor 是一款以 Coding Agent 为核心的 AI 编程工具</strong>，可以理解和搜索整个代码库、修改多个文件、运行终端命令、修复错误，并通过 Diff 和 Review 检查 Agent 完成的代码修改。</p>
+<p>它早期主要因为把 AI 代码生成、代码解释和编辑能力直接放进开发环境而受到关注，当时比较常见的使用方式，是在编辑器里调用 GPT 生成或修改代码。现在的 Cursor 已经从这种“AI 辅助写代码”扩展到了更完整的 Agent 开发工作流。</p>
+<p>遇到跨文件重构、Bug 修复或实现完整功能时，Agent 可以自己搜索相关代码、修改多个文件并运行命令，开发者不需要再逐段复制 AI 生成的代码。</p>
+<p>Cursor 桌面客户端支持 macOS、Windows 和 Linux，同时还把 Agent 能力延伸到了 CLI、Web、Cloud Agents，以及 GitHub、Slack、Linear 等开发与协作场景。</p>
+<h2>Cursor 的 Agent 现在能做什么？</h2>
+<p>Cursor Agent 可以围绕整个代码库完成搜索文件、读取上下文、跨文件修改代码、运行终端命令、检查结果和继续修复等任务。相比早期主要用于代码补全和聊天，现在的 Agent 更接近直接参与实际开发流程。</p>
+<h3>IDE 内的 Coding Agent</h3>
+<p>本地 Coding Agent 直接运行在当前开发项目中，可以搜索代码库、读取相关文件、修改多个文件，并执行终端命令。</p>
+<p>例如一个功能同时涉及前端组件、API 和类型定义时，Agent 可以自己寻找相关文件并完成修改。修改结束后，开发者可以通过 Review 和 Diff 查看具体变化，再决定接受或拒绝这些改动。</p>
+<p>这种方式比较适合跨文件重构、Bug 修复、添加功能和理解陌生代码库，而不只是生成单独的一段代码。</p>
+<h3>Cloud Agents</h3>
+<p>Cloud Agents 则把开发任务放到远程环境中执行。Agent 可以准备开发环境、读取仓库、修改代码、运行测试，并根据运行结果继续调整。</p>
+<p>它更适合耗时较长或可以独立完成的任务，例如修复明确的 Bug、补测试、处理 CI 问题，或者同时启动多个开发任务。</p>
+<p>Cursor 还支持把本地任务交给 Cloud Agent 继续执行。开发者可以先在本地确认需求和实现方向，再让云端 Agent 继续处理，不需要一直占用当前工作区。</p>
+<h2>Cursor Origin 是什么？</h2>
+<p><strong>Cursor Origin</strong> 是 Cursor 在 2026 年 8 月推出的代码托管功能，目前处于 <strong>Early Beta</strong>。它让开发者可以直接在 Cursor 中创建和托管 Git Repository，并管理 Pull Request。</p>
+<p>Cursor 将 Origin 定义为自己的 <strong>Git Forge</strong>，也就是一套 Git 代码托管与协作能力。过去 Cursor 主要围绕代码编辑和 Agent 工作，现在 Origin 又把 Repository、Pull Request 和代码协作加入了同一套开发环境。</p>
+<p>Origin Early Beta 当前支持：</p>
+<ul>
+<li>创建由 Cursor Origin 托管的 Git Repository；</li>
+<li>通过标准 Git 执行 clone、push 和 pull；</li>
+<li>浏览和搜索仓库中的代码；</li>
+<li>创建、查看、审查和合并 Pull Request；</li>
+<li>把已有 GitHub Repository 同步到 Origin；</li>
+<li>让 Cloud Agents 和自动化任务连接 Origin Repository；</li>
+<li>连接 Vercel、Depot 和 Buildkite 等第三方开发服务。</li>
+</ul>
+<p>使用 Origin 后，代码仓库、Pull Request 和 Cursor Agent 可以出现在同一套工作环境中。开发者浏览某个 Repository 时，可以直接询问相关代码，也可以让 Agent 修改文件、更新 PR 或 Push 新的 Branch。</p>
+<p>不过 Origin 目前仍处于 Early Beta，在功能成熟度、第三方生态和团队协作能力上，还不能简单等同于 GitHub 或 GitLab。对于已经使用 Cursor Agent 的开发者，它现阶段更直接的价值，是减少代码编辑、仓库管理和 Pull Request 之间的工具切换。</p>
+<h2>Cursor Origin 和 GitHub 有什么区别？</h2>
+<p><strong>Cursor Origin 可以直接托管 Git 仓库，也可以同步现有的 GitHub Repository。</strong>两种方式最大的区别是：Origin 原生 Repo 由 Cursor 托管，而 GitHub Sync Repo 仍然以 GitHub 作为原始代码仓库。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>代码托管位置</th>
+<th>主要工作方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin 原生 Repo</td>
+<td>Cursor Origin</td>
+<td>直接 clone、push、pull，并在 Cursor 中处理 Pull Request</td>
+</tr>
+<tr>
+<td>GitHub Sync Repo</td>
+<td>GitHub</td>
+<td>同步到 Origin，用于代码浏览、搜索、Agent 和 PR 工作</td>
+</tr>
+</tbody>
+</table>
+<h3>GitHub Sync 会同步哪些内容？</h3>
+<p>使用 GitHub Sync 前，需要先连接 Cursor GitHub App，而且开启同步的用户需要拥有对应 Repository 的 GitHub Admin 权限。</p>
+<p>Origin 会同步 Git 历史、Branch、Tag、代码和 Pull Request，但 <strong>GitHub Issues、GitHub Actions workflows 和 Secrets 不会同步</strong>。CI 配置和 Issues 仍然需要继续在 GitHub 中管理。</p>
+<p>同步后的 Repository 仍以 GitHub 为 Source of Truth。开发者可以从 Origin 浏览、搜索和 Pull 代码，但 Push 会继续提交到原来的 GitHub Repository。</p>
+<p>如果创建的是 <strong>Origin 原生 Repository</strong>，代码直接由 Cursor 托管，可以在 Origin 中完成 Git 操作以及 Pull Request 的创建、审查和合并。</p>
+<p>使用 <strong>GitHub Sync</strong> 时，Cursor 会把现有 GitHub Repository 同步到 Origin，但 <strong>GitHub 仍然是项目的 Source of Truth</strong>。开发者可以在 Origin 中浏览、搜索和 Pull 同步后的代码，而 Push 仍然提交到原来的 GitHub Repository。</p>
+<p>Pull Request 的评论和 Review 也可以在两边同步。在 Cursor 中给 GitHub PR 留下的评论会同步回 GitHub；GitHub 上的回复和 Reaction 也会显示在 Cursor 中。GitHub 上分配给你的 Review 请求，同样可以直接在 Cursor 中查看，并完成代码审查或 Merge。</p>
+<p>所以，使用 GitHub Sync 并不需要迁移原来的 GitHub 仓库。对于已经在 GitHub 上维护项目的开发者，可以继续把 GitHub 作为代码托管和 Source of Truth，同时在 Cursor 中使用 Agent、代码搜索和 Pull Request Review。</p>
+<h2>Cursor Origin 如何配合 Agent、PR 和 CI 工作流？</h2>
+<p>Origin 不只是增加了一个存放 Git Repository 的地方，它还把 Cursor 原有的 Agent 能力和 Repository 工作流连接了起来。</p>
+<p>把 Origin 接入 Cursor 现有的 Agent、Pull Request 和 CI 工具后，可以覆盖从代码修改到 Review 的更多开发环节：</p>
+<p><strong>理解代码 → 修改代码 → 创建 Branch → Pull Request → Review → 测试 → Merge</strong></p>
+<p>在 Origin Repository 中，Agent 可以读取当前代码上下文、修改文件、更新 Pull Request 或 Push Branch。PR 页面则可以查看提交记录、检查结果、Diff 和评论。</p>
+<p>Origin 目前还提供 Vercel、Depot 和 Buildkite 集成。</p>
+<p>连接 Vercel 后，可以为 Pull Request 创建 Preview Deployment；Depot 和 Buildkite 则可以参与 CI 流程，其中 Buildkite 还支持自己的 Pipeline。</p>
+<p>这些能力让 Cursor 开始覆盖代码编辑之外的更多开发环节，但 Origin 本身还不是一套独立完整的 CI/CD 平台。实际构建、测试和部署仍然可以继续使用现有第三方服务。</p>
+<h2>Cursor Cloud Agents 和本地 Agent 有什么区别？</h2>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>本地 Agent</th>
+<th>Cloud Agents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行位置</td>
+<td>当前本地开发环境</td>
+<td>远程开发环境</td>
+</tr>
+<tr>
+<td>适合任务</td>
+<td>即时修改、调试、代码理解</td>
+<td>耗时任务、并行任务、测试和 PR</td>
+</tr>
+<tr>
+<td>是否占用本地工作区</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>运行测试</td>
+<td>使用本地环境</td>
+<td>可以在配置好的远程环境执行</td>
+</tr>
+<tr>
+<td>适合并行处理</td>
+<td>相对有限</td>
+<td>更适合多个任务同时运行</td>
+</tr>
+</tbody>
+</table>
+<p>本地 Agent 更适合开发者正在电脑前工作时使用，可以随时查看代码变化、终端输出和 Diff。</p>
+<p>Cloud Agents 则更适合相对独立或耗时较长的任务。每个 Cloud Agent 可以拥有自己的开发环境和 Branch，在远程完成代码修改、测试和验证，再把结果交给开发者 Review。</p>
+<p>常见场景包括：</p>
+<ul>
+<li>修复明确的 Bug；</li>
+<li>增加或补充测试；</li>
+<li>处理 CI 报错；</li>
+<li>实现相对独立的功能；</li>
+<li>调查陌生代码库；</li>
+<li>同时运行多个开发任务。</li>
+</ul>
+<p>Cursor 还提供 Self-hosted Cloud Agents，可以把代码库、工具执行和构建过程放在企业自己的基础设施中。</p>
+<p>不过它并不是完全本地运行的 Cursor Agent。Agent 的推理和规划仍由 Cursor 的云端 Agent harness 处理，再把需要执行的 Tool Calls 发给企业环境中的 Worker。对于需要把源码、构建产物和内部网络资源留在自有环境中的团队，这种模式比普通 Cloud Agents 提供了更多控制。</p>
+<h2>Cursor 支持哪些 AI 模型？</h2>
+<p>Cursor 支持来自 <strong>OpenAI、Anthropic、Google、xAI</strong> 等模型提供商的 AI 模型，同时也提供 Cursor 自己的模型和 <strong>Auto</strong> 自动模型选择功能。</p>
+<p>开发者可以根据代码生成、复杂推理、上下文长度和使用成本等需求切换不同模型。由于 Cursor 支持的模型会持续调整，具体可用型号和上下文窗口建议以客户端和官方模型列表为准。</p>
+<h3>Cursor 可以使用自己的 API Key 吗？</h3>
+<p><strong>可以。</strong>Cursor 目前支持配置 OpenAI、Anthropic、Google、Azure OpenAI 和 AWS Bedrock 等提供商的 API Key。</p>
+<p>不过，使用自己的 API Key 并不代表 Cursor 的所有 AI 功能都会直接调用这个 Key。BYOK 主要用于部分标准 Chat 模型，Tab Completion 等依赖 Cursor 专用模型的功能仍然会使用 Cursor 自己的模型和基础设施。</p>
+<p>使用自己的 API Key 也不代表请求会直接发给模型厂商。Cursor 官方说明，最终 Prompt 仍会先在 Cursor 后端完成构建，再交给对应的模型处理。</p>
+<p>如果主要目的是自己管理模型 API Key，使用前最好确认具体模型是否支持 BYOK，以及哪些 Cursor 功能仍然依赖官方模型和服务。</p>
+<h2>Cursor 免费吗？价格多少？</h2>
+<p><strong>Cursor 提供 Hobby 免费计划</strong>，无需信用卡即可使用，但 Agent 请求和部分高级功能会受到额度限制。</p>
+<p>截至 2026 年 8 月，Cursor 的 Individual Pro 月付价格为 <strong>20 美元/月</strong>起，Teams Standard 为 <strong>40 美元/用户/月</strong>。个人用户还可以选择 Pro+、Ultra，团队和企业则有更高等级的套餐。</p>
+<p>不同套餐主要区别在 Agent 使用额度、模型调用和团队管理功能。月付与年付的计费方式也不同，具体费用可以在 Cursor Pricing 页面查看。</p>
+<h3>Cursor Origin 免费计划可以使用吗？</h3>
+<p><strong>目前不可以。</strong>Cursor Origin 当前面向 Pro、Teams 和 Enterprise 等付费计划开放，Hobby 免费计划暂不包含 Origin Code Storage。团队如果仍在使用 Legacy Privacy Mode，目前也无法开启 Origin，需要先切换到新的 Privacy Mode。</p>
+<p>Origin 于 2026 年 8 月 17 日以 Early Beta 形式开始向付费用户分批开放，所以已经订阅付费计划的用户，也可能暂时还看不到 Origin 入口。Enterprise 管理员还可以在组织设置中关闭这项功能。</p>
+<h2>Cursor 的代码和数据隐私怎么样？</h2>
+<p>Cursor 并不是一款完全离线运行的代码编辑器。模型调用、代码库索引和 Cloud Agents 等功能都会涉及 Cursor 的云端服务，因此项目代码在不同功能下会有不同的数据处理方式。</p>
+<p>Cursor 提供 <strong>Privacy Mode</strong>。开启后，Cursor 表示不会使用对应的代码和 Prompt 数据训练自己的模型，并会限制模型提供商将这些数据用于训练。</p>
+<p>Origin Repository 会继承所属个人或团队 Namespace 的 Privacy Mode 设置，所以同一个团队下的 Origin 仓库会沿用对应的隐私配置。</p>
+<p>Privacy Mode 主要控制数据是否用于模型训练，并不意味着所有代码都只在本地处理。例如使用代码库索引时，Cursor 会上传代码片段计算 Embedding；计算 Embedding 使用的明文代码不会长期保存，但 Embedding、Hash，以及混淆后的文件路径等索引元数据可能继续保留。</p>
+<p>Cloud Agents 的情况也不同于本地 Agent。任务会在远程开发环境中运行，因此代码、依赖和 Agent 执行过程需要进入对应的云端环境。</p>
+<p>如果是公司内部仓库、生产代码或包含敏感配置的项目，更值得关注的是具体用了哪些功能：是否开启代码索引、是否使用 Cloud Agents、Agent 能访问哪些网络和命令，以及第三方模型会接收到哪些内容。</p>
+<h2>Cursor AI 编程工具适合哪些开发者？</h2>
+<p>如果平时已经大量使用 AI 写代码，而且希望 Agent 能直接读取项目、修改文件、运行命令和处理 Pull Request，Cursor 的优势会更明显。</p>
+<ul>
+<li><strong>经常处理大型代码库的开发者：</strong>Agent 可以理解项目上下文，并完成跨文件搜索和修改；</li>
+<li><strong>独立开发者：</strong>可以把代码修改、测试和部分 PR 工作放进同一套开发环境；</li>
+<li><strong>已经使用 GitHub 的开发者：</strong>可以通过 GitHub Sync 接入 Cursor，不需要先迁移原来的 Repository；</li>
+<li><strong>同时维护多个项目的开发者或团队：</strong>可以把部分独立任务交给 Cloud Agents 并行处理；</li>
+<li><strong>希望把 AI 接入开发流程的团队：</strong>可以继续连接 GitHub、PR Review、CI 和现有第三方服务；</li>
+<li><strong>有内部代码环境要求的企业：</strong>还可以评估 Self-hosted Cloud Agents 和企业权限管理功能。</li>
+</ul>
+<p>如果只是偶尔让 AI 解释代码、生成一个函数或修改简单脚本，普通 AI 聊天工具已经能完成不少工作，Cursor 的 Agent、Cloud Agents 和 Repository 工作流不一定都用得上。</p>
+<p>已经有成熟 GitHub、GitLab 和 CI/CD 流程的团队，也不需要因为 Origin 上线就迁移现有仓库。使用 GitHub Sync 时，GitHub 仍然可以作为 Source of Truth，同时把 Cursor Agent、代码搜索和 Pull Request Review 接入原来的开发流程。</p>
+<h2>现在的 Cursor 还是 AI 代码编辑器吗？</h2>
+<p>Cursor 当然仍然具备 AI 代码编辑器的核心能力，但现在只用“AI 代码编辑器”来概括它已经不太准确。它的重点正在转向 <strong>Coding Agent、Cloud Agents 和围绕代码仓库展开的开发工作流</strong>。</p>
+<p>Origin Code Hosting 上线后，Cursor 又加入了 Git Repository 托管、Pull Request 和 GitHub Sync。不过 Origin 目前仍处于 Early Beta，更适合看作 Cursor Agent 工作流的延伸，而不是成熟的 GitHub 或 GitLab 替代方案。</p>
+<p>更准确地说，<strong>Cursor 现在是一款以 Agent 为核心的 AI 编程工具</strong>：AI 不再只是生成几段代码，而是开始参与代码搜索、跨文件修改、测试、Pull Request、Review 和远程开发任务。对于已经大量使用 AI 编程的开发者，这也是 Cursor 和早期版本最大的区别。</p>
+<h2>Cursor 官方网站与相关资料</h2>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; margin-bottom: 36px;">
+<p><a href="https://cursor.com/" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 10px; background: #e3f2fd; font-weight: bold; color: #0d47a1; text-decoration: none; border: 1px solid #bbdefb;" target="_blank"><br>
+🌐 Cursor 官方网站<br>
+<span style="display: block; font-size: 13px; color: #555; font-weight: 400; margin-top: 4px;">查看 Cursor 最新功能和客户端下载入口。</span><br>
+</a></p>
+<p><a href="https://cursor.com/docs" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+📖 Cursor 官方文档<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">Agent、Cloud Agents、模型、CLI 与集成功能文档。</span><br>
+</a></p>
+<p><a href="https://cursor.com/docs/origin" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🗂 Cursor Origin 文档<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">Origin Repository、GitHub Sync、Pull Request 与 Early Beta 使用说明。</span><br>
+</a></p>
+<p><a href="https://cursor.com/changelog/origin-code-hosting" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+📰 Origin Code Hosting 发布说明<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看 2026 年 8 月 17 日 Origin Code Hosting 更新内容。</span><br>
+</a></p>
+<p><a href="https://cursor.com/pricing" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+💳 Cursor 官方价格<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看 Individual、Teams 与 Enterprise 当前套餐和计费方式。</span><br>
+</a></p>
+<p><a href="https://cursor.com/security" rel="noopener noreferrer" style="display: block; padding: 14px 18px; border-radius: 8px; background: #f3f4f6; font-weight: 600; color: #111827; text-decoration: none;" target="_blank"><br>
+🔐 Cursor Security<br>
+<span style="display: block; font-size: 13px; color: #6b7280; font-weight: 400; margin-top: 4px;">查看 Privacy Mode、安全控制与数据处理相关说明。</span><br>
+</a></p>
+</div>
+<p style="font-size: 13px; color: #666;">本文根据 Cursor 官方文档、Pricing、Security 与 2026 年 8 月 17 日 Origin Code Hosting 更新说明整理。Origin 目前仍处于 Early Beta，功能、开放范围和套餐可能继续调整，实际情况以 Cursor 官方页面为准。</p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">   <!-- 通用官方发布 / 官网文档通道 --> <a href="https://aronshare.com" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-sky-500 bg-slate-50/60 hover:bg-white hover:shadow-md transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">官网</span> <div> <div class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 transition-colors">
+项目官方网站 / 官方发布渠道
+</div> <div class="text-[11px] text-slate-400">一手原作者主页与在线体验</div> </div> </div> <span class="text-xs font-bold text-sky-600 group-hover:translate-x-0.5 transition-transform">
+访问官方 →
+</span> </a> </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11587" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">同花顺金融数据API A股数据接口支持 MCP 和 AI Agent</div> </a> <a href="/posts/11588" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Apple 欧盟 App Store 新规 CTF 取消，5% CTC 与佣金怎么算？</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11025/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11025.webp" alt="默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-13</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11027/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11027.webp" alt="录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-10</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11032/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11032.webp" alt="Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11439/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11439.webp" alt="Inpaint 图片去水印、删除人物和多余物体的修图工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> AI 智能体与工具 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Inpaint 图片去水印、删除人物和多余物体的修图工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-29</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11019" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-22</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>

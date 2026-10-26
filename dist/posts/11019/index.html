@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"><title>Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 - Aron 资源库</title><meta name="description" content="如果你平时会把网站文件、静态资源上传到 S3，再通过 CloudFront 做分发，更新一次内容通常不只是重新传文件。Cache-Control、Content-Type 这些 Header 要检查，缓存没及时更新时，还得再去 CloudFront 清一次。 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。它把 S3 文件管理、上传 Header Rules 和 CloudFront Invalidation 放到了同一..."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://aronshare.com/posts/11019/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="AronShare"><meta name="theme-color" content="#0284c7"><!-- 方案 3 专属字体引入: Plus Jakarta Sans (英文/数字) + Noto Sans SC 思源黑体 (中文) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><!-- Open Graph (Facebook, Telegram, 微信, Slack) --><meta property="og:type" content="article"><meta property="og:site_name" content="AronShare 资源库"><meta property="og:title" content="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 - Aron 资源库"><meta property="og:description" content="如果你平时会把网站文件、静态资源上传到 S3，再通过 CloudFront 做分发，更新一次内容通常不只是重新传文件。Cache-Control、Content-Type 这些 Header 要检查，缓存没及时更新时，还得再去 CloudFront 清一次。 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。它把 S3 文件管理、上传 Header Rules 和 CloudFront Invalidation 放到了同一..."><meta property="og:url" content="https://aronshare.com/posts/11019/"><meta property="og:image" content="https://aronshare.com/covers/cover_11019.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="og:image:alt" content="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 - Aron 资源库"><meta property="og:locale" content="zh_CN"><!-- Twitter / X Card (支持超大图 summary_large_image) --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@aronhouyu"><meta name="twitter:creator" content="@aronhouyu"><meta name="twitter:title" content="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 - Aron 资源库"><meta name="twitter:description" content="如果你平时会把网站文件、静态资源上传到 S3，再通过 CloudFront 做分发，更新一次内容通常不只是重新传文件。Cache-Control、Content-Type 这些 Header 要检查，缓存没及时更新时，还得再去 CloudFront 清一次。 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。它把 S3 文件管理、上传 Header Rules 和 CloudFront Invalidation 放到了同一..."><meta name="twitter:image" content="https://aronshare.com/covers/cover_11019.webp"><meta name="twitter:image:alt" content="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 - Aron 资源库"><link rel="stylesheet" href="/_astro/_category_.TdRHHmj4.css"></head> <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white pt-safe pb-safe pl-safe pr-safe"> <!-- 顶部统一导航栏 --> <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4"> <!-- 品牌 Logo (直接采用原生内联 SVG，零网络请求、绝对不裂开、极速秒显) --> <a href="/" class="flex items-center gap-2.5 group shrink-0"> <div class="w-9 h-9 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center shrink-0"> <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <defs> <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#0284c7"></stop> <stop offset="50%" stop-color="#2563eb"></stop> <stop offset="100%" stop-color="#4f46e5"></stop> </linearGradient> <linearGradient id="navLogoShine" x1="0%" y1="0%" x2="0%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop> <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop> </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="url(#navLogoGrad)"></rect> <rect width="512" height="256" rx="128" fill="url(#navLogoShine)"></rect> <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.2" stroke-dasharray="24 16"></circle> <g> <path d="M 256 96 L 396 384 L 324 384 L 292 316 L 220 316 L 188 384 L 116 384 Z M 256 182 L 234 256 L 278 256 Z" fill="#ffffff"></path> <circle cx="256" cy="316" r="22" fill="#38bdf8"></circle> <circle cx="256" cy="316" r="12" fill="#ffffff"></circle> </g> </svg> </div> <div class="flex flex-col"> <span class="font-extrabold text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">AronShare</span> <span class="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">精选开源与实用资源库</span> </div> </a> <!-- 桌面端横向主导航 --> <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold text-slate-700"> <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">首页</a> <a href="/category/ai/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">AI 智能工具</a> <a href="/category/open-source/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">开源自托管</a> <a href="/category/apps/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">平台应用</a> <a href="/category/online-tools/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">免安装在线工具</a> <a href="/category/courses-growth/" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-sky-600 transition-colors">教程与搞钱</a> </nav> <!-- 右侧动作栏 --> <div class="flex items-center space-x-2 sm:space-x-3 shrink-0"> <button id="nav-search-btn" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-sky-600 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"> <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> <span>搜索</span> </button> <a href="https://t.me/" target="_blank" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold hover:bg-sky-100 transition-all shadow-xs">
+交流社群
+</a> <!-- 移动端菜单按钮 --> <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 bg-white text-slate-600 hover:text-slate-900 flex items-center justify-center focus:outline-none cursor-pointer"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- 移动端折叠菜单 --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-4 space-y-1 text-sm font-semibold text-slate-700"> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">首页</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">AI 智能工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">开源自托管</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">平台应用</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">免安装在线工具</a> <a href="/" class="block px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-sky-600">出海赚钱实战</a> </div> </header> <!-- 页面核心主体 --> <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">   <nav class="flex items-center gap-2 text-xs text-slate-500 mb-5"> <a href="/" class="hover:text-sky-600 transition-colors">首页</a> <span>/</span> <span class="text-sky-600 font-medium">开源自托管项目</span> <span>/</span> <span class="text-slate-700 truncate max-w-xs">Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新</span> </nav>  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <!-- 左侧主内容区 --> <main class="lg:col-span-8 space-y-6"> <!-- 1. 软件身份卡与档案舱 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs"> <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5"> <!-- 软件图标 --> <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-200 flex items-center justify-center text-xl sm:text-2xl font-black text-sky-600 shadow-inner shrink-0"> DOCKER </div> <!-- 软件核心信息 --> <div class="flex-1 min-w-0"> <div class="flex flex-wrap items-center gap-2 mb-1.5"> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-100"> 开源自托管项目 </span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+官方安全认证
+</span> <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200"> Docker / Linux </span> </div> <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug"> Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 </h1> <p class="text-xs sm:text-sm text-slate-500 mt-1 line-clamp-2 leading-relaxed"> 如果你平时会把网站文件、静态资源上传到 S3，再通过 CloudFront 做分发，更新一次内容通常不只是重新传文件。Cache-Control、Content-Type 这些 Header 要检查，缓存没及时更新时，还得再去 CloudFront 清一次。 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。它把 S3 文件管理、上传 Header Rules 和 CloudFront Invalidation 放到了同一... </p> </div> <!-- 顶部直降下载大按钮 --> <div class="w-full sm:w-auto shrink-0 mt-2 sm:mt-0"> <a href="#download-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-600/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"> <span>查看 GitHub 源码 / Releases</span> </a> </div> </div> <!-- 详情页专属官方高清封面 (带 aronshare.com 专属水印) --> <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-900 aspect-16/9 relative group"> <img src="/covers/cover_11019.webp" alt="Hoistbay 免费开源的 S3 客户端，支持 CloudFront 缓存刷新 官方界面与功能展示" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500" loading="eager"> </div> <!-- 首屏网盘直达卡片：仅在真正有网盘资源时展示 --> <div class="mt-6 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4"> <div class="flex items-center gap-3"> <div class="w-8 h-8 rounded-lg bg-white/20 text-white font-bold text-xs flex items-center justify-center shrink-0">
+开源
+</div> <div> <div class="text-xs sm:text-sm font-bold text-white">该项目为纯开源工具，提供 GitHub 源码与官方 Releases</div> <div class="text-[11px] text-slate-400">无需繁琐网盘下载，直连官方代码仓或下载预编译二进制安装包</div> </div> </div> <div class="flex items-center gap-2 w-full sm:w-auto shrink-0"> <a href="https://github.com/mekartikshah/hoistbay" target="_blank" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs text-center transition-all cursor-pointer shadow-sm">
+前往 GitHub 仓库
+</a> <a href="https://github.com/mekartikshah/hoistbay/releases" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-bold text-xs text-center transition-all cursor-pointer shadow-xs">
+下载 Releases 安装包 ↓
+</a> </div> </div> </div> <!-- 2. 精选赞助位 --> <div class="p-4 rounded-xl bg-gradient-to-r from-sky-500/5 via-indigo-500/5 to-purple-500/5 border border-sky-100 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 text-xs"> <span class="px-2 py-0.5 rounded bg-sky-600 text-white font-bold text-[10px]">精选服务</span> <span class="text-slate-700 font-medium">高速海外 VPS 云服务器 (CN2 GIA / 年付百元 / 解锁流媒体与Docker自托管)</span> </div> <a href="#" class="shrink-0 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-sky-600 font-bold text-xs hover:bg-sky-50 transition-colors shadow-2xs">
+查看推荐 →
+</a> </div> <!-- 3. 正文评测与功能说明 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs"> <h2 class="text-base sm:text-lg font-black text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2"> <span class="w-2 h-4 bg-sky-500 rounded-full"></span>
+工具核心亮点与实际体验
+</h2> <!-- Markdown 渲染区 --> <div class="prose prose-slate max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-h2:text-lg sm:prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base sm:prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-a:text-sky-600 prose-a:font-semibold hover:prose-a:underline prose-img:rounded-2xl prose-img:border prose-img:border-slate-200 prose-img:shadow-sm prose-img:w-full prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-slate-200 prose-table:my-6 prose-th:bg-slate-50 prose-th:border prose-th:border-slate-200 prose-th:text-slate-800 prose-th:p-3 prose-th:text-xs sm:prose-th:text-sm prose-th:font-bold prose-td:border prose-td:border-slate-200 prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:text-slate-600 prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-xl"> <h3 id="软件规格与核心档案">软件规格与核心档案</h3>
+<ul>
+<li><strong>授权性质</strong>：绿色免费 / 开源纯净</li>
+<li><strong>适用系统</strong>：Windows / macOS / 全平台通用</li>
+<li><strong>安全核验</strong>：无捆绑 / 无广告 / 沙箱检测通过</li>
+</ul>
+<p>如果你平时会把网站文件、静态资源上传到 S3，再通过 CloudFront 做分发，更新一次内容通常不只是重新传文件。Cache-Control、Content-Type 这些 Header 要检查，缓存没及时更新时，还得再去 CloudFront 清一次。</p>
+<p><strong><a href="https://hoistbay.app/" rel="noopener noreferrer" target="_blank">Hoistbay</a></strong> 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。它把 S3 文件管理、上传 Header Rules 和 CloudFront Invalidation 放到了同一个桌面应用里，项目采用 MIT License。</p>
+<h2>Hoistbay 这个 S3 客户端主要做什么？</h2>
+<p>Hoistbay 作者在 <a href="https://www.producthunt.com/products/hoistbay" rel="noopener noreferrer" target="_blank">Product Hunt</a> 介绍项目时提到，自己平时用 S3 和 CloudFront，最烦的就是几件事来回做：文件传上去以后还要检查 Cache-Control、Content-Type、Content-Encoding；想下载整个文件夹时 AWS Console 不够方便；文件更新完，还得再打开 CloudFront 清缓存。</p>
+<p>Hoistbay 把这些操作放到了一起。文件上传时可以自动套用 Header Rules，整个文件夹可以直接上传和下载，更新完成后也能在应用里创建 CloudFront Invalidation。</p>
+<p>实际操作下来，大致就是这样一条流程：</p>
+<p><strong>上传网站文件 → 自动应用 Header → 检查对象信息 → 需要时清理 CloudFront 缓存</strong></p>
+<p>如果网站或项目本来就在用 S3 + CloudFront，这几个功能基本都能对得上日常操作。静态网站、前端项目、Unity WebGL、字体和其他静态资源都属于比较典型的使用场景。</p>
+<h2>Header Rules、CloudFront 和文件管理怎么用？</h2>
+<h3>按文件类型自动应用 Cache-Control 等 Header</h3>
+<p>Hoistbay 可以针对不同 Bucket 设置 <strong>Header Rules</strong>，按照文件名 Pattern 给上传对象自动添加 HTTP Header。</p>
+<p>比如 <code>*.js</code>、<code>*.css</code> 可以设置较长的 <code>Cache-Control</code>，<code>*.html</code> 则可以使用 <code>no-cache</code>。像 <code>*.wasm.gz</code> 这类压缩文件，也可以根据规则设置 Content-Type、Content-Encoding 等 Header。</p>
+<p>规则设置好以后，后面上传匹配的文件会自动应用，不需要每次再打开对象属性修改。</p>
+<p>这对静态网站比较实用。带内容 Hash 的 JS、CSS 通常可以使用更长的缓存时间，而 HTML 往往需要更快获取新版本；gzip 压缩文件如果 Content-Encoding 或 Content-Type 设置错了，浏览器也可能无法正常处理。</p>
+<p>具体规则还是要按照自己的发布方式来写，Hoistbay 只负责按设定执行，并不会自动判断什么缓存策略最适合你的项目。</p>
+<h3>直接创建 CloudFront Invalidation</h3>
+<p>如果 S3 Bucket 后面接了 CloudFront，源文件已经换成新版本，并不代表边缘节点里的旧缓存马上消失。</p>
+<p>Hoistbay 可以直接查看 CloudFront Distribution，对 <code>/*</code> 或指定 Path 创建 <strong>CloudFront Invalidation</strong>，并跟踪执行状态。这样换完文件以后，不需要再单独打开 AWS Console 找 Distribution。</p>
+<p>AWS 当前每个账号每月前 <strong>1,000 个 Invalidation Paths 免费</strong>，超过以后才按 Path 收费。使用 <code>*</code> 通配符时，即使实际清理了大量文件，也只按一个 Path 计算。</p>
+<p>不过频繁更新的静态资源，还是更适合使用带版本号或内容 Hash 的文件名，减少主动清缓存的次数。Hoistbay 更适合在确实需要手动 Invalidation 时，把这一步顺手做掉。</p>
+<h3>整个文件夹上传下载，多账号也能切换</h3>
+<p>文件管理方面，Hoistbay 支持拖入单个文件或多个文件夹，并保留原来的目录结构，也可以直接下载整个文件夹。</p>
+<p>Rename、Move、Delete 和跨 Bucket、跨 Region Copy 都已经覆盖，超过 1,000 个 Object 的目录也支持继续分页浏览。</p>
+<p>它还支持保存多个 AWS Profile，在不同账号和 Region 之间切换，并支持 Session Token。Bucket Region 会自动识别，不需要每次手动选择。</p>
+<p>Object Inspector 可以查看 Properties、HTTP Headers、Tags、Versions 和 <code>x-amz-meta-*</code> Metadata，部分 Metadata 可以直接修改。遇到 Content-Type 或其他 Header 配错的情况，不一定非要重新上传文件。</p>
+<h2>Hoistbay 和其他 S3 客户端有什么不同？</h2>
+<p>S3 图形客户端并不少。Hoistbay 和这些工具的区别，主要还是看你平时拿 S3 来做什么。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>更适合的场景</th>
+<th>主要区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hoistbay</strong></td>
+<td>Amazon S3 + CloudFront 日常维护</td>
+<td>把 Header Rules、S3 文件管理和 CloudFront Invalidation 放在一起</td>
+</tr>
+<tr>
+<td><strong>CS Browser（原 S3 Browser）</strong></td>
+<td>Windows 上进行更完整的 S3 管理</td>
+<td>功能更重，支持 S3-compatible Storage、CloudFront Manager、Folder Sync 等</td>
+</tr>
+<tr>
+<td><strong>Cyberduck</strong></td>
+<td>同时连接多种服务器和云存储</td>
+<td>支持 FTP、SFTP、WebDAV、S3 等多种协议，覆盖范围更广</td>
+</tr>
+<tr>
+<td><strong>Brows3</strong></td>
+<td>S3 / S3-compatible Storage</td>
+<td>支持 Amazon S3、MinIO、Cloudflare R2、Wasabi 等，更偏通用 S3 Browser</td>
+</tr>
+<tr>
+<td><strong>AWS Console</strong></td>
+<td>完整 AWS 配置和管理</td>
+<td>能力最完整，但日常换几个文件、清一次缓存时操作比较重</td>
+</tr>
+<tr>
+<td><strong>AWS CLI / CI</strong></td>
+<td>自动化和高频部署</td>
+<td>更适合脚本和流水线，已经自动化的项目不太需要额外 GUI</td>
+</tr>
+</tbody>
+</table>
+<p>Hoistbay 和这些工具最大的区别，是把 Amazon S3 文件管理、上传 Header 和 CloudFront Invalidation 放在了一条比较集中的流程里。</p>
+<p>它的功能范围没有 CS Browser 或 AWS Console 那么大，但对于仍然会手动维护 S3 + CloudFront 的用户，反而少了不少平时用不到的东西。</p>
+<h2>Hoistbay 需要哪些 AWS IAM 权限？</h2>
+<p>Hoistbay 需要 AWS Credential 才能访问 Bucket，所以权限配置比界面漂不漂亮更值得看。</p>
+<p>项目给出了 Least Privilege 的权限参考，并不要求直接给 AdministratorAccess。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>主要 IAM 权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看 Bucket 和文件</td>
+<td><code>s3:ListAllMyBuckets</code><br>
+<code>s3:GetBucketLocation</code><br>
+<code>s3:ListBucket</code><br>
+<code>s3:GetObject</code></td>
+</tr>
+<tr>
+<td>上传文件</td>
+<td><code>s3:PutObject</code></td>
+</tr>
+<tr>
+<td>删除文件</td>
+<td><code>s3:DeleteObject</code></td>
+</tr>
+<tr>
+<td>CloudFront Invalidation</td>
+<td><code>cloudfront:ListDistributions</code><br>
+<code>cloudfront:CreateInvalidation</code><br>
+<code>cloudfront:GetInvalidation</code></td>
+</tr>
+</tbody>
+</table>
+<p>实际使用时，建议单独准备一套权限受限的 IAM Credential，并把 Resource 继续限制到真正需要管理的 Bucket。</p>
+<p>如果只是查看文件，就不用给 <code>DeleteObject</code>；只准备拿一个测试 Bucket 试用，也没必要顺手把生产环境里的其他资源一起开放。</p>
+<h2>AWS 密钥会存到哪里？</h2>
+<p>Hoistbay 需要填写 AWS Credential 才能访问 S3。按项目方的说法，这些密钥不会保存在 Hoistbay 自己的服务器上，而是放在系统自带的安全存储里：macOS 使用 Keychain，Windows 使用 Credential Manager。</p>
+<p>项目也没有自建 Backend 和 Telemetry，操作时直接连接 AWS 的服务端点。</p>
+<p>不过这不代表可以放心给它一套高权限账号。Hoistbay 毕竟需要拿着你的 Credential 去操作 S3 和 CloudFront，实际使用时更重要的还是<strong>单独准备一套最小权限 IAM Credential</strong>，只开放真正需要管理的 Bucket 和操作权限。</p>
+<p>本文没有对 Hoistbay 的全部源码和网络请求做独立审计。如果要接生产环境，建议先从测试 Bucket 开始。</p>
+<h2>多账号可以切换，但 AWS SSO 目前没有明确支持</h2>
+<p>Hoistbay 可以保存多套 AWS 账号配置，在不同账号和 Region 之间切换，也支持 Session Token。</p>
+<p>不过目前没有看到官方说明它会直接读取本机的 AWS CLI 配置，例如 <code>~/.aws/credentials</code> 或 <code>~/.aws/config</code>。也就是说，Hoistbay 里的 Profile 更像是应用自己保存的账号配置，并不是把你现有的 AWS CLI Profile 自动带进来。</p>
+<p>AWS IAM Identity Center / AWS SSO 目前也没有看到明确的官方支持说明。如果公司 AWS 账号平时主要通过 SSO 登录，这一点最好在正式使用前确认。</p>
+<h2>R2、MinIO 这类 S3 兼容存储目前不适合直接用</h2>
+<p>Hoistbay 现在主要就是围绕 Amazon S3 和 CloudFront 做的，官网和 项目介绍页面 也没有把 Cloudflare R2、MinIO、Wasabi 这些 S3-compatible Storage 列进支持范围。</p>
+<p>所以如果你用的是 AWS S3，Hoistbay 的功能比较对路；如果平时主要管的是 R2、MinIO 或 Wasabi，就不建议默认它能直接兼容。</p>
+<p>这类需求反而更适合用 Brows3、Cyberduck 或 CS Browser，因为这些工具已经明确支持更多 S3-compatible Storage。</p>
+<h2>安装 Hoistbay 前要注意什么？</h2>
+<p>Hoistbay 现在的安装包还没有代码签名，macOS 第一次打开时可能会被 Gatekeeper 拦下来，Windows 也可能弹出 SmartScreen。Mac 这边目前也没有完成 Apple Notarization，如果系统不让直接运行，通常需要右键选择“打开”，或者到“系统设置 → 隐私与安全性”里手动放行。</p>
+<p>Linux 版本目前还没有正式提供，官网和 GitHub页面 都还是 Coming Soon。项目本身发布时间也不长，公开 Issues、用户反馈和长期版本记录都比较少，所以现在更适合把它当成一个值得试用的新工具，还不能太早判断长期稳定性。</p>
+<p>CloudFront 这部分也别理解成完整管理工具。Hoistbay 目前主要是方便你做 Invalidation；如果要改 Origin、Cache Behavior、WAF、证书这些配置，还是得回 AWS Console。</p>
+<h3>下载时注意一下版本号</h3>
+<p>截至 2026 年 10 月 21 日，<a href="https://github.com/mekartikshah/hoistbay/releases" rel="noopener noreferrer" target="_blank">GitHub Releases</a> 最新已经是 <strong>v1.1.1</strong>，这个版本也完成了项目从 S3 Scout 到 Hoistbay 的改名。不过官网下载安装区域目前还显示 <strong>v1.1.0</strong>，所以要看最新安装包和更新内容，直接以 GitHub Releases 为准。</p>
+<h2>Hoistbay 适合谁？</h2>
+<p>Hoistbay 比较适合仍然会手动管理 S3 文件、检查 Header，并偶尔处理 CloudFront 缓存的开发者和站长。</p>
+<p>比如网站文件放在 Amazon S3，再通过 CloudFront 分发；平时会换几个资源、检查 Cache-Control、修改 Metadata，更新完成后偶尔需要清一次缓存，这类场景比较对路。</p>
+<p>如果主要使用 Cloudflare R2、MinIO、Wasabi，或者企业环境强依赖 IAM Identity Center / SSO，目前有其他客户端更合适。</p>
+<p>已经把 S3 上传、Cache-Control 和 CloudFront Invalidation 全部写进 GitHub Actions、GitLab CI 或其他 CI/CD 流程的团队，Hoistbay 带来的提升也会比较有限。</p>
+<p>准备长期使用的话，可以先拿测试 Bucket 配一套最小权限 IAM Credential，跑一遍上传、Header Rules 和 CloudFront Invalidation，再决定是否接入生产环境。</p>
+<h2>Hoistbay 常见问题</h2>
+<h3>Hoistbay 免费吗？</h3>
+<p>免费，项目采用 MIT License 开源，源码可以直接在 <a href="https://github.com/mekartikshah/hoistbay" rel="noopener noreferrer" target="_blank">Hoistbay GitHub 仓库</a> 查看。</p>
+<h3>Hoistbay 支持哪些系统？</h3>
+<p>目前有 macOS 和 Windows 版本。Mac 要求 macOS 12 及以上，Apple Silicon 和 Intel 都能用；Windows 支持 Windows 10/11 x64。Linux 版还在计划中。</p>
+<h3>Hoistbay 会把 AWS 密钥传到自己的服务器吗？</h3>
+<p>按项目方的说法不会。AWS 密钥保存在 macOS Keychain 或 Windows Credential Manager 里，Hoistbay 也没有自己的后端服务和遥测。不过这部分属于官方说明，本文没有单独审计它的全部网络行为，所以生产环境还是建议使用最小权限的 IAM Credential。</p>
+<h3>Hoistbay 支持 AWS SSO 吗？</h3>
+<p>目前没有看到官方明确支持 AWS SSO / IAM Identity Center。它可以保存多个 AWS 账号配置，也支持 Session Token，但和企业常用的 SSO 登录不是一回事。</p>
+<h3>Hoistbay 能管理 Cloudflare R2 或 MinIO 吗？</h3>
+<p>目前不建议默认可以。官方明确写的是 Amazon S3 和 CloudFront，没有把 R2、MinIO、Wasabi 这些 S3 兼容存储列入支持范围。如果主要管理这类存储，Brows3、Cyberduck 等工具会更合适。</p>
+<h3>Hoistbay 可以直接清 CloudFront 缓存吗？</h3>
+<p>可以。选好 CloudFront Distribution 后，可以对 <code>/*</code> 或指定路径创建 Invalidation，并查看清理进度，不需要再单独打开 AWS Console。</p>
+<h3>Hoistbay 需要哪些 AWS 权限？</h3>
+<p>取决于你准备用它做什么。只看文件主要需要 <code>ListAllMyBuckets</code>、<code>GetBucketLocation</code>、<code>ListBucket</code> 和 <code>GetObject</code>；需要上传或删除时，再增加 <code>PutObject</code>、<code>DeleteObject</code>。如果还要清 CloudFront 缓存，则需要 <code>ListDistributions</code>、<code>CreateInvalidation</code> 和 <code>GetInvalidation</code>。</p>
+<p><strong>相关链接：</strong><br>
+<a href="https://hoistbay.app/" rel="noopener noreferrer" target="_blank">Hoistbay 官方网站</a><br>
+<a href="https://github.com/mekartikshah/hoistbay" rel="noopener noreferrer" target="_blank">Hoistbay GitHub 项目</a><br>
+<a href="https://github.com/mekartikshah/hoistbay/releases" rel="noopener noreferrer" target="_blank">GitHub Releases 下载与更新日志</a></p> </div> </div> <!-- 4. 资源下载与直达通道 --> <div id="download-section" class="scroll-mt-20 bg-white rounded-2xl border-2 border-sky-500/30 p-6 sm:p-8 shadow-md"> <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5"> <div class="flex items-center gap-2"> <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm">
+下载
+</span> <div> <h3 class="text-base sm:text-lg font-black text-slate-900">
+资源下载与直达通道
+</h3> <p class="text-xs text-slate-400">官方源与高速网盘分流 · 安全无捆绑</p> </div> </div> <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+已校验无风险
+</span> </div> <!-- 下载通道网格 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6"> <!-- GitHub 官方 Releases 通道 -->
+            <a href="https://github.com/mekartikshah/hoistbay/releases" target="_blank" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-900 hover:border-sky-500 bg-slate-900 text-white hover:shadow-lg transition-all group sm:col-span-2"> <div class="flex items-center gap-3"> <span class="w-10 h-10 rounded-xl bg-white/10 text-white font-bold text-sm flex items-center justify-center">Git</span> <div> <div class="font-extrabold text-sm sm:text-base text-white group-hover:text-sky-300 transition-colors">
+GitHub 官方源码与 Releases 安装包
+</div> <div class="text-xs text-slate-400 mt-0.5">开源无捆绑 · 直连官方源码与预编译二进制版本</div> </div> </div> <span class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs group-hover:scale-105 transition-transform shadow-xs">
+前往 GitHub 下载 →
+</span> </a>  <!-- 通用官方发布 / 官网文档通道 -->  </div>  </div> <!-- 5. 互动操作区 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs shadow-xs"> <div class="flex items-center gap-2"> <button id="like-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+点赞有用 (<span id="like-num">16</span>)
+</button> <button id="bookmark-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+加入收藏
+</button> <button id="share-btn" class="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center gap-1.5 transition-colors cursor-pointer">
+复制链接
+</button> </div> <div class="text-slate-400 text-[11px]">
+免责声明：本站软件整理自互联网，仅供学习交流
+</div> </div> <!-- 上一篇 / 下一篇导航 --> <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"> <a href="/posts/11018" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all group"> <div class="text-slate-400 text-[11px] mb-1">← 上一个资源</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流</div> </a> <a href="/posts/11020" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-sm transition-all text-right group"> <div class="text-slate-400 text-[11px] mb-1">下一个资源 →</div> <div class="font-bold text-slate-800 group-hover:text-sky-600 truncate">不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App</div> </a> </div> <!-- 6. 文章底部智能相关推荐内容板块 (带真实高清封面图与分类标签) --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs mt-8"> <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100"> <div class="flex items-center gap-2"> <div class="w-2 h-4 rounded-full bg-sky-600"></div> <h3 class="font-black text-base text-slate-900 tracking-tight">为您推荐相关资源</h3> </div> <span class="text-xs text-slate-400 font-medium">猜你喜欢 · 相同领域神器</span> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"> <a href="/posts/11024/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11024.webp" alt="Filee 文件转换器 不上传文件的开源本地转换工具" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Filee 文件转换器 不上传文件的开源本地转换工具 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-10-15</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11575/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11575.webp" alt="Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Douyin TikTok Download API 开源抖音 / TikTok 数据 API，支持 MCP </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-21</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11579/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11579.webp" alt="OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> OpenSEO 可自托管的开源 SEO 工具，能替代 Ahrefs / Semrush 吗？ </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-09-02</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a><a href="/posts/11584/" class="group flex flex-col rounded-xl border border-slate-100 hover:border-sky-300 hover:shadow-md transition-all overflow-hidden bg-slate-50/50"> <div class="relative aspect-16/9 overflow-hidden bg-slate-200"> <img src="/covers/cover_11584.webp" alt="OpenLogi Logitech Options+ 替代工具，开源管理罗技鼠标键盘" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"> <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-bold"> 开源自托管项目 </span> </div> <div class="p-3.5 flex flex-col justify-between flex-1"> <h4 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> OpenLogi Logitech Options+ 替代工具，开源管理罗技鼠标键盘 </h4> <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400"> <span>2026-08-25</span> <span class="text-sky-600 font-bold group-hover:translate-x-0.5 transition-transform">立即查看 →</span> </div> </div> </a> </div> </div> </main> <!-- 右侧边栏 --> <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20"> <!-- 1. Telegram 社群卡片 --> <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/10"> <div class="flex items-center gap-3 mb-3"> <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-sm">
+TG
+</div> <div> <div class="font-bold text-sm">加入 Telegram 官方频道</div> <div class="text-[11px] text-sky-100">第一时间获取一手开源神器与网盘资源</div> </div> </div> <p class="text-xs text-sky-100 leading-relaxed mb-4">
+实时推送最新整理的 AI 工具、开源自托管项目、Mac 效率软件与出海赚钱 SOP。
+</p> <a href="https://t.me/" target="_blank" class="block w-full text-center py-2.5 rounded-xl bg-white text-sky-700 font-bold text-xs hover:bg-sky-50 transition-colors shadow-xs">
+立即加入频道 (免费)
+</a> </div> <!-- 2. 最近收录的热门工具 --> <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs"> <h3 class="font-extrabold text-sm text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+最近收录的热门工具
+</h3> <div class="space-y-3.5"> <a href="/posts/11018" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Caplo Mac 录屏软件 自动聚焦、原生剪辑与本地工作流 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-24</span> </div> </a><a href="/posts/11020" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 不用装 Mac 安卓模拟器，Mac.apk 也能直接运行 Android App </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-20</span> </div> </a><a href="/posts/11021" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Status Trio 受 iPhone Duo 启发的 Mac 菜单栏三合一状态图标 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>Mac / iOS 精选</span> <span>•</span> <span>2026-10-19</span> </div> </a><a href="/posts/11022" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> 直播源格式转换 TXT转M3U、M3U转TXT在线工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>免安装在线工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11023" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> M3U8播放器怎么用？M3U/M3U8 文件和链接打开教程 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>实用工具</span> <span>•</span> <span>2026-10-18</span> </div> </a><a href="/posts/11024" class="block group"> <div class="text-xs font-bold text-slate-800 group-hover:text-sky-600 line-clamp-2 leading-snug transition-colors"> Filee 文件转换器 不上传文件的开源本地转换工具 </div> <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400"> <span>开源自托管项目</span> <span>•</span> <span>2026-10-15</span> </div> </a> </div> </div> <!-- 3. 免责声明与版权提示 --> <div class="bg-slate-50 rounded-2xl border border-slate-200/80 p-4 text-[11px] text-slate-500 leading-relaxed space-y-2"> <div class="font-bold text-slate-700 flex items-center gap-1.5">
+版权与免责声明
+</div> <p>
+本站所刊载内容均来源于 GitHub、开发者公开主页及公开网盘，版权归原作者所有。
+</p> <p>
+若无意侵犯您的版权权益，请联系我们，核实后将在第一时间处理下架。
+</p> </div> </aside> </div>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 复制解压密码
+      const copyBtn = document.getElementById('copy-pwd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('aronshare').then(() => {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制 aronshare';
+            copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            setTimeout(() => {
+              copyBtn.textContent = original;
+              copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+            }, 2000);
+          });
+        });
+      }
+
+      // 点赞
+      const likeBtn = document.getElementById('like-btn');
+      const likeNum = document.getElementById('like-num');
+      if (likeBtn && likeNum) {
+        likeBtn.addEventListener('click', () => {
+          let n = parseInt(likeNum.textContent || '16');
+          likeNum.textContent = (n + 1).toString();
+          likeBtn.classList.add('text-rose-600');
+          likeBtn.disabled = true;
+        });
+      }
+
+      // 复制链接
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('当前页面链接已成功复制到剪贴板！');
+          });
+        });
+      }
+    });
+  </script>  </main> <!-- 底部页脚 --> <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs mt-16"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <div class="space-y-3"> <div class="font-black text-slate-900 text-base">AronShare 资源库</div> <p class="text-slate-500 leading-relaxed text-xs">
+专注于挖掘与收录高质量开源工具、自托管应用、效率软件与实用网盘资源。拒绝流氓捆绑与商业割韭菜。
+</p> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">分类导航</div> <ul class="space-y-2"> <li><a href="/" class="hover:text-sky-600">全部资源</a></li> <li><a href="/category/ai/" class="hover:text-sky-600">AI 智能工具</a></li> <li><a href="/category/open-source/" class="hover:text-sky-600">开源自托管</a></li> <li><a href="/category/apps/" class="hover:text-sky-600">平台软件应用</a></li> <li><a href="/category/online-tools/" class="hover:text-sky-600">免安装在线工具</a></li> <li><a href="/category/courses-growth/" class="hover:text-sky-600">教程与副业搞钱</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">精选服务</div> <ul class="space-y-2"> <li><a href="#" class="hover:text-sky-600">高速海外 VPS 云服务器 (CN2 GIA)</a></li> <li><a href="#" class="hover:text-sky-600">流媒体会员合租直通车</a></li> <li><a href="#" class="hover:text-sky-600">ChatGPT / Claude 官方直连 API</a></li> </ul> </div> <div> <div class="font-bold text-slate-900 text-sm mb-3">关于与免责</div> <p class="text-slate-400 leading-relaxed text-[11px]">
+本站所有内容均整理自开源社区、开发者公开主页及公开网盘，仅供个人技术研究与学习交流，请勿用于非法商业用途。
+</p> </div> </div> <div class="border-t border-slate-100 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-2"> <div>Copyright 2026 AronShare. All rights reserved.</div> <div class="flex items-center gap-4"> <a href="https://t.me/" target="_blank" class="hover:text-sky-600">Telegram 官方频道</a> <span>·</span> <a href="https://github.com/" target="_blank" class="hover:text-sky-600">GitHub 仓库</a> </div> </div> </div> </footer> <script>
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', () => {
+          const input = document.getElementById('search-input');
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            window.location.href = '/';
+          }
+        });
+      }
+    </script> </body> </html>
