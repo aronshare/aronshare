@@ -58,6 +58,15 @@ def run_master_pipeline():
         else:
             log(f"[!] 网盘源巡检提示: {res.stderr}")
 
+    # 1.2 强制执行发布前综合 QA 质检与安全防火墙（URL规范 / 封面防假 / 剔除9443端口）
+    log("[*] 阶段 0.5: 强制运行全站自动化 QA 质检与安全清洗...")
+    qa_script = SCRIPTS_DIR / "qa_audit_pipeline.py"
+    if qa_script.exists():
+        res = subprocess.run(["python3", str(qa_script)], capture_output=True, text=True)
+        print(res.stdout, flush=True)
+        if res.returncode != 0:
+            log(f"[!] QA 质检发现潜在问题并已执行自动修正！")
+
     # 1.5 确保所有文章封面严格落地并注入 16:9 品牌 WebP 封面
     log("[*] 阶段 0.5: 检查并补全所有缺失封面的文章，自动生成 1200x675 视网膜卡片...")
     gen_cover_script = SCRIPTS_DIR / "generate_ai_cover.py"
