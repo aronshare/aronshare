@@ -16,7 +16,7 @@
 
 ## 📑 目录导航 (Table of Contents)
 
-- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`46` 款工具)
+- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`44` 款工具)
 - [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`20` 款工具)
 - [⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)](#免安装-web-在线利器-web-cloud-utilities) (`18` 款工具)
 - [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`17` 款工具)
@@ -72,11 +72,9 @@
 | `39` | **Kaze AI AI 图片与视频生成平台，支持 Chat Edit 与 Watermark Removal API**<br><sub>💡 Kaze AI 是一个 AI 图片与视频生成平台。可以上传现有图片用 Chat Edit 直接修改，也可以从文字生成新的图片和视频；照片修复、图片扩展、画质增强、人物移除、文字清理这些...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11574/) | `已收录` |
 | `40` | **WatermarkRemover.io AI 图片去水印工具，支持视频与 PDF**<br><sub>💡 WatermarkRemover.io 是一款在线 图片去水印 工具，主要用来处理图片里的半透明水印、文字和 Logo。上传文件或粘贴图片链接后，系统会自动识别水印区域，并重新生成被遮...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11441/) | `已收录` |
 | `41` | **Inpaint 图片去水印、删除人物和多余物体的修图工具**<br><sub>💡 Inpaint 是 Teorex 做的一款图片修复工具，主要用来删除照片里的水印、文字、人物和其他多余物体。把不想要的区域选出来，Inpaint 会参考周围画面，把被遮住的位置重新补上...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11439/) | `已收录` |
-| `42` | **分享一个面向短梗和趋势场景的 AI 视频工具**<br><sub>💡 分享一个面向短梗和趋势场景的 AI 视频工具，实用的开源/独立效率工具收录评测。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11359/) | `已收录` |
-| `43` | **两天上线第一个出海 AI 工具站（英文 AI 同人生成器），记录一下过程和踩的坑**<br><sub>💡 两天上线第一个出海 AI 工具站（英文 AI 同人生成器），记录一下过程和踩的坑，实用的开源/独立效率工具收录评测。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11245/) | `已收录` |
-| `44` | **Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。上传图片后，直接用画笔涂过目标区域，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
-| `45` | **录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。项目采用 Apache Licen...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
-| `46` | **默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。 页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
+| `42` | **Magic Eraser 在线 AI 图片消除工具，可移除人物、杂物和文字**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。上传图片后，直接用画笔涂过目标区域，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
+| `43` | **录阶 LuJie CareerKit 开源 AI简历工具，支持 JD 匹配与模拟面试**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。项目采用 Apache Licen...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
+| `44` | **默读 Modu Reader 支持 OCR、AI 阅读的开源电子书阅读器**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。 页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
 
 ## <a id="精选开源自托管神器-self-hosted-open-source"></a>🚀 精选开源自托管神器 (Self-Hosted & Open Source)
 
