@@ -58,6 +58,32 @@ def run_master_pipeline():
         else:
             log(f"[!] 网盘源巡检提示: {res.stderr}")
 
+    # 1.5 确保所有文章封面严格落地并注入 16:9 品牌 WebP 封面
+    log("[*] 阶段 0.5: 检查并补全所有缺失封面的文章，自动生成 1200x675 视网膜卡片...")
+    gen_cover_script = SCRIPTS_DIR / "generate_ai_cover.py"
+    astro_posts_dir = Path("/home/ubuntu/ahhhhfs-astro/src/content/posts")
+    astro_covers_dir = Path("/home/ubuntu/ahhhhfs-astro/public/covers")
+    if gen_cover_script.exists() and astro_posts_dir.exists():
+        for md_file in astro_posts_dir.glob("*.md"):
+            try:
+                content = md_file.read_text(encoding="utf-8")
+                # 如果封面是外部链接或缺失，自动生成本地 WebP 封面并回写
+                if "unsplash" in content or "cover: \"\"" in content or "cover:" not in content:
+                    title_m = re.search(r'title:\s*\"([^\"]+)\"', content)
+                    cat_m = re.search(r'category:\s*\"([^\"]+)\"', content)
+                    title = title_m.group(1) if title_m else md_file.stem
+                    cat = cat_m.group(1) if cat_m else "开源神器"
+                    slug = md_file.stem.split("-")[-1] if "-" in md_file.stem else md_file.stem
+                    cover_filename = f"cover_{slug}.webp"
+                    out_cover = astro_covers_dir / cover_filename
+                    subprocess.run(["python3", str(gen_cover_script), title, cat, str(out_cover)], check=True)
+                    # 替换 markdown 中的 cover 字段
+                    new_content = re.sub(r'cover:\s*\"[^\"]+\"', f'cover: \"/covers/{cover_filename}\"', content)
+                    md_file.write_text(new_content, encoding="utf-8")
+                    log(f"[√] 自动为文章 [{title}] 补齐品牌科技封面: {cover_filename}")
+            except Exception as e:
+                log(f"[!] 封面检查异常: {e}")
+
     # 2. 检查现网已有文章 ID 集合，避免重复生成
     existing_ids = set()
     if POSTS_HTML_DIR.exists():
