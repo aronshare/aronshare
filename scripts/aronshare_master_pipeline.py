@@ -48,6 +48,16 @@ def run_master_pipeline():
         log(f"[x] 未找到数据库: {DB_PATH}")
         return
 
+    # 1. 优先增量巡检 100+ 上游网盘资源站与知识付费自学课
+    log("[*] 阶段 0: 巡检 100+ 上游网盘资源站、知识付费与一手自学课...")
+    pan_fetch_script = SCRIPTS_DIR / "fetch_pan_sources.py"
+    if pan_fetch_script.exists():
+        res = subprocess.run(["python3", str(pan_fetch_script)], capture_output=True, text=True)
+        if res.returncode == 0:
+            log("[√] 100+ 网盘与自学课一手源头巡检完毕！")
+        else:
+            log(f"[!] 网盘源巡检提示: {res.stderr}")
+
     # 2. 检查现网已有文章 ID 集合，避免重复生成
     existing_ids = set()
     if POSTS_HTML_DIR.exists():
