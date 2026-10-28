@@ -16,15 +16,46 @@
 
 ## 📑 目录导航 (Table of Contents)
 
+- [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`26` 款工具)
 - [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`38` 款工具)
 - [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`58` 款工具)
-- [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`25` 款工具)
 - [⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)](#免安装-web-在线利器-web-cloud-utilities) (`19` 款工具)
 - [⚡ 自动化监控与流水线声明](#-自动化监控与流水线声明)
 - [🤝 贡献与推荐收录](#-贡献与推荐收录)
 - [⚖️ 免责声明与开源协议](#️-免责声明与开源协议)
 
 ---
+
+## <a id="精选开源自托管神器-self-hosted-open-source"></a>🚀 精选开源自托管神器 (Self-Hosted & Open Source)
+
+| 编号 | 实用神器名称与核心痛点拆解 | 深度评测与完整包直达 | 状态 |
+| :--- | :--- | :---: | :---: |
+| `01` | **ClipShelf**<br><sub>💡 Paste 的卡片交互体验极佳，但高昂的订阅制与偶发的输入异常让人望而却步。ClipShelf 是一款基于 Swift 原生开发、完全开源免费的 macOS 卡片式剪贴板神器，支持富文...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11694/) | `已收录` |
+| `02` | **Woterm**<br><sub>💡 颜值与性能兼备的跨平台服务器集中远程运维终端。原生支持 SSH、SFTP、VNC、RDP 多协议聚合管理，绿色单文件解压即用。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11686/) | `已收录` |
+| `03` | **Strata**<br><sub>💡 Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata i...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11681/) | `已收录` |
+| `04` | **dev-sidecar**<br><sub>💡 开发者边车，github打不开，github加速，git clone加速，git release下载加速，stackoverflow加速</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11666/) | `已收录` |
+| `05` | **ChineseBQB**<br><sub>💡 Chinese sticker pack,More joy / 表情包的博物馆, Github最有毒的仓库, 中国表情包大集合, 聚欢乐~</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11664/) | `已收录` |
+| `06` | **isUpMap**<br><sub>💡 isUpMap 是一个面向站长、运维和独立开发者的开源服务状态监控工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11646/) | `已收录` |
+| `07` | **Recordly**<br><sub>💡 Recordly 是一款面向产品演示、软件教程和 README 动图的开源屏幕录制软件，它把录制、轻量剪辑、自动缩放和鼠标特效放进同一个桌面端工作流里。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11641/) | `已收录` |
+| `08` | **DeepSeek API**<br><sub>💡 DeepSeekMonitorWindows 是一个专门在 Windows 电脑上盯盘 DeepSeek API 用量监控 和消耗走势的开源小工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11640/) | `已收录` |
+| `09` | **AudioMass**<br><sub>💡 AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。它不需要注册账号，也不需要下载客户端，打开网页就能开始进行...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11635/) | `已收录` |
+| `10` | **CopyTranslator**<br><sub>💡 CopyTranslator 解决的就是这个问题。它是一款开源复制翻译工具，会监听剪贴板内容，在你复制文本后自动处理多余换行和断句，再把整理后的内容交给翻译引擎。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11633/) | `已收录` |
+| `11` | **Hacker Trends**<br><sub>💡 Hacker Trends 是一个基于 Hacker News 历史帖子和评论的趋势查询工具，可以用来查看技术词、公司、开源项目或人物名称在 HN 上的长期提及变化。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11629/) | `已收录` |
+| `12` | **isChinaUser**<br><sub>💡 isChinaUser 是一个开源的浏览器地区识别工具，用于在前端判断当前浏览器环境是否更像中国用户或中国大陆设备。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11626/) | `已收录` |
+| `13` | **OpenDisplay**<br><sub>💡 OpenDisplay 是一款免费开源的 Mac 副屏工具。它不是简单投屏或画面镜像，而是让 macOS 把移动设备识别成真实外接显示器，窗口可以直接拖过去使用。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11623/) | `已收录` |
+| `14` | **PlayBridge**<br><sub>💡 PlayBridge 是一款开源本地投屏工具，可以通过局域网将手机内容发送到 Android TV、Apple TV、桌面电脑以及支持 DLNA 的电视设备。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11622/) | `已收录` |
+| `15` | **Branda**<br><sub>💡 Branda 是一个输入域名即可生成品牌广告素材的开源项目。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11619/) | `已收录` |
+| `16` | **OpenCut**<br><sub>💡 OpenCut 是一款开源视频编辑器，也是一个受到关注的开源 CapCut 替代项目。目前可以通过浏览器体验基础时间线编辑，新版则计划通过统一的 Rust 核心覆盖浏览器、桌面端和移动端。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11615/) | `已收录` |
+| `17` | **GlobalAssetHistory**<br><sub>💡 GlobalAssetHistory 是一款开源的定投回测工具，把美股及 ETF、数字货币、A 股指数及部分股票的历史收益查询集中到一个页面，并提供场内跨境 ETF 和场外 QDII ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11610/) | `已收录` |
+| `18` | **OpenSurge**<br><sub>💡 OpenSurge for Mac 是一个开源的 macOS 网关工具，它可以让一台 Mac 承担局域网出口角色，并通过 mihomo 管理其他设备的网络策略。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11607/) | `已收录` |
+| `19` | **FindDiskKiller**<br><sub>💡 FindDiskKiller 是一款专注于排查 macOS 磁盘读写活动的开源磁盘监控工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11605/) | `已收录` |
+| `20` | **Firecrawl PDF**<br><sub>💡 Firecrawl PDF Inspector（仓库名 pdf-inspector）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11590/) | `已收录` |
+| `21` | **Dockhand**<br><sub>💡 Dockhand 是一款自托管 Docker 管理面板，可以通过一个 Web 后台集中管理本地和远程 Docker 主机、Compose Stack、日志、镜像更新与备份，并内置 Tr...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11586/) | `已收录` |
+| `22` | **OpenLogi**<br><sub>💡 OpenLogi 是一款面向罗技鼠标、键盘等设备的开源配置工具，主要用于替代 Logitech Options+ 的部分功能。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11584/) | `已收录` |
+| `23` | **Douyin TikTok**<br><sub>💡 Douyin TikTok Download API 是 Evil0ctal 开发的开源、自托管抖音与 TikTok 数据接口项目。很多人最早知道它，是因为它能解析短视频链接、拿到无水...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11575/) | `已收录` |
+| `24` | **Filee**<br><sub>💡 Filee 文件转换器是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11024/) | `已收录` |
+| `25` | **Status Trio**<br><sub>💡 Status Trio 是一款开源 macOS 菜单栏工具，把原本分开的 Wi-Fi、电池和音量整合进一个状态图标。它可以放在菜单栏，也可以放进 Dock，或者两个位置同时显示。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11021/) | `已收录` |
+| `26` | **Hoistbay**<br><sub>💡 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11019/) | `已收录` |
 
 ## <a id="macos-windows-生产力应用-desktop-apps"></a>💻 macOS / Windows 生产力应用 (Desktop Apps)
 
@@ -131,36 +162,6 @@
 | `56` | **Magic Eraser**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
 | `57` | **录阶 LuJie**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
 | `58` | **默读 Modu**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进了...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
-
-## <a id="精选开源自托管神器-self-hosted-open-source"></a>🚀 精选开源自托管神器 (Self-Hosted & Open Source)
-
-| 编号 | 实用神器名称与核心痛点拆解 | 深度评测与完整包直达 | 状态 |
-| :--- | :--- | :---: | :---: |
-| `01` | **Woterm**<br><sub>💡 颜值与性能兼备的跨平台服务器集中远程运维终端。原生支持 SSH、SFTP、VNC、RDP 多协议聚合管理，绿色单文件解压即用。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11686/) | `已收录` |
-| `02` | **Strata**<br><sub>💡 Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata i...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11681/) | `已收录` |
-| `03` | **dev-sidecar**<br><sub>💡 开发者边车，github打不开，github加速，git clone加速，git release下载加速，stackoverflow加速</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11666/) | `已收录` |
-| `04` | **ChineseBQB**<br><sub>💡 Chinese sticker pack,More joy / 表情包的博物馆, Github最有毒的仓库, 中国表情包大集合, 聚欢乐~</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11664/) | `已收录` |
-| `05` | **isUpMap**<br><sub>💡 isUpMap 是一个面向站长、运维和独立开发者的开源服务状态监控工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11646/) | `已收录` |
-| `06` | **Recordly**<br><sub>💡 Recordly 是一款面向产品演示、软件教程和 README 动图的开源屏幕录制软件，它把录制、轻量剪辑、自动缩放和鼠标特效放进同一个桌面端工作流里。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11641/) | `已收录` |
-| `07` | **DeepSeek API**<br><sub>💡 DeepSeekMonitorWindows 是一个专门在 Windows 电脑上盯盘 DeepSeek API 用量监控 和消耗走势的开源小工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11640/) | `已收录` |
-| `08` | **AudioMass**<br><sub>💡 AudioMass 是一款免费开源的在线音频编辑器，适合在浏览器里直接完成音频裁剪、录音、淡入淡出、变速、多轨拼接和混音导出。它不需要注册账号，也不需要下载客户端，打开网页就能开始进行...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11635/) | `已收录` |
-| `09` | **CopyTranslator**<br><sub>💡 CopyTranslator 解决的就是这个问题。它是一款开源复制翻译工具，会监听剪贴板内容，在你复制文本后自动处理多余换行和断句，再把整理后的内容交给翻译引擎。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11633/) | `已收录` |
-| `10` | **Hacker Trends**<br><sub>💡 Hacker Trends 是一个基于 Hacker News 历史帖子和评论的趋势查询工具，可以用来查看技术词、公司、开源项目或人物名称在 HN 上的长期提及变化。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11629/) | `已收录` |
-| `11` | **isChinaUser**<br><sub>💡 isChinaUser 是一个开源的浏览器地区识别工具，用于在前端判断当前浏览器环境是否更像中国用户或中国大陆设备。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11626/) | `已收录` |
-| `12` | **OpenDisplay**<br><sub>💡 OpenDisplay 是一款免费开源的 Mac 副屏工具。它不是简单投屏或画面镜像，而是让 macOS 把移动设备识别成真实外接显示器，窗口可以直接拖过去使用。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11623/) | `已收录` |
-| `13` | **PlayBridge**<br><sub>💡 PlayBridge 是一款开源本地投屏工具，可以通过局域网将手机内容发送到 Android TV、Apple TV、桌面电脑以及支持 DLNA 的电视设备。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11622/) | `已收录` |
-| `14` | **Branda**<br><sub>💡 Branda 是一个输入域名即可生成品牌广告素材的开源项目。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11619/) | `已收录` |
-| `15` | **OpenCut**<br><sub>💡 OpenCut 是一款开源视频编辑器，也是一个受到关注的开源 CapCut 替代项目。目前可以通过浏览器体验基础时间线编辑，新版则计划通过统一的 Rust 核心覆盖浏览器、桌面端和移动端。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11615/) | `已收录` |
-| `16` | **GlobalAssetHistory**<br><sub>💡 GlobalAssetHistory 是一款开源的定投回测工具，把美股及 ETF、数字货币、A 股指数及部分股票的历史收益查询集中到一个页面，并提供场内跨境 ETF 和场外 QDII ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11610/) | `已收录` |
-| `17` | **OpenSurge**<br><sub>💡 OpenSurge for Mac 是一个开源的 macOS 网关工具，它可以让一台 Mac 承担局域网出口角色，并通过 mihomo 管理其他设备的网络策略。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11607/) | `已收录` |
-| `18` | **FindDiskKiller**<br><sub>💡 FindDiskKiller 是一款专注于排查 macOS 磁盘读写活动的开源磁盘监控工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11605/) | `已收录` |
-| `19` | **Firecrawl PDF**<br><sub>💡 Firecrawl PDF Inspector（仓库名 pdf-inspector）是 Firecrawl 开源的一套本地 PDF 分类与文本提取工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11590/) | `已收录` |
-| `20` | **Dockhand**<br><sub>💡 Dockhand 是一款自托管 Docker 管理面板，可以通过一个 Web 后台集中管理本地和远程 Docker 主机、Compose Stack、日志、镜像更新与备份，并内置 Tr...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11586/) | `已收录` |
-| `21` | **OpenLogi**<br><sub>💡 OpenLogi 是一款面向罗技鼠标、键盘等设备的开源配置工具，主要用于替代 Logitech Options+ 的部分功能。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11584/) | `已收录` |
-| `22` | **Douyin TikTok**<br><sub>💡 Douyin TikTok Download API 是 Evil0ctal 开发的开源、自托管抖音与 TikTok 数据接口项目。很多人最早知道它，是因为它能解析短视频链接、拿到无水...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11575/) | `已收录` |
-| `23` | **Filee**<br><sub>💡 Filee 文件转换器是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11024/) | `已收录` |
-| `24` | **Status Trio**<br><sub>💡 Status Trio 是一款开源 macOS 菜单栏工具，把原本分开的 Wi-Fi、电池和音量整合进一个状态图标。它可以放在菜单栏，也可以放进 Dock，或者两个位置同时显示。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11021/) | `已收录` |
-| `25` | **Hoistbay**<br><sub>💡 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11019/) | `已收录` |
 
 ## <a id="免安装-web-在线利器-web-cloud-utilities"></a>⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)
 
