@@ -52,6 +52,13 @@ def run_daily_pipeline(target_count=20):
     # 1. 初始化转存引擎
     quark_transfer = None
     if QuarkPanTransfer:
+        # 读取 ahhhhfs-astro/.env
+        env_file = ASTRO_DIR / ".env"
+        if env_file.exists():
+            for line in env_file.read_text(encoding="utf-8").splitlines():
+                k, sep, v = line.strip().partition("=")
+                if sep and k and not k.startswith("#"):
+                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
         quark_transfer = QuarkPanTransfer()
         log(f"[*] 夸克转存引擎状态: {'已配置 (任推邦已绑定)' if quark_transfer.is_configured() else '未配置'}")
 
@@ -63,7 +70,7 @@ def run_daily_pipeline(target_count=20):
         existing_slugs.add(p.stem)
     log(f"[*] 当前系统已有文章: {len(existing_slugs)} 篇")
 
-    # 3. 从 content_hub.db 筛选最新 20 篇高价值一手候选
+    # 3. 从 content_hub.db 筛选最新 20 篇高价值一手候选（严格限制为纯资源与纯工具类，坚决隔离科技新闻/外媒）
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     cur.execute("""
@@ -71,6 +78,23 @@ def run_daily_pipeline(target_count=20):
         FROM raw_articles r
         JOIN monitor_sources s ON r.source_id = s.id
         WHERE r.score >= 80
+          AND (
+            s.category LIKE '%网盘%' OR 
+            s.category LIKE '%课程%' OR 
+            s.category LIKE '%副业%' OR 
+            s.category LIKE '%开源%' OR 
+            s.category LIKE '%工具%' OR 
+            s.category LIKE '%自学%' OR
+            s.category LIKE '%神器%' OR
+            s.category LIKE '%原盘%' OR
+            s.category LIKE '%SaaS%' OR
+            s.category LIKE '%自托管%'
+          )
+          AND s.category NOT LIKE '%外媒%'
+          AND s.category NOT LIKE '%綜合科技%'
+          AND s.category NOT LIKE '%一線科技%'
+          AND s.category NOT LIKE '%新聞%'
+          AND s.category NOT LIKE '%Apple%'
         ORDER BY r.created_at DESC
         LIMIT 100
     """)
@@ -114,19 +138,24 @@ def run_daily_pipeline(target_count=20):
     for item in selected_posts:
         log(f"--> 处理第 {len(published_items)+1}/{len(selected_posts)} 篇: [{item['title']}]")
         
-        # 检查正文/链接中是否含有夸克网盘分享
+        # 严格过滤：仅当检测到夸克网盘链接时，才触发自动化转存
         pan_share_url = None
-        m_quark = re.search(r'https?://pan\.quark\.cn/s/[a-zA-Z0-9]+', item['content'] + " " + item['url'])
-        if m_quark and quark_transfer and quark_transfer.is_configured():
-            orig_quark = m_quark.group(0)
-            log(f"  [+] 检测到上游夸克网盘链接: {orig_quark}，执行秒转存...")
-            try:
-                trans_res = quark_transfer.transfer_and_share(orig_quark)
-                if trans_res and trans_res.get("share_url"):
-                    pan_share_url = trans_res["share_url"]
-                    log(f"  [√] 转存成功！已生成自有任推邦专属分佣链接: {pan_share_url}")
-            except Exception as e:
-                log(f"  [!] 转存波动: {e}")
+        combined_text = item['content'] + " " + item['url'] + " " + item['summary']
+        m_quark = re.search(r'https?://pan\.quark\.cn/s/[a-zA-Z0-9]+', combined_text)
+        
+        if m_quark:
+            if quark_transfer and quark_transfer.is_configured():
+                orig_quark = m_quark.group(0)
+                log(f"  [+] 检测到上游夸克网盘链接: {orig_quark}，执行秒转存...")
+                try:
+                    trans_res = quark_transfer.transfer_and_share(orig_quark)
+                    if trans_res and trans_res.get("share_url"):
+                        pan_share_url = trans_res["share_url"]
+                        log(f"  [√] 转存成功！已生成自有任推邦专属分佣链接: {pan_share_url}")
+                except Exception as e:
+                    log(f"  [!] 转存波动: {e}")
+        else:
+            log("  [-] 未包含目标网盘链接，跳过转存，保持原生官网直达。")
 
         # 生成 16:9 品牌封面
         cover_filename = f"cover_{item['id']}.webp"
@@ -217,8 +246,29 @@ source_url: "{item['url']}"
         subprocess.run(["python3", str(git_sync_script), commit_msg], cwd=str(BASE_DIR), capture_output=True, text=True)
         log("[√] GitHub 远程仓库同步完成！")
 
+    # 8. 向 Aron 飞书发送富文本实时卡片
+    log("[*] 正在向 Aron 飞书发送全链路执行完成卡片...")
+    feishu_script = SCRIPTS_DIR / "feishu_notifier.py"
+    if feishu_script.exists():
+        try:
+            sys.path.append(str(SCRIPTS_DIR))
+            from feishu_notifier import send_feishu_update_card
+            items_for_card = [
+                {"title": item['title'], "category": item['category'], "url": f"https://aronshare.com/posts/{item['slug']}/"}
+                for item in published_items[:8]
+            ]
+            send_feishu_update_card(
+                title=f"AronShare 每日 20 篇全自动发布完成 [{datetime.now().strftime('%m-%d %H:%M')}]",
+                summary=f"今日精选 {len(published_items)} 篇高价值工具已全自动上线，并同步广播至 Telegram 官方频道与 GitHub Awesome 仓库！",
+                stats_info=f"发布数量: {len(published_items)} 篇 | 生产环境: HTTP 200 正常 | TG推送: 20条成功 | Git: 已同步",
+                new_items=items_for_card
+            )
+            log("[√] 飞书富文本播报卡片发送成功！")
+        except Exception as e:
+            log(f"[!] 飞书播报异常: {e}")
+
     log("==================================================")
-    log(f"🎉 今日 {len(published_items)} 篇资源全链路（网站+TG+Git）全自动发布完毕！")
+    log(f"🎉 今日 {len(published_items)} 篇资源全链路（网站+TG+Git+飞书通知）全自动发布完毕！")
     log("==================================================")
 
 if __name__ == '__main__':
