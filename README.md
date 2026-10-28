@@ -16,15 +16,58 @@
 
 ## 📑 目录导航 (Table of Contents)
 
-- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`69` 款工具)
+- [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`38` 款工具)
+- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`58` 款工具)
 - [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`25` 款工具)
-- [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`46` 款工具)
 - [⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)](#免安装-web-在线利器-web-cloud-utilities) (`19` 款工具)
 - [⚡ 自动化监控与流水线声明](#-自动化监控与流水线声明)
 - [🤝 贡献与推荐收录](#-贡献与推荐收录)
 - [⚖️ 免责声明与开源协议](#️-免责声明与开源协议)
 
 ---
+
+## <a id="macos-windows-生产力应用-desktop-apps"></a>💻 macOS / Windows 生产力应用 (Desktop Apps)
+
+| 编号 | 实用神器名称与核心痛点拆解 | 深度评测与完整包直达 | 状态 |
+| :--- | :--- | :---: | :---: |
+| `01` | **OpenSpeedy**<br><sub>💡 百度网盘与各类客户端在无 VIP 状态下的限速问题一直困扰着重度用户。OpenSpeedy 是一款基于底层变速优化原理开发的轻量级实用工具，通过进程调速与网络线程优化，实现网盘客户端的...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11693/) | `已收录` |
+| `02` | **PicPick**<br><sub>💡 Windows 全能截图与图像处理神器，解压即用，不写注册表。集长截图、屏幕取色器、像素标尺与图片标注于一体。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11685/) | `已收录` |
+| `03` | **flutter-easy-starter**<br><sub>💡 Flutter 简易开箱即用框架 | 已完成基础配置，支持快速二次开发 | Flutter Easy Starter Template</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11683/) | `已收录` |
+| `04` | **Gridly**<br><sub>💡 原生 macOS 窗口管理：在标题栏滑动排成半屏、四角或灵活宽度——触控板双指，或 Magic Mouse 单指。无需快捷键。14 天试用，五套主题，macOS 14+。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11682/) | `已收录` |
+| `05` | **Shadow PC**<br><sub>💡 Shadow PC, the full Windows PC in the cloud: the power of a gaming PC on your devices. Play,...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11680/) | `已收录` |
+| `06` | **hexo-theme-icarus**<br><sub>💡 A simple, delicate, and modern theme for the static site generator Hexo.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11679/) | `已收录` |
+| `07` | **tinycast**<br><sub>💡 a tiny, fully native macOS launcher, hotkeys, and clipboard history.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11674/) | `已收录` |
+| `08` | **3d-model-anything**<br><sub>💡 Capture iPhone LiDAR and photos, reconstruct editable Three.js rooms, and explore them in a ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11671/) | `已收录` |
+| `09` | **Transub-Player**<br><sub>💡 Open a video. Subtitles follow. Windows player with live dual-language subtitles.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11668/) | `已收录` |
+| `10` | **WinKit**<br><sub>💡 WinKit 是一款专为 Windows 11 设计的、极致轻量且美观的效率工具箱。它将 TodoList (待办工具) 与 Clipboard (高级剪切板)深度整合，采用毛玻璃视觉体系。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11667/) | `已收录` |
+| `11` | **jiangshan-map**<br><sub>💡 江山时序 · 中国历史交互地图时间轴 (403 BCE – Present) | Interactive Historical Atlas of China across 18 dyn...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11665/) | `已收录` |
+| `12` | **fheroes2**<br><sub>💡 is a recreation of Heroes of Might and Magic II game engine</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11663/) | `已收录` |
+| `13` | **XGesture**<br><sub>💡 The ultimate open-source Android gesture &#38; one-hand navigation suite. An all-in-one OHO+...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11659/) | `已收录` |
+| `14` | **QuickLook**<br><sub>💡 Bring macOS “Quick Look” feature to Windows.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11658/) | `已收录` |
+| `15` | **Mole**<br><sub>💡 Keep your Mac and PC clean, light, and running like new. Fast open-source CLI, plus native M...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11657/) | `已收录` |
+| `16` | **cleanyourtv**<br><sub>💡 Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11655/) | `已收录` |
+| `17` | **DropLock**<br><sub>💡 DropLock 是一个无需后端的端到端加密秘密共享工具，它不是传统意义上的密码管理器，也不是企业级密钥平台，而是一个很轻的临时传密工具。它由信息的“接收方”在本地浏览器生成不可导出的...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11643/) | `已收录` |
+| `18` | **Paster**<br><sub>💡 Paster 是一款免费的剪贴板增强工具，主要用于保存复制历史、快速搜索剪贴板内容，并提供截图标注、本地 OCR 文字识别、快捷短语和局域网共享等功能。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11638/) | `已收录` |
+| `19` | **BrowSync**<br><sub>💡 BrowSync 是一款面向 macOS 的 Mac 跨浏览器同步工具，主要解决 Safari、Chrome、Arc、Edge 之间混用时的链接分流、书签同步和登录状态割裂问题。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11637/) | `已收录` |
+| `20` | **Mac**<br><sub>💡 AndroMeld（原名 AndDrive）是一款面向 Mac + Android 用户的本地设备管理工具，核心作用是让 Mac 更方便地访问 Android 文件，并提供 Finder。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11636/) | `已收录` |
+| `21` | **Firefox**<br><sub>💡 最近有 Firefox 用户发现，浏览器里多了一个新功能：Firefox 内置 VPN。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11631/) | `已收录` |
+| `22` | **Xu**<br><sub>💡 Xu 是一款面向 Chrome / Edge 的浏览器标签页管理工具。它把当前打开的标签页、书签和会话快照放进浏览器侧边栏，让你不用在一排被挤压的标签里来回找页面。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11625/) | `已收录` |
+| `23` | **Juicy**<br><sub>💡 Juicy 是一款常驻 macOS 菜单栏的Mac 电池管理工具，支持自定义电量提醒、电池健康追踪和充电限制。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11616/) | `已收录` |
+| `24` | **Speech To**<br><sub>💡 Speech To Markdown 是一款本地语音转 Markdown 工具，可以把零散口述转成带有标题、列表和段落结构的 Markdown 笔记。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11608/) | `已收录` |
+| `25` | **HypoMux**<br><sub>💡 HypoMux 是一款 Windows 多网卡带宽叠加工具，适用于 Wi-Fi 和网线同时连接时的双网卡叠加网速场景。它可以将电脑上的多个网络接口分配给不同下载连接，让已有的网络连接在...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11603/) | `已收录` |
+| `26` | **Screen Studio**<br><sub>💡 Screen Studio 是一款商业化录屏工具，目前主要面向 macOS 用户。它的优势在于产品完成度较高，鼠标跟随、自动缩放、动画细节和整体使用体验经过长期打磨，适合需要稳定制作产...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11602/) | `已收录` |
+| `27` | **NeumanOS**<br><sub>💡 NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11600/) | `已收录` |
+| `28` | **Battery Health**<br><sub>💡 Windows 笔记本用久了，续航明显下降时，很多人会想找一款 Windows 电池健康检测工具，看看电池到底损耗了多少。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11596/) | `已收录` |
+| `29` | **DeepSeek Harness**<br><sub>💡 DeepSeek Harness 桌面端是一个基于官方 DeepSeek Harness 制作的社区桌面客户端。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11594/) | `已收录` |
+| `30` | **Apple**<br><sub>💡 所以对于订阅型 App 或 SaaS 来说，这已经不是单纯的技术接入问题，而是一个需要提前计算的商业决策：支付转化率、Apple 佣金、Stripe 等 PSP 费用、税务处理、退款和...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11588/) | `已收录` |
+| `31` | **Port Radar**<br><sub>💡 Port Radar 是一款常驻 macOS 菜单栏的端口与进程管理工具，主要用来查看 Mac 端口占用、找到对应进程，并直接处理没有正常退出的本地服务。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11585/) | `已收录` |
+| `32` | **Free Claude**<br><sub>💡 Free Claude Code（简称 FCC）和 Anthropic 没有关联，也不是绕过 Claude 官方额度的工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11580/) | `已收录` |
+| `33` | **Computable GPU**<br><sub>💡 Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11578/) | `已收录` |
+| `34` | **抖音解析捷径**<br><sub>💡 想在 iPhone 上做抖音解析，不一定要另外安装 App。“抖音全类型”是一款第三方 iOS 快捷指令，复制抖音分享链接后运行捷径，就可以尝试解析视频以及页面里的其他媒体资源。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11440/) | `已收录` |
+| `35` | **New Grad**<br><sub>💡 New Grad Jobs 是美国招聘里很常见的一类应届生职位，主要面向刚毕业或即将毕业的求职者。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11031/) | `已收录` |
+| `36` | **M3U8播放器怎么用？M3U/M3U8**<br><sub>💡 M3U8播放器不用选得太复杂。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11023/) | `已收录` |
+| `37` | **不用装**<br><sub>💡 在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11020/) | `已收录` |
+| `38` | **Caplo**<br><sub>💡 Caplo 是一款面向 macOS 的原生Mac 录屏软件，把录制和后期编辑放在了同一个应用里。它会记录点击位置和鼠标轨迹，录完以后自动生成聚焦、缩放和跟随镜头，再继续处理光标、字幕、...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11018/) | `已收录` |
 
 ## <a id="ai-智能体与提效工具-ai-agents-llm-tools"></a>🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)
 
@@ -88,17 +131,6 @@
 | `56` | **Magic Eraser**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
 | `57` | **录阶 LuJie**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
 | `58` | **默读 Modu**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进了...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
-| `59` | **博通、Anthropic**<br><sub>💡 美國銀行、黑石等機構籌組 630 億美元融資，將透過特殊目的公司（SPV）採購博通（Broadcom）AI 產品並出租給 Anthropic，博通對該 SPV 提供殘值支撐，預計 20...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13691/) | `已收录` |
-| `60` | **羅技 MX**<br><sub>💡 羅技發表 MX Master 4 SE 開發大師限量版，將程式碼彩蛋融入視覺元素。同步預告的 Zone Vibe Pro 旗艦耳機具備 AI 降噪，打造專業週邊生態系。 羅技（Logi...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13616/) | `已收录` |
-| `61` | **我写了一个开源工具，想让**<br><sub>💡 我写了一个开源工具，想让 AI 像 Java 开发一样工作</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13719/) | `已收录` |
-| `62` | **我发布了一个可以装进浏览器侧边栏的**<br><sub>💡 我发布了一个可以装进浏览器侧边栏的 AI 工作台</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13570/) | `已收录` |
-| `63` | **SK**<br><sub>💡 韓國記憶體大廠SK海力士（SK hynix）正式發布2026年第三季財務報告。受惠人工智慧（AI）記憶體需求強 [&#38;#8230;]</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13493/) | `已收录` |
-| `64` | **Nvidia**<br><sub>💡 Nvidia 10 月 27 日表示，將投資 30 億美元認購 Meta 的股票發行。Meta 同日把發行規模上調至 975 億美元，雙方也將深化個人 AI 代理 Muse 的合作。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13593/) | `已收录` |
-| `65` | **從救災到醫療照護**<br><sub>💡 本次論壇由亞矽暨AI政策執行中心主辦，AI物聯網大聯盟、TSSA智慧機器人應用SIG共同協辦。議程橫跨五大重要領域，聚焦各產業如何克服導入門檻、協助第一線解決痛點。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13594/) | `已收录` |
-| `66` | **做了个浏览器里的角色试演工具**<br><sub>💡 做了个浏览器里的角色试演工具 - 先免费预览，再用 AI 生成和回看</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13577/) | `已收录` |
-| `67` | **微軟 CEO**<br><sub>💡 微軟執行長示警，企業應將 AI 模型視為潛在內部威脅，並建置隨時可中斷運行的緊急煞車。面對強大 AI 模型帶來的風險，管理者須主動應對內部威脅並配置緊急煞車機制，確保在系統失控時能即時...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13702/) | `已收录` |
-| `68` | **iPhone領先地位靠它？台積電1.4奈米量產計畫提前，蘋果傳率先採用A14製程**<br><sub>💡 隨著AI浪潮推動，台積電傳出將提前於2028年量產1.4奈米，蘋果有望成為首批採用客戶。即便單片晶圓成本驚人，蘋果仍積極佈局先進產能。本文解析台積電如何透過1.4奈米技術，在半導體競賽...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13554/) | `已收录` |
-| `69` | **刪除不等於消失，美大學開發工具可還原**<br><sub>💡 喬治亞理工團隊近日公布數位鑑識新工具 ORISA，顯示使用者手機刪除 AI 對話，未必代表內容真的消失。And [&#38;#8230;]</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13551/) | `已收录` |
 
 ## <a id="精选开源自托管神器-self-hosted-open-source"></a>🚀 精选开源自托管神器 (Self-Hosted & Open Source)
 
@@ -129,57 +161,6 @@
 | `23` | **Filee**<br><sub>💡 Filee 文件转换器是一款开源的本地文件转换工具，转换任务直接在自己的电脑上完成，不需要先上传文件，也不用注册账号。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11024/) | `已收录` |
 | `24` | **Status Trio**<br><sub>💡 Status Trio 是一款开源 macOS 菜单栏工具，把原本分开的 Wi-Fi、电池和音量整合进一个状态图标。它可以放在菜单栏，也可以放进 Dock，或者两个位置同时显示。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11021/) | `已收录` |
 | `25` | **Hoistbay**<br><sub>💡 Hoistbay 是一款免费开源的 S3 客户端，目前支持 macOS 和 Windows。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11019/) | `已收录` |
-
-## <a id="macos-windows-生产力应用-desktop-apps"></a>💻 macOS / Windows 生产力应用 (Desktop Apps)
-
-| 编号 | 实用神器名称与核心痛点拆解 | 深度评测与完整包直达 | 状态 |
-| :--- | :--- | :---: | :---: |
-| `01` | **PicPick**<br><sub>💡 Windows 全能截图与图像处理神器，解压即用，不写注册表。集长截图、屏幕取色器、像素标尺与图片标注于一体。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11685/) | `已收录` |
-| `02` | **flutter-easy-starter**<br><sub>💡 Flutter 简易开箱即用框架 | 已完成基础配置，支持快速二次开发 | Flutter Easy Starter Template</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11683/) | `已收录` |
-| `03` | **Gridly**<br><sub>💡 原生 macOS 窗口管理：在标题栏滑动排成半屏、四角或灵活宽度——触控板双指，或 Magic Mouse 单指。无需快捷键。14 天试用，五套主题，macOS 14+。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11682/) | `已收录` |
-| `04` | **Shadow PC**<br><sub>💡 Shadow PC, the full Windows PC in the cloud: the power of a gaming PC on your devices. Play,...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11680/) | `已收录` |
-| `05` | **hexo-theme-icarus**<br><sub>💡 A simple, delicate, and modern theme for the static site generator Hexo.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11679/) | `已收录` |
-| `06` | **tinycast**<br><sub>💡 a tiny, fully native macOS launcher, hotkeys, and clipboard history.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11674/) | `已收录` |
-| `07` | **3d-model-anything**<br><sub>💡 Capture iPhone LiDAR and photos, reconstruct editable Three.js rooms, and explore them in a ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11671/) | `已收录` |
-| `08` | **Transub-Player**<br><sub>💡 Open a video. Subtitles follow. Windows player with live dual-language subtitles.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11668/) | `已收录` |
-| `09` | **WinKit**<br><sub>💡 WinKit 是一款专为 Windows 11 设计的、极致轻量且美观的效率工具箱。它将 TodoList (待办工具) 与 Clipboard (高级剪切板)深度整合，采用毛玻璃视觉体系。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11667/) | `已收录` |
-| `10` | **jiangshan-map**<br><sub>💡 江山时序 · 中国历史交互地图时间轴 (403 BCE – Present) | Interactive Historical Atlas of China across 18 dyn...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11665/) | `已收录` |
-| `11` | **fheroes2**<br><sub>💡 is a recreation of Heroes of Might and Magic II game engine</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11663/) | `已收录` |
-| `12` | **XGesture**<br><sub>💡 The ultimate open-source Android gesture &#38; one-hand navigation suite. An all-in-one OHO+...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11659/) | `已收录` |
-| `13` | **QuickLook**<br><sub>💡 Bring macOS “Quick Look” feature to Windows.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11658/) | `已收录` |
-| `14` | **Mole**<br><sub>💡 Keep your Mac and PC clean, light, and running like new. Fast open-source CLI, plus native M...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11657/) | `已收录` |
-| `15` | **cleanyourtv**<br><sub>💡 Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11655/) | `已收录` |
-| `16` | **DropLock**<br><sub>💡 DropLock 是一个无需后端的端到端加密秘密共享工具，它不是传统意义上的密码管理器，也不是企业级密钥平台，而是一个很轻的临时传密工具。它由信息的“接收方”在本地浏览器生成不可导出的...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11643/) | `已收录` |
-| `17` | **Paster**<br><sub>💡 Paster 是一款免费的剪贴板增强工具，主要用于保存复制历史、快速搜索剪贴板内容，并提供截图标注、本地 OCR 文字识别、快捷短语和局域网共享等功能。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11638/) | `已收录` |
-| `18` | **BrowSync**<br><sub>💡 BrowSync 是一款面向 macOS 的 Mac 跨浏览器同步工具，主要解决 Safari、Chrome、Arc、Edge 之间混用时的链接分流、书签同步和登录状态割裂问题。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11637/) | `已收录` |
-| `19` | **Mac**<br><sub>💡 AndroMeld（原名 AndDrive）是一款面向 Mac + Android 用户的本地设备管理工具，核心作用是让 Mac 更方便地访问 Android 文件，并提供 Finder。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11636/) | `已收录` |
-| `20` | **Firefox**<br><sub>💡 最近有 Firefox 用户发现，浏览器里多了一个新功能：Firefox 内置 VPN。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11631/) | `已收录` |
-| `21` | **Xu**<br><sub>💡 Xu 是一款面向 Chrome / Edge 的浏览器标签页管理工具。它把当前打开的标签页、书签和会话快照放进浏览器侧边栏，让你不用在一排被挤压的标签里来回找页面。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11625/) | `已收录` |
-| `22` | **Juicy**<br><sub>💡 Juicy 是一款常驻 macOS 菜单栏的Mac 电池管理工具，支持自定义电量提醒、电池健康追踪和充电限制。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11616/) | `已收录` |
-| `23` | **Speech To**<br><sub>💡 Speech To Markdown 是一款本地语音转 Markdown 工具，可以把零散口述转成带有标题、列表和段落结构的 Markdown 笔记。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11608/) | `已收录` |
-| `24` | **HypoMux**<br><sub>💡 HypoMux 是一款 Windows 多网卡带宽叠加工具，适用于 Wi-Fi 和网线同时连接时的双网卡叠加网速场景。它可以将电脑上的多个网络接口分配给不同下载连接，让已有的网络连接在...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11603/) | `已收录` |
-| `25` | **Screen Studio**<br><sub>💡 Screen Studio 是一款商业化录屏工具，目前主要面向 macOS 用户。它的优势在于产品完成度较高，鼠标跟随、自动缩放、动画细节和整体使用体验经过长期打磨，适合需要稳定制作产...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11602/) | `已收录` |
-| `26` | **NeumanOS**<br><sub>💡 NeumanOS 是一个运行在浏览器中的本地优先个人工作空间。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11600/) | `已收录` |
-| `27` | **Battery Health**<br><sub>💡 Windows 笔记本用久了，续航明显下降时，很多人会想找一款 Windows 电池健康检测工具，看看电池到底损耗了多少。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11596/) | `已收录` |
-| `28` | **DeepSeek Harness**<br><sub>💡 DeepSeek Harness 桌面端是一个基于官方 DeepSeek Harness 制作的社区桌面客户端。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11594/) | `已收录` |
-| `29` | **Apple**<br><sub>💡 所以对于订阅型 App 或 SaaS 来说，这已经不是单纯的技术接入问题，而是一个需要提前计算的商业决策：支付转化率、Apple 佣金、Stripe 等 PSP 费用、税务处理、退款和...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11588/) | `已收录` |
-| `30` | **Port Radar**<br><sub>💡 Port Radar 是一款常驻 macOS 菜单栏的端口与进程管理工具，主要用来查看 Mac 端口占用、找到对应进程，并直接处理没有正常退出的本地服务。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11585/) | `已收录` |
-| `31` | **Free Claude**<br><sub>💡 Free Claude Code（简称 FCC）和 Anthropic 没有关联，也不是绕过 Claude 官方额度的工具。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11580/) | `已收录` |
-| `32` | **Computable GPU**<br><sub>💡 Computable GPU Index（简称 CGI）不是用来帮你找“哪家 H100 最便宜”的普通比价工具，而是一个专门衡量高端 GPU 云算力价格 的市场参考指数。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11578/) | `已收录` |
-| `33` | **抖音解析捷径**<br><sub>💡 想在 iPhone 上做抖音解析，不一定要另外安装 App。“抖音全类型”是一款第三方 iOS 快捷指令，复制抖音分享链接后运行捷径，就可以尝试解析视频以及页面里的其他媒体资源。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11440/) | `已收录` |
-| `34` | **New Grad**<br><sub>💡 New Grad Jobs 是美国招聘里很常见的一类应届生职位，主要面向刚毕业或即将毕业的求职者。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11031/) | `已收录` |
-| `35` | **M3U8播放器怎么用？M3U/M3U8**<br><sub>💡 M3U8播放器不用选得太复杂。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11023/) | `已收录` |
-| `36` | **不用装**<br><sub>💡 在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11020/) | `已收录` |
-| `37` | **Caplo**<br><sub>💡 Caplo 是一款面向 macOS 的原生Mac 录屏软件，把录制和后期编辑放在了同一个应用里。它会记录点击位置和鼠标轨迹，录完以后自动生成聚焦、缩放和跟随镜头，再继续处理光标、字幕、...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11018/) | `已收录` |
-| `38` | **iPad**<br><sub>💡 稍早蘋果突發推出全新 iPad mini 8，從裡到外都有不少改變，甚至堪稱是 iPad mini 有史以來最大幅度的升級，但價格也貴了不少。 那究竟它跟前代 iPad mini 7 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13621/) | `已收录` |
-| `39` | **MacBook Neo**<br><sub>💡 蘋果這次是打個聲東擊西啊，原本還在慶幸昨晚發布的 M6 MacBook Pro 與 M6 iMac 沒漲價，結果今天早上發現主打入門平價 MacBook Neo 又偷漲 $1,000 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13707/) | `已收录` |
-| `40` | **OnePlus**<br><sub>💡 <img width=300 height=172 src=https://www.gizmochina.com/wp-content/uploads/2026/10/image-92...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13637/) | `已收录` |
-| `41` | **2026 ITF**<br><sub>💡 2026 ITF 台灣國際旅展將於 11 月 6 日至 9 日在台北南港展覽館 1 館登場！目前 180 元預售票已開賣，優惠將持續至 11 月 5 日，展覽期間的一般全票則為 200...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13706/) | `已收录` |
-| `42` | **Apple Creator**<br><sub>💡 對於經常使用 Mac 進行影片剪輯、照片編修或音樂創作的使用者來說，蘋果帶來了一項值得期待的重大更新。Apple 宣布旗下創作者工具套件 Apple Creator Studio 將迎...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13618/) | `已收录` |
-| `43` | **Gemini Notebook**<br><sub>💡 現在很多人都會透過 Gemini Notebook 來幫忙整理會議或課堂內容，但如果是錄音，以前都需要用手機的錄音 App 或其他工具先錄好，再把音訊檔匯入筆記本，這操作其實蠻麻煩的。...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13705/) | `已收录` |
-| `44` | **Windows**<br><sub>💡 遇到某些网站打不开、某些能打开这种情况，不一定要装第三方工具，Windows 自带的命令就能定位大部分问题。整理一下我们平时的排查顺序： ipconfig /all ：先看本机拿到的 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13689/) | `已收录` |
-| `45` | **M6、M5 MacBook**<br><sub>💡 蘋果推出搭載 M6 晶片的 14 吋 MacBook Pro，外觀與上一代 M5 款相近，主要升級包括晶片、無線連線，以及雙螢幕輸出的更新率。M6 版台灣售價 NT$64,900 起，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13620/) | `已收录` |
-| `46` | **iPad**<br><sub>💡 蘋果新一代 iPad mini 8、14 吋 M6 MacBook Pro 和 M6 iMac 即將開放預購！三款新品在台灣都將於 10 月 29 日凌晨 1 點 10 分開放預訂，1...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13559/) | `已收录` |
 
 ## <a id="免安装-web-在线利器-web-cloud-utilities"></a>⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)
 
