@@ -44,9 +44,9 @@ def send_aronshare_post(post_id, title, category, summary, cover_url=None):
     ]
     caption = "\n".join(caption_lines)
 
-    # 尝试发送带图消息
-    url = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
-    payload = {
+    # 尝试发送带图消息，若图片外链不可达则降级为文本发送
+    url_photo = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
+    payload_photo = {
         "chat_id": chat_id,
         "photo": cover_url,
         "caption": caption,
@@ -54,8 +54,8 @@ def send_aronshare_post(post_id, title, category, summary, cover_url=None):
     }
 
     req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
+        url_photo,
+        data=json.dumps(payload_photo).encode("utf-8"),
         headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
     )
 
@@ -63,18 +63,30 @@ def send_aronshare_post(post_id, title, category, summary, cover_url=None):
         with urllib.request.urlopen(req, timeout=15) as resp:
             res = json.loads(resp.read().decode("utf-8"))
             if res.get("ok"):
-                print(f"[√] 成功推送资源 [{post_id}] {title} 到 Telegram 频道 {chat_id}！")
+                print(f"[√] 成功推送图文资源 [{post_id}] {title} 到 Telegram 频道 {chat_id}！")
                 return True
-            else:
-                print(f"[x] 推送失败: {res}")
-                return False
-    except urllib.error.HTTPError as e:
-        err_msg = e.read().decode("utf-8")
-        print(f"[x] HTTP 错误: {e.code} - {err_msg}")
-        return False
     except Exception as e:
-        print(f"[x] 发送异常: {str(e)}")
-        return False
+        # 平滑降级为 sendMessage
+        try:
+            url_msg = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+            payload_msg = {
+                "chat_id": chat_id,
+                "text": caption,
+                "parse_mode": "HTML"
+            }
+            req_msg = urllib.request.Request(
+                url_msg,
+                data=json.dumps(payload_msg).encode("utf-8"),
+                headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
+            )
+            with urllib.request.urlopen(req_msg, timeout=15) as resp:
+                res = json.loads(resp.read().decode("utf-8"))
+                if res.get("ok"):
+                    print(f"[√] 成功推送文本资源 [{post_id}] {title} 到 Telegram 频道！")
+                    return True
+        except Exception as err:
+            print(f"[x] 降级发送异常: {str(err)}")
+            return False
 
 if __name__ == '__main__':
     # 测试推送最新第 11652 篇资源

@@ -140,9 +140,10 @@ def run_daily_pipeline(target_count=20):
         clean_summary = re.sub(r'<[^>]+>', '', item['summary'] or '').strip()
         clean_summary = re.sub(r'\s+', ' ', clean_summary)[:280]
 
-        pan_links_yaml = ""
+        pan_links_yaml = "pan_links: []"
         if pan_share_url:
-            pan_links_yaml = f"""  - name: "夸克网盘 (高速转存)"
+            pan_links_yaml = f"""pan_links:
+  - name: "夸克网盘 (高速转存)"
     url: "{pan_share_url}" """
 
         # 写入 Markdown (严格契合 Astro Collection posts 强校验 Schema)
@@ -157,7 +158,6 @@ author: "Aron"
 cover: "/covers/{cover_filename}"
 summary: "{clean_summary[:120]}"
 official_url: "{item['url']}"
-pan_links:
 {pan_links_yaml}
 source_name: "{item['source_name']}"
 source_url: "{item['url']}"
