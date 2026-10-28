@@ -13,6 +13,7 @@ AronShare 每日 20 篇全自动精选、网盘转存、发布与 TG 广播主�
 import os
 import sys
 import re
+import time
 import json
 import sqlite3
 import subprocess
@@ -136,9 +137,12 @@ def run_daily_pipeline(target_count=20):
             except Exception as e:
                 log(f"  [!] 封面生成提示: {e}")
 
-        # 纯文本清理，剔除 HTML 标签，避免 Telegram HTML 解析器报错
-        clean_summary = re.sub(r'<[^>]+>', '', item['summary'] or '').strip()
+        # 纯文本清理，剔除 HTML 标签与双引号等破坏 YAML frontmatter 的字符
+        clean_summary = re.sub(r'<[^>]+>', ' ', item['summary'] or '').strip()
+        clean_summary = clean_summary.replace('"', '').replace("'", '').replace('\n', ' ')
         clean_summary = re.sub(r'\s+', ' ', clean_summary)[:280]
+
+        clean_title = item['title'].replace('"', '').replace("'", '').replace('\n', ' ')
 
         pan_links_yaml = "pan_links: []"
         if pan_share_url:
@@ -149,7 +153,7 @@ def run_daily_pipeline(target_count=20):
         # 写入 Markdown (严格契合 Astro Collection posts 强校验 Schema)
         now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md_content = f"""---
-title: "{item['title']}"
+title: "{clean_title}"
 category: "{item['category']}"
 category_slug: "apps"
 tags: ["{item['category']}", "神器推荐", "自动化"]
@@ -197,6 +201,7 @@ source_url: "{item['url']}"
         try:
             if send_aronshare_post:
                 send_aronshare_post(item['id'], item['title'], item['category'], item['summary'])
+                time.sleep(3) # 间隔 3 秒，严格规避 TG 429 限流
         except Exception as e:
             log(f"  [!] TG 广播异常: {e}")
 

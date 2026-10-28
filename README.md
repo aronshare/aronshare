@@ -16,9 +16,9 @@
 
 ## 📑 目录导航 (Table of Contents)
 
-- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`58` 款工具)
+- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`69` 款工具)
 - [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`25` 款工具)
-- [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`37` 款工具)
+- [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`46` 款工具)
 - [⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)](#免安装-web-在线利器-web-cloud-utilities) (`19` 款工具)
 - [⚡ 自动化监控与流水线声明](#-自动化监控与流水线声明)
 - [🤝 贡献与推荐收录](#-贡献与推荐收录)
@@ -88,6 +88,17 @@
 | `56` | **Magic Eraser**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
 | `57` | **录阶 LuJie**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
 | `58` | **默读 Modu**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进了...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
+| `59` | **博通、Anthropic**<br><sub>💡 美國銀行、黑石等機構籌組 630 億美元融資，將透過特殊目的公司（SPV）採購博通（Broadcom）AI 產品並出租給 Anthropic，博通對該 SPV 提供殘值支撐，預計 20...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13691/) | `已收录` |
+| `60` | **羅技 MX**<br><sub>💡 羅技發表 MX Master 4 SE 開發大師限量版，將程式碼彩蛋融入視覺元素。同步預告的 Zone Vibe Pro 旗艦耳機具備 AI 降噪，打造專業週邊生態系。 羅技（Logi...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13616/) | `已收录` |
+| `61` | **我写了一个开源工具，想让**<br><sub>💡 我写了一个开源工具，想让 AI 像 Java 开发一样工作</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13719/) | `已收录` |
+| `62` | **我发布了一个可以装进浏览器侧边栏的**<br><sub>💡 我发布了一个可以装进浏览器侧边栏的 AI 工作台</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13570/) | `已收录` |
+| `63` | **SK**<br><sub>💡 韓國記憶體大廠SK海力士（SK hynix）正式發布2026年第三季財務報告。受惠人工智慧（AI）記憶體需求強 [&#38;#8230;]</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13493/) | `已收录` |
+| `64` | **Nvidia**<br><sub>💡 Nvidia 10 月 27 日表示，將投資 30 億美元認購 Meta 的股票發行。Meta 同日把發行規模上調至 975 億美元，雙方也將深化個人 AI 代理 Muse 的合作。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13593/) | `已收录` |
+| `65` | **從救災到醫療照護**<br><sub>💡 本次論壇由亞矽暨AI政策執行中心主辦，AI物聯網大聯盟、TSSA智慧機器人應用SIG共同協辦。議程橫跨五大重要領域，聚焦各產業如何克服導入門檻、協助第一線解決痛點。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13594/) | `已收录` |
+| `66` | **做了个浏览器里的角色试演工具**<br><sub>💡 做了个浏览器里的角色试演工具 - 先免费预览，再用 AI 生成和回看</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13577/) | `已收录` |
+| `67` | **微軟 CEO**<br><sub>💡 微軟執行長示警，企業應將 AI 模型視為潛在內部威脅，並建置隨時可中斷運行的緊急煞車。面對強大 AI 模型帶來的風險，管理者須主動應對內部威脅並配置緊急煞車機制，確保在系統失控時能即時...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13702/) | `已收录` |
+| `68` | **iPhone領先地位靠它？台積電1.4奈米量產計畫提前，蘋果傳率先採用A14製程**<br><sub>💡 隨著AI浪潮推動，台積電傳出將提前於2028年量產1.4奈米，蘋果有望成為首批採用客戶。即便單片晶圓成本驚人，蘋果仍積極佈局先進產能。本文解析台積電如何透過1.4奈米技術，在半導體競賽...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13554/) | `已收录` |
+| `69` | **刪除不等於消失，美大學開發工具可還原**<br><sub>💡 喬治亞理工團隊近日公布數位鑑識新工具 ORISA，顯示使用者手機刪除 AI 對話，未必代表內容真的消失。And [&#38;#8230;]</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13551/) | `已收录` |
 
 ## <a id="精选开源自托管神器-self-hosted-open-source"></a>🚀 精选开源自托管神器 (Self-Hosted & Open Source)
 
@@ -160,6 +171,15 @@
 | `35` | **M3U8播放器怎么用？M3U/M3U8**<br><sub>💡 M3U8播放器不用选得太复杂。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11023/) | `已收录` |
 | `36` | **不用装**<br><sub>💡 在 Mac 上跑 Android App，最常见的办法还是装 Mac 安卓模拟器。但有时候你明明只想开一个 App，却得先把一整套 Android 环境跑起来。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11020/) | `已收录` |
 | `37` | **Caplo**<br><sub>💡 Caplo 是一款面向 macOS 的原生Mac 录屏软件，把录制和后期编辑放在了同一个应用里。它会记录点击位置和鼠标轨迹，录完以后自动生成聚焦、缩放和跟随镜头，再继续处理光标、字幕、...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11018/) | `已收录` |
+| `38` | **iPad**<br><sub>💡 稍早蘋果突發推出全新 iPad mini 8，從裡到外都有不少改變，甚至堪稱是 iPad mini 有史以來最大幅度的升級，但價格也貴了不少。 那究竟它跟前代 iPad mini 7 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13621/) | `已收录` |
+| `39` | **MacBook Neo**<br><sub>💡 蘋果這次是打個聲東擊西啊，原本還在慶幸昨晚發布的 M6 MacBook Pro 與 M6 iMac 沒漲價，結果今天早上發現主打入門平價 MacBook Neo 又偷漲 $1,000 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13707/) | `已收录` |
+| `40` | **OnePlus**<br><sub>💡 <img width=300 height=172 src=https://www.gizmochina.com/wp-content/uploads/2026/10/image-92...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13637/) | `已收录` |
+| `41` | **2026 ITF**<br><sub>💡 2026 ITF 台灣國際旅展將於 11 月 6 日至 9 日在台北南港展覽館 1 館登場！目前 180 元預售票已開賣，優惠將持續至 11 月 5 日，展覽期間的一般全票則為 200...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13706/) | `已收录` |
+| `42` | **Apple Creator**<br><sub>💡 對於經常使用 Mac 進行影片剪輯、照片編修或音樂創作的使用者來說，蘋果帶來了一項值得期待的重大更新。Apple 宣布旗下創作者工具套件 Apple Creator Studio 將迎...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13618/) | `已收录` |
+| `43` | **Gemini Notebook**<br><sub>💡 現在很多人都會透過 Gemini Notebook 來幫忙整理會議或課堂內容，但如果是錄音，以前都需要用手機的錄音 App 或其他工具先錄好，再把音訊檔匯入筆記本，這操作其實蠻麻煩的。...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13705/) | `已收录` |
+| `44` | **Windows**<br><sub>💡 遇到某些网站打不开、某些能打开这种情况，不一定要装第三方工具，Windows 自带的命令就能定位大部分问题。整理一下我们平时的排查顺序： ipconfig /all ：先看本机拿到的 ...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13689/) | `已收录` |
+| `45` | **M6、M5 MacBook**<br><sub>💡 蘋果推出搭載 M6 晶片的 14 吋 MacBook Pro，外觀與上一代 M5 款相近，主要升級包括晶片、無線連線，以及雙螢幕輸出的更新率。M6 版台灣售價 NT$64,900 起，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13620/) | `已收录` |
+| `46` | **iPad**<br><sub>💡 蘋果新一代 iPad mini 8、14 吋 M6 MacBook Pro 和 M6 iMac 即將開放預購！三款新品在台灣都將於 10 月 29 日凌晨 1 點 10 分開放預訂，1...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/post_13559/) | `已收录` |
 
 ## <a id="免安装-web-在线利器-web-cloud-utilities"></a>⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)
 
