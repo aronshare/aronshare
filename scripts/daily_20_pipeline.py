@@ -136,20 +136,35 @@ def run_daily_pipeline(target_count=20):
             except Exception as e:
                 log(f"  [!] 封面生成提示: {e}")
 
-        # 写入 Markdown
-        now_iso = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        # 纯文本清理，剔除 HTML 标签，避免 Telegram HTML 解析器报错
+        clean_summary = re.sub(r'<[^>]+>', '', item['summary'] or '').strip()
+        clean_summary = re.sub(r'\s+', ' ', clean_summary)[:280]
+
+        pan_links_yaml = ""
+        if pan_share_url:
+            pan_links_yaml = f"""  - name: "夸克网盘 (高速转存)"
+    url: "{pan_share_url}" """
+
+        # 写入 Markdown (严格契合 Astro Collection posts 强校验 Schema)
+        now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md_content = f"""---
 title: "{item['title']}"
-tagline: "{item['summary'][:60]}"
-description: "{item['summary'][:150]}"
 category: "{item['category']}"
-date: {now_iso}
-cover: "/covers/{cover_filename}"
+category_slug: "apps"
 tags: ["{item['category']}", "神器推荐", "自动化"]
+published_at: "{now_iso}"
+author: "Aron"
+cover: "/covers/{cover_filename}"
+summary: "{clean_summary[:120]}"
+official_url: "{item['url']}"
+pan_links:
+{pan_links_yaml}
+source_name: "{item['source_name']}"
+source_url: "{item['url']}"
 ---
 
 ### 💡 核心痛点与功能解析
-{item['summary']}
+{clean_summary}
 
 ### 🛠️ 详细功能与使用实操
 {item['content']}

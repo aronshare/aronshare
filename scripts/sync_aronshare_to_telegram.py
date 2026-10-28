@@ -6,6 +6,8 @@ AronShare 资源库专版 Telegram 自动分发程序 (sync_aronshare_to_telegra
 
 import sys
 import os
+import re
+import html
 import json
 import urllib.request
 import urllib.error
@@ -29,10 +31,14 @@ def send_aronshare_post(post_id, title, category, summary, cover_url=None):
     if not cover_url:
         cover_url = f"https://aronshare.com/covers/cover_{post_id}.webp"
 
+    # 纯文本清理，剔除 HTML 标签，避免 Telegram HTML 解析器报错
+    clean_summary = re.sub(r'<[^>]+>', '', summary or '').strip()
+    clean_summary = re.sub(r'\s+', ' ', clean_summary)[:280]
+
     caption_lines = [
-        f"🌟 <b>{title}</b>\n",
-        f"🏷️ <b>资源分类</b>：#{category.replace(' ', '_')}",
-        f"💡 <b>核心亮点与痛点拆解</b>：\n{summary}\n",
+        f"🌟 <b>{html.escape(title)}</b>\n",
+        f"🏷️ <b>资源分类</b>：#{html.escape(category.replace(' ', '_'))}",
+        f"💡 <b>核心亮点与痛点拆解</b>：\n{html.escape(clean_summary)}\n",
         f"🔗 <b>查看完整深度评测与官方/网盘下载</b>：\n{detail_url}",
         f"\n⚡ <i>AronShare 自动化精选资源系统同步推送</i>"
     ]
