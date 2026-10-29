@@ -160,16 +160,27 @@ def run_daily_pipeline(target_count=20):
             log("  [-] 未包含目标网盘链接，跳过转存，保持原生官网直达。")
 
         # 生成 16:9 真实界面 Letterbox 品牌封面 (优先抓取官方原生 UI，绝不用纯蓝色模板)
+        # 生成高质量 16:9 真实 UI 封面
         cover_filename = f"cover_{item['id']}.webp"
         out_cover = astro_covers_dir / cover_filename
-        if gen_cover_script.exists():
-            try:
-                subprocess.run([
-                    "python3", str(gen_cover_script),
-                    item['title'], item['category'], str(out_cover), item['url']
-                ], check=True)
-            except Exception as e:
-                log(f"  [!] 封面生成提示: {e}")
+        cover_ok = False
+        try:
+            from cover_crawler import generate_cover_for_post
+            cover_ok = generate_cover_for_post(
+                title=item['title'],
+                category=item['category'],
+                output_path=str(out_cover),
+                url=item['url'],
+                content=item.get('content_text', ''),
+                official_url=item['url'],
+                repo_url=item['url']
+            )
+        except Exception as e:
+            log(f"  [!] 封面抓取异常: {e}")
+
+        if not cover_ok or not out_cover.exists():
+            log(f"  [!] 未能提取到真实软件界面 UI，严格执行质量标准：跳过该篇，绝不发布单调文字图！")
+            continue
 
         # 纯文本清理，剔除 HTML 标签与双引号等破坏 YAML frontmatter 的字符
         clean_summary = re.sub(r'<[^>]+>', ' ', item['summary'] or '').strip()
