@@ -70,14 +70,16 @@ def run_daily_pipeline(target_count=20):
         existing_slugs.add(p.stem)
     log(f"[*] 当前系统已有文章: {len(existing_slugs)} 篇")
 
-    # 3. 从 content_hub.db 筛选最新 20 篇高价值一手候选（严格限制为纯资源与纯工具类，坚决隔离科技新闻/外媒）
+    # 3. 从 content_hub.db 筛选最新 20 篇高价值一手候选（严格限制为纯资源与纯工具类，坚决隔离科技新闻/外媒，坚决排除论坛无图源 V2EX）
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     cur.execute("""
-        SELECT r.id, r.source_name, r.title, r.url, r.summary, r.content_text, s.category
+        SELECT r.id, s.name, r.title, r.url, r.summary, r.content_text, s.category
         FROM raw_articles r
         JOIN monitor_sources s ON r.source_id = s.id
         WHERE r.score >= 80
+          AND s.name NOT LIKE '%V2EX%'
+          AND r.url NOT LIKE '%v2ex.com%'
           AND (
             s.category LIKE '%网盘%' OR 
             s.category LIKE '%课程%' OR 
@@ -132,7 +134,7 @@ def run_daily_pipeline(target_count=20):
     # 4. 逐篇执行：网盘转存 -> 生成封面 -> 生成 Markdown
     astro_covers_dir = ASTRO_DIR / "public" / "covers"
     astro_covers_dir.mkdir(parents=True, exist_ok=True)
-    gen_cover_script = SCRIPTS_DIR / "generate_ai_cover.py"
+    gen_cover_script = SCRIPTS_DIR / "cover_crawler.py"
 
     published_items = []
     for item in selected_posts:
@@ -157,12 +159,15 @@ def run_daily_pipeline(target_count=20):
         else:
             log("  [-] 未包含目标网盘链接，跳过转存，保持原生官网直达。")
 
-        # 生成 16:9 品牌封面
+        # 生成 16:9 真实界面 Letterbox 品牌封面 (优先抓取官方原生 UI，绝不用纯蓝色模板)
         cover_filename = f"cover_{item['id']}.webp"
         out_cover = astro_covers_dir / cover_filename
-        if not out_cover.exists() and gen_cover_script.exists():
+        if gen_cover_script.exists():
             try:
-                subprocess.run(["python3", str(gen_cover_script), item['title'], item['category'], str(out_cover)], check=True)
+                subprocess.run([
+                    "python3", str(gen_cover_script),
+                    item['title'], item['category'], str(out_cover), item['url']
+                ], check=True)
             except Exception as e:
                 log(f"  [!] 封面生成提示: {e}")
 
