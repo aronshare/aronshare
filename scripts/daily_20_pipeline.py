@@ -171,7 +171,7 @@ def run_daily_pipeline(target_count=20):
                 category=item['category'],
                 output_path=str(out_cover),
                 url=item['url'],
-                content=item.get('content_text', ''),
+                content=item.get('content', ''),
                 official_url=item['url'],
                 repo_url=item['url']
             )
@@ -180,6 +180,20 @@ def run_daily_pipeline(target_count=20):
 
         if not cover_ok or not out_cover.exists():
             log(f"  [!] 未能提取到真实软件界面 UI，严格执行质量标准：跳过该篇，绝不发布单调文字图！")
+            continue
+
+        # Body images and attachments use the SAME mandatory gate as covers.
+        # Never leave remote/dirty originals in content on review or edit failure.
+        try:
+            from image_ingestion import localize_images
+            item['content'], _ = localize_images(
+                item['content'], base_url=item['url'], public_dir=ASTRO_DIR / 'public')
+            # Summary is also interpolated into the Markdown body, so image
+            # syntax there must not provide a second unreviewed ingestion path.
+            item['summary'], _ = localize_images(
+                item.get('summary') or '', base_url=item['url'], public_dir=ASTRO_DIR / 'public')
+        except Exception as exc:
+            log(f"  [!] Body image review/cleanup blocked post {item['id']}: {exc}")
             continue
 
         # 纯文本清理，剔除 HTML 标签与双引号等破坏 YAML frontmatter 的字符
@@ -225,10 +239,15 @@ source_url: "{item['url']}"
             md_content += f"- **AronShare 专属夸克网盘直达 (高速转存)**：[点击极速转存下载]({pan_share_url})\n"
 
         post_md_path = posts_dir / f"{item['slug']}.md"
-        post_md_path.write_text(md_content, encoding="utf-8")
+        from image_cleanup import atomic_write
+        atomic_write(post_md_path, md_content.encode('utf-8'))
         published_items.append(item)
 
     log(f"[√] 成功生成 {len(published_items)} 篇 Markdown 文章！")
+
+    if not published_items:
+        log("[!] 没有通过真实封面校验的文章，停止发布。")
+        return
 
     # 5. 执行 Astro 静态编译与生产部署
     log("[*] 正在执行 Astro 静态构建与全站热发布...")

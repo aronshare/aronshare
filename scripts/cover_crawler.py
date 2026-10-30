@@ -4,125 +4,16 @@ AronShare 真实软件界面截图与智能 Letterbox 封面生成模块 (cover_
 标准：
 1. 严禁抓取论坛自身页面 (V2EX / Discourse / 社区)，检测到防爬盾 (Cloudflare 等) 绝不使用
 2. 优先提取真实软件界面截屏、官方 UI 或 GitHub 真实截图
-3. 若为 GitHub 仓库，提取其 Releases/README 中的真实操作 UI 图，或官方 OpenGraph
+3. GitHub 仅取 README 产品图片；官网提取实际图片，不回退社交卡片或浏览器截图
 4. 使用 Pillow 智能 Letterbox：原图完整置中 + 背景高斯模糊弥散光晕 + 安全边距 + aronshare.com 胶囊水印
 """
 
 import os
-import sys
-import re
-import urllib.request
-import subprocess
+import tempfile
 from pathlib import Path
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
-
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-BOT_CHALLENGE_KEYWORDS = [
-    "performing security verification",
-    "challenges.cloudflare.com",
-    "cf-turnstile",
-    "just a moment...",
-    "attention required! | cloudflare",
-    "enable javascript and cookies"
-]
-
-def is_blocked_or_forum(url: str, html_text: str = "") -> bool:
-    if not url:
-        return True
-    url_lower = url.lower()
-    # 绝对禁止针对论坛自身进行截屏
-    if any(k in url_lower for k in ["v2ex.com", "hostloc.com", "nodeseek.com", "linux.do"]):
-        return True
-    if html_text:
-        text_lower = html_text.lower()
-        if any(k in text_lower for k in BOT_CHALLENGE_KEYWORDS):
-            return True
-    return False
-
-def download_image(img_url: str, temp_path: str) -> bool:
-    if not img_url or not img_url.startswith("http"):
-        return False
-    try:
-        req = urllib.request.Request(img_url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=12) as resp:
-            data = resp.read()
-            if len(data) < 5000:  # 过滤小图标、追踪像素
-                return False
-            with open(temp_path, "wb") as f:
-                f.write(data)
-        with Image.open(temp_path) as im:
-            w, h = im.size
-            if w < 200 or h < 150:
-                return False
-        return True
-    except Exception:
-        return False
-
-def extract_github_preview(github_url: str, temp_path: str) -> bool:
-    """从 GitHub 仓库提取 README UI 截图或 OpenGraph 卡片"""
-    match = re.search(r"github\.com/([^/]+)/([^/#\?]+)", github_url)
-    if not match:
-        return False
-    owner, repo = match.group(1), match.group(2)
-    repo = repo.replace(".git", "")
-
-    # 1. 尝试从 raw README 中提取 UI 截图
-    for branch in ["main", "master"]:
-        readme_url = f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/README.md"
-        try:
-            req = urllib.request.Request(readme_url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, timeout=8) as resp:
-                text = resp.read().decode("utf-8", errors="ignore")
-                imgs = re.findall(r'https?://[^\s"\'<>]+\.(?:png|jpg|jpeg|webp)', text, re.I)
-                clean = [
-                    i for i in imgs 
-                    if not any(k in i.lower() for k in ["badge", "shields.io", "travis", "workflow", "avatar", "icon", "license"])
-                ]
-                for candidate in clean:
-                    if download_image(candidate, temp_path):
-                        return True
-        except Exception:
-            continue
-
-    # 2. 尝试从网页抓取 og:image
-    try:
-        repo_page = f"https://github.com/{owner}/{repo}"
-        req = urllib.request.Request(repo_page, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            html = resp.read().decode("utf-8", errors="ignore")
-            ogs = re.findall(r'property=[\'"]og:image[\'"]\s+content=[\'"]([^\'"]+)[\'"]', html)
-            if ogs and download_image(ogs[0], temp_path):
-                return True
-    except Exception:
-        pass
-
-    # 3. 兜底尝试 OpenGraph CDN 链接
-    og_fallback = f"https://opengraph.githubassets.com/aronshare/{owner}/{repo}"
-    if download_image(og_fallback, temp_path):
-        return True
-
-    return False
-
-def capture_with_chrome(url: str, temp_path: str) -> bool:
-    if is_blocked_or_forum(url):
-        return False
-    cmd = [
-        "/usr/bin/google-chrome",
-        "--headless",
-        "--disable-gpu",
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
-        "--window-size=1200,675",
-        f"--screenshot={temp_path}",
-        url
-    ]
-    try:
-        res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=20)
-        if res.returncode == 0 and os.path.exists(temp_path) and os.path.getsize(temp_path) > 10000:
-            return True
-    except Exception:
-        pass
-    return False
+from cover_sources import (download_image, extract_github_preview, extract_page_preview,
+                           image_candidates, capture_with_chrome, is_blocked_or_forum)
 
 def apply_letterbox(src_img_path: str, output_path: str, target_size=(1200, 675)) -> bool:
     try:
@@ -206,41 +97,58 @@ def apply_letterbox(src_img_path: str, output_path: str, target_size=(1200, 675)
         print(f"[!] Letterbox 处理失败: {e}")
         return False
 
-def generate_cover_for_post(title: str, category: str, output_path: str, url: str = "", content: str = "", official_url: str = "", repo_url: str = "") -> bool:
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    temp_raw = f"/tmp/raw_cover_{os.path.basename(output_path)}.png"
+def generate_cover_for_post(title: str, category: str, output_path: str, url: str = "", content: str = "", official_url: str = "", repo_url: str = "", provenance=None) -> bool:
+    """Only source-derived images; failure never changes the existing destination.
 
+    Optional provenance dict receives the exact selected image and referring page.
+    All scratch files are unique and follow TMPDIR. Installation is atomic.
+    """
+    details = {}
     try:
-        # 1. 尝试从 content 中提取外链真实图片
-        imgs = re.findall(r'https?://[^\s"\'<>]+\.(?:png|jpg|jpeg|webp)', content or "", re.I)
-        clean_imgs = [i for i in imgs if not any(k in i.lower() for k in ["avatar", "icon", "badge", "shields.io"])]
-        for img_url in clean_imgs:
-            if download_image(img_url, temp_raw):
-                if apply_letterbox(temp_raw, output_path):
-                    print(f"[√] 从正文提取界面图成功: {output_path}")
-                    return True
-
-        # 2. 尝试从 GitHub 仓库提取
-        target_repo = repo_url or (url if "github.com" in (url or "") else "") or (official_url if "github.com" in (official_url or "") else "")
-        if target_repo and "github.com" in target_repo:
-            if extract_github_preview(target_repo, temp_raw):
-                if apply_letterbox(temp_raw, output_path):
-                    print(f"[√] 提取 GitHub 仓库官方预览成功: {output_path}")
-                    return True
-
-        # 3. 尝试无头 Chrome 官网实拍截屏
-        target_site = official_url or url
-        if target_site and not is_blocked_or_forum(target_site):
-            if capture_with_chrome(target_site, temp_raw):
-                if apply_letterbox(temp_raw, output_path):
-                    print(f"[√] 成功捕获官网真实界面: {output_path}")
-                    return True
-
-    finally:
-        if os.path.exists(temp_raw):
+        scratch = Path(os.environ.get('TMPDIR') or Path.home() / '.hermes/cache/scratch')
+        scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix="aronshare-cover-", dir=scratch) as work:
+            raw = str(Path(work) / "source.img")
+            rendered = str(Path(work) / "cover.webp")
+            found = False
+            for candidate in image_candidates(content or "", url or official_url):
+                if download_image(candidate, raw, details):
+                    details.update(kind="article-image", page_url=url)
+                    found = True
+                    break
+            if not found:
+                for target in dict.fromkeys(filter(None, (repo_url, url, official_url))):
+                    if extract_github_preview(target, raw, details):
+                        found = True
+                        break
+            if not found:
+                for target in dict.fromkeys(filter(None, (official_url, url))):
+                    if extract_page_preview(target, raw, details):
+                        found = True
+                        break
+            if not found:
+                print(f"[!] No usable real source image; skipped: {title}")
+                return False
+            # Mandatory review/edit gate BEFORE branding/formatting; no dirty fallback.
+            from image_cleanup import prepare_image
+            reviewed = prepare_image(raw)
+            details['cleanup_reviewed_image'] = str(reviewed)
+            if not apply_letterbox(str(reviewed), rendered):
+                return False
+            destination = Path(output_path)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            # Stage beside destination for atomic replace, including cross-device TMPDIR.
+            fd, staged = tempfile.mkstemp(prefix=".cover-", suffix=".webp", dir=destination.parent)
             try:
-                os.remove(temp_raw)
-            except Exception:
-                pass
-
-    return False
+                with os.fdopen(fd, 'wb') as stream:
+                    stream.write(Path(rendered).read_bytes())
+                os.replace(staged, destination)
+            finally:
+                Path(staged).unlink(missing_ok=True)
+            if provenance is not None:
+                provenance.update(details)
+            print(f"[√] Real cover: {output_path}; source={details.get('resolved_image_url')}")
+            return True
+    except Exception as exc:
+        print(f"[!] Cover failed: {exc}")
+        return False
