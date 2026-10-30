@@ -16,6 +16,18 @@
 
 ## 最新收录
 
+### 2026-10-30 新增工具
+
+- **FreshRSS 让你在自己的阅读器里集中追踪博客和网站更新** — [网站全文](https://aronshare.com/posts/freshrss-feed-reader/) · [GitHub 全文](articles/freshrss-feed-reader.md)
+- **Uptime Kuma 帮你持续检查网站是否在线并在异常时发出通知** — [网站全文](https://aronshare.com/posts/uptime-kuma-monitoring/) · [GitHub 全文](articles/uptime-kuma-monitoring.md)
+- **Homepage 让你在一个页面里找到自建服务并查看运行状态** — [网站全文](https://aronshare.com/posts/homepage-service-dashboard/) · [GitHub 全文](articles/homepage-service-dashboard.md)
+- **Paperless-ngx 让扫描的票据和合同也能按内容搜索** — [网站全文](https://aronshare.com/posts/paperless-ngx/) · [GitHub 全文](articles/paperless-ngx.md)
+- **Mealie 帮你把收藏的菜谱用进每周菜单和购物清单** — [网站全文](https://aronshare.com/posts/mealie/) · [GitHub 全文](articles/mealie.md)
+- **Actual Budget 帮你把账户流水整理成看得懂的日常预算** — [网站全文](https://aronshare.com/posts/actual-budget/) · [GitHub 全文](articles/actual-budget.md)
+- **Stirling PDF 帮你在自己的电脑和服务器上处理 PDF 文件** — [网站全文](https://aronshare.com/posts/stirling-pdf-document-tools/) · [GitHub 全文](articles/stirling-pdf-document-tools.md)
+- **Immich 帮你把手机照片整理到自己管理的相册里** — [网站全文](https://aronshare.com/posts/immich-self-hosted-photo-library/) · [GitHub 全文](articles/immich-self-hosted-photo-library.md)
+- **Excalidraw 帮你用手绘白板讲清流程和页面想法** — [网站全文](https://aronshare.com/posts/excalidraw-collaborative-whiteboard/) · [GitHub 全文](articles/excalidraw-collaborative-whiteboard.md)
+
 ### Karakeep 帮你把收藏的网页和图片整理成可搜索的资料库
 
 ![Karakeep 官方界面与 AronShare 封面](https://aronshare.com/covers/cover_karakeep-bookmark-manager.webp)
