@@ -14,6 +14,16 @@
 ---
 </div>
 
+## 最新收录
+
+### Karakeep 帮你把收藏的网页和图片整理成可搜索的资料库
+
+![Karakeep 官方界面与 AronShare 封面](https://aronshare.com/covers/cover_karakeep-bookmark-manager.webp)
+
+Karakeep 可以收藏网页、笔记、图片和 PDF，支持全文搜索、AI 标签与摘要。可用 Docker 自托管，AI 功能需另行配置。
+
+[阅读网站全文](https://aronshare.com/posts/karakeep-bookmark-manager/) · [阅读 GitHub 文章](articles/karakeep-bookmark-manager.md) · [官方源码](https://github.com/karakeep-app/karakeep)
+
 ## 📑 目录导航 (Table of Contents)
 
 - [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`26` 款工具)
