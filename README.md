@@ -18,6 +18,7 @@
 
 ### 2026-10-31 新增工具
 
+- **wallabag 帮你保存文章正文并在有空时继续阅读** — [网站全文](https://aronshare.com/posts/wallabag-read-it-later/) · [GitHub 全文](articles/wallabag-read-it-later.md)
 - **Linkwarden 帮你保存网页副本并和同事整理参考资料** — [网站全文](https://aronshare.com/posts/linkwarden-bookmark-archive/) · [GitHub 全文](articles/linkwarden-bookmark-archive.md)
 - **Syncthing 让两台电脑的工作文件持续保持同步** — [网站全文](https://aronshare.com/posts/syncthing-file-sync/) · [GitHub 全文](articles/syncthing-file-sync.md)
 - **draw.io 帮你把工作流程画清楚并保留可修改的图文件** — [网站全文](https://aronshare.com/posts/drawio-diagram-editor/) · [GitHub 全文](articles/drawio-diagram-editor.md)
