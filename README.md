@@ -18,6 +18,7 @@
 
 ### 2026-10-31 新增工具
 
+- **Penpot 让设计师和开发者围绕同一份界面稿讨论布局与交互** — [网站全文](https://aronshare.com/posts/penpot-interface-design/) · [GitHub 全文](articles/penpot-interface-design.md)
 - **BookStack 让团队把操作流程写成找得到的工作手册** — [网站全文](https://aronshare.com/posts/bookstack-team-wiki/) · [GitHub 全文](articles/bookstack-team-wiki.md)
 - **Trilium Notes 让一份笔记同时出现在多个知识目录里** — [网站全文](https://aronshare.com/posts/trilium-personal-knowledge-base/) · [GitHub 全文](articles/trilium-personal-knowledge-base.md)
 - **changedetection.io 帮你盯住网页变化并在需要时发来提醒** — [网站全文](https://aronshare.com/posts/changedetection-website-monitor/) · [GitHub 全文](articles/changedetection-website-monitor.md)
