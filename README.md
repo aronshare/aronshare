@@ -18,6 +18,7 @@
 
 ### 2026-10-31 新增工具
 
+- **Linkwarden 帮你保存网页副本并和同事整理参考资料** — [网站全文](https://aronshare.com/posts/linkwarden-bookmark-archive/) · [GitHub 全文](articles/linkwarden-bookmark-archive.md)
 - **Syncthing 让两台电脑的工作文件持续保持同步** — [网站全文](https://aronshare.com/posts/syncthing-file-sync/) · [GitHub 全文](articles/syncthing-file-sync.md)
 - **draw.io 帮你把工作流程画清楚并保留可修改的图文件** — [网站全文](https://aronshare.com/posts/drawio-diagram-editor/) · [GitHub 全文](articles/drawio-diagram-editor.md)
 - **LocalSend 让手机和电脑在局域网里直接传文件** — [网站全文](https://aronshare.com/posts/localsend-local-transfer/) · [GitHub 全文](articles/localsend-local-transfer.md)
