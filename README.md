@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-10-31 新增工具
+
+- **ntfy 让脚本在任务完成或失败时给手机发通知** — [网站全文](https://aronshare.com/posts/ntfy-push-notifications/) · [GitHub 全文](articles/ntfy-push-notifications.md)
+
 ### 2026-10-30 新增工具
 
 - **FreshRSS 让你在自己的阅读器里集中追踪博客和网站更新** — [网站全文](https://aronshare.com/posts/freshrss-feed-reader/) · [GitHub 全文](articles/freshrss-feed-reader.md)
