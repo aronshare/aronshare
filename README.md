@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-01 新增工具
+
+- **Bruno 让接口请求跟着项目一起保存在 Git 里** — [网站全文](https://aronshare.com/posts/bruno-api-client/) · [GitHub 全文](articles/bruno-api-client.md)
+
 ### 2026-10-31 新增工具
 
 - **wallabag 帮你保存文章正文并在有空时继续阅读** — [网站全文](https://aronshare.com/posts/wallabag-read-it-later/) · [GitHub 全文](articles/wallabag-read-it-later.md)
