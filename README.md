@@ -18,6 +18,7 @@
 
 ### 2026-11-02 新增工具
 
+- **Stats 让你在 Mac 顶部菜单栏一眼看清电脑发烫和网速卡顿原因** — [网站全文](https://aronshare.com/posts/stats-mac-system-monitor/) · [GitHub 全文](articles/stats-mac-system-monitor.md)
 - **IINA 让 Mac 不用转格式就能顺畅播放各种本地视频和字幕** — [网站全文](https://aronshare.com/posts/iina-mac-media-player/) · [GitHub 全文](articles/iina-mac-media-player.md)
 - **CC Switch 帮你点一下鼠标就切好 Claude Code 和 Codex 的接口配置** — [网站全文](https://aronshare.com/posts/cc-switch-ai-cli-manager/) · [GitHub 全文](articles/cc-switch-ai-cli-manager.md)
 - **Cherry Studio 让你在一个软件里同时调用多家大模型和本地知识库** — [网站全文](https://aronshare.com/posts/cherry-studio-ai-client/) · [GitHub 全文](articles/cherry-studio-ai-client.md)
