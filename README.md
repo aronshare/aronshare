@@ -57,7 +57,7 @@ Karakeep 可以收藏网页、笔记、图片和 PDF，支持全文搜索、AI �
 
 - [🚀 精选开源自托管神器 (Self-Hosted & Open Source)](#精选开源自托管神器-self-hosted-open-source) (`26` 款工具)
 - [💻 macOS / Windows 生产力应用 (Desktop Apps)](#macos-windows-生产力应用-desktop-apps) (`38` 款工具)
-- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`58` 款工具)
+- [🤖 AI 智能体与提效工具 (AI Agents & LLM Tools)](#ai-智能体与提效工具-ai-agents-llm-tools) (`57` 款工具)
 - [⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)](#免安装-web-在线利器-web-cloud-utilities) (`19` 款工具)
 - [⚡ 自动化监控与流水线声明](#-自动化监控与流水线声明)
 - [🤝 贡献与推荐收录](#-贡献与推荐收录)
@@ -189,18 +189,17 @@ Karakeep 可以收藏网页、笔记、图片和 PDF，支持全文搜索、AI �
 | `44` | **holaOS**<br><sub>💡 holaOS 是一个面向长期 AI 任务的开源桌面工作区（Agent Workspace）。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11592/) | `已收录` |
 | `45` | **Dayflow**<br><sub>💡 Dayflow 是一款运行在 macOS 上的自动工作日志工具。它会定期捕获屏幕内容，通过 AI 把一天里的“查资料、改代码、开会、回复消息”等活动整理成工作时间线、Standup 和...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11591/) | `已收录` |
 | `46` | **Cursor**<br><sub>💡 Cursor 是一款以 Coding Agent 为核心的 AI 编程工具，可以理解和搜索整个代码库、修改多个文件、运行终端命令、修复错误，并通过 Diff 和 Review 检查 A...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11589/) | `已收录` |
-| `47` | **同花顺金融数据API**<br><sub>💡 如果你正在开发量化脚本、数据看板或 AI Agent，稳定的数据来源往往比模型本身更重要。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11587/) | `已收录` |
-| `48` | **ChatGPT Ad**<br><sub>💡 ChatGPT Ad Library 是一个第三方 ChatGPT 广告查询与竞品情报库，并非 OpenAI 官方产品。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11583/) | `已收录` |
-| `49` | **InvoiceFlowAI**<br><sub>💡 每到月底报销的时候，发票一多就有点麻烦了。邮箱里找邮件、下载 PDF 或 OFD、重新命名，再把日期、金额和发票号填进 Excel，虽然看起来每一步都不复杂，但是这些步骤加起来就很费时间。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11582/) | `已收录` |
-| `50` | **Archify**<br><sub>💡 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11581/) | `已收录` |
-| `51` | **OpenSEO**<br><sub>💡 OpenSEO 是一个采用 MIT 协议开源、支持自托管的 SEO 工作台，提供关键词研究、排名追踪、外链分析、站点审计和 AI 可见度检测，也支持通过 MCP 接入 Claude C...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11579/) | `已收录` |
-| `52` | **ai-memory**<br><sub>💡 用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11577/) | `已收录` |
-| `53` | **NiubiGEO**<br><sub>💡 NiubiGEO 是一款开源、支持自托管的 AI 品牌可见度检测工具。它通过模型 API 查看 AI 如何介绍你的产品、回答中还出现了哪些品牌，以及附带了哪些引用来源，方便你了解产品在...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11576/) | `已收录` |
-| `54` | **Kaze**<br><sub>💡 Kaze AI 是一个 AI 图片与视频生成平台。可以上传现有图片用 Chat Edit 直接修改，也可以从文字生成新的图片和视频；</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11574/) | `已收录` |
-| `55` | **Inpaint**<br><sub>💡 Inpaint 是一款专门做图片局部修复和物体移除的软件。像旅行照里的路人、照片上的日期和文字、背景电线、Logo、水印、划痕和污点，都可以先选中，再交给 Inpaint 处理。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11439/) | `已收录` |
-| `56` | **Magic Eraser**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
-| `57` | **录阶 LuJie**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
-| `58` | **默读 Modu**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进了...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
+| `47` | **ChatGPT Ad**<br><sub>💡 ChatGPT Ad Library 是一个第三方 ChatGPT 广告查询与竞品情报库，并非 OpenAI 官方产品。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11583/) | `已收录` |
+| `48` | **InvoiceFlowAI**<br><sub>💡 每到月底报销的时候，发票一多就有点麻烦了。邮箱里找邮件、下载 PDF 或 OFD、重新命名，再把日期、金额和发票号填进 Excel，虽然看起来每一步都不复杂，但是这些步骤加起来就很费时间。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11582/) | `已收录` |
+| `49` | **Archify**<br><sub>💡 Archify 是一款开源 Agent Skill，可以让这些 AI 编程助手读取当前代码库或系统描述，再生成经过结构与布局检查的交互式 HTML 架构图。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11581/) | `已收录` |
+| `50` | **OpenSEO**<br><sub>💡 OpenSEO 是一个采用 MIT 协议开源、支持自托管的 SEO 工作台，提供关键词研究、排名追踪、外链分析、站点审计和 AI 可见度检测，也支持通过 MCP 接入 Claude C...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11579/) | `已收录` |
+| `51` | **ai-memory**<br><sub>💡 用 Claude Code 写代码时碰到限额，或者排查思路卡住了，很多人会打开 Codex 换个模型继续试。新会话看不到前面的处理过程，项目架构、报错原因、已经尝试过的办法和剩余待办，...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11577/) | `已收录` |
+| `52` | **NiubiGEO**<br><sub>💡 NiubiGEO 是一款开源、支持自托管的 AI 品牌可见度检测工具。它通过模型 API 查看 AI 如何介绍你的产品、回答中还出现了哪些品牌，以及附带了哪些引用来源，方便你了解产品在...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11576/) | `已收录` |
+| `53` | **Kaze**<br><sub>💡 Kaze AI 是一个 AI 图片与视频生成平台。可以上传现有图片用 Chat Edit 直接修改，也可以从文字生成新的图片和视频；</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11574/) | `已收录` |
+| `54` | **Inpaint**<br><sub>💡 Inpaint 是一款专门做图片局部修复和物体移除的软件。像旅行照里的路人、照片上的日期和文字、背景电线、Logo、水印、划痕和污点，都可以先选中，再交给 Inpaint 处理。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11439/) | `已收录` |
+| `55` | **Magic Eraser**<br><sub>💡 Magic Eraser 是 Magic Studio 旗下的在线 AI 图片消除工具，主要用来把照片里的路人、文字、杂物或其他不想保留的内容擦掉。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11032/) | `已收录` |
+| `56` | **录阶 LuJie**<br><sub>💡 录阶（LuJie CareerKit）是一个开源的 AI简历 和求职管理工具，可以把简历优化、JD 匹配、投递记录、面试准备和模拟面试放在一个地方做。</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11027/) | `已收录` |
+| `57` | **默读 Modu**<br><sub>💡 扫描版 PDF 在很多阅读器里依然不太好用。页面能打开，但文字还是图片，划词、翻译、做笔记都很麻烦。默读（Modu Reader）把电子书阅读、本地 OCR、AI 辅助和多端同步做进了...</sub> | [![查看评测](https://img.shields.io/badge/查看拆解与下载-aronshare.com-0284c7?style=flat-square)](https://aronshare.com/posts/11025/) | `已收录` |
 
 ## <a id="免安装-web-在线利器-web-cloud-utilities"></a>⚡ 免安装 Web 在线利器 (Web & Cloud Utilities)
 
