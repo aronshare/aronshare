@@ -18,6 +18,7 @@
 
 ### 2026-11-02 新增工具
 
+- **Motrix 帮你用清爽无广告的界面跑满大文件与磁力链接下载速度** — [网站全文](https://aronshare.com/posts/motrix-download-manager/) · [GitHub 全文](articles/motrix-download-manager.md)
 - **Spotube 让你不充会员也能在电脑和手机上安静听歌管歌单** — [网站全文](https://aronshare.com/posts/spotube-music-client/) · [GitHub 全文](articles/spotube-music-client.md)
 - **Stats 让你在 Mac 顶部菜单栏一眼看清电脑发烫和网速卡顿原因** — [网站全文](https://aronshare.com/posts/stats-mac-system-monitor/) · [GitHub 全文](articles/stats-mac-system-monitor.md)
 - **IINA 让 Mac 不用转格式就能顺畅播放各种本地视频和字幕** — [网站全文](https://aronshare.com/posts/iina-mac-media-player/) · [GitHub 全文](articles/iina-mac-media-player.md)
