@@ -18,6 +18,7 @@
 
 ### 2026-11-02 新增工具
 
+- **CC Switch 帮你点一下鼠标就切好 Claude Code 和 Codex 的接口配置** — [网站全文](https://aronshare.com/posts/cc-switch-ai-cli-manager/) · [GitHub 全文](articles/cc-switch-ai-cli-manager.md)
 - **Cherry Studio 让你在一个软件里同时调用多家大模型和本地知识库** — [网站全文](https://aronshare.com/posts/cherry-studio-ai-client/) · [GitHub 全文](articles/cherry-studio-ai-client.md)
 
 ### 2026-11-01 新增工具
