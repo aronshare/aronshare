@@ -1,5 +1,11 @@
 # QOwnNotes 让你用纯文本本地管理 Markdown 笔记并无缝同步私有云
 
+> 💡 **资源说明**：本文档为精选摘要镜像，完整高清配置教程、最新版本与网盘高速下载通道请前往 AronShare 官网浏览。
+
+[![封面图片](https://aronshare.com/covers/cover_qownnotes-markdown-notepad.webp)](https://aronshare.com/posts/qownnotes-markdown-notepad/)
+
+# QOwnNotes 让你用纯文本本地管理 Markdown 笔记并无缝同步私有云
+
 [网站全文](https://aronshare.com/posts/qownnotes-markdown-notepad/)
 
 ![Aron 封面](https://aronshare.com/covers/cover_qownnotes-markdown-notepad.webp)
@@ -13,22 +19,11 @@ QOwnNotes 是一款基于 C++ 与 Qt 开发的开源跨平台纯文本 Markdown 
 
 ![QOwnNotes 桌面端多栏 Markdown 编辑与实时预览界面](https://aronshare.com/assets/post-images/qownnotes-markdown-notepad-detail-1.webp)
 
-## 它可以解决哪些日常痛点
 
-- **100% 本地纯文本存储，彻底拒绝数据锁定**：所有笔记直接以原生 Markdown 文件存放在你指定的本地文件夹内，不经过任何专有格式封装，天然兼容 Git、Syncthing 或各类网盘同步目录。
-- **深度集成 Nextcloud 与 ownCloud 待办与历史版本**：如果你有自建的 Nextcloud 或 ownCloud 私有云，QOwnNotes 可以直接调用服务端 API 实现跨设备待办清单（Todo list）管理、在线分享链接生成以及云端历史版本与回收站秒级回滚。
-- **自由定制的多面板工作台与无干扰写作模式**：编辑区、实时预览区、文档大纲树、标签面板与子文件夹列表可以任意拖拽停靠或隐藏，支持深色主题、拼写检查与快捷键一键切入沉浸式全屏写作。
-- **内置 AES-256 端到端笔记加密与脚本仓库**：针对账号配置、私人日记等敏感内容，支持直接对单篇笔记执行本地 AES-256 加密保护，并提供官方脚本中心一键安装各类自动化排版扩展。
+---
 
-![QOwnNotes 深色模式下的笔记大纲树与标签管理视图](https://aronshare.com/assets/post-images/qownnotes-markdown-notepad-detail-2.webp)
+### 📥 资源高速获取与完整教程
 
-## 安装与使用建议
+本项目已通过官方原版校验并同步收录至 **AronShare 资源库**，提供绿色免安装便携版、夸克网盘转存以及详细配置 SOP。
 
-1. Windows 用户可直接通过上方的夸克网盘或迅雷网盘下载免安装绿色便携版，解压到任意非系统盘目录后双击 `QOwnNotes.exe` 即可直接运行。
-2. 首次打开会弹出笔记存储目录向导，建议将路径指向你日常备份的本地文档夹（或已挂载同步的私有云文件夹），软件会自动扫描并索引文件夹内已有的 Markdown 文档。
-3. 若只习惯单栏所见即所得或双栏对照排版，可以在顶部菜单栏「窗口 -> 工作区（Workspaces）」中直接切换为「极简（Minimal）」或「完整（Full）」预设布局。
-
-## 核实来源
-
-- 官方网站：https://www.qownnotes.org/
-- GitHub 仓库：https://github.com/pbek/QOwnNotes
+👉 **[点击前往 AronShare 官网获取完整网盘下载与实操指南](https://aronshare.com/posts/qownnotes-markdown-notepad/)**

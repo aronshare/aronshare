@@ -1,4 +1,10 @@
 ---
+
+> 💡 **资源说明**：本文档为精选摘要镜像，完整高清配置教程、最新版本与网盘高速下载通道请前往 AronShare 官网浏览。
+
+[![封面图片](https://aronshare.com/covers/cover_changedetection-website-monitor.webp)](https://aronshare.com/posts/changedetection-website-monitor/)
+
+---
 title: "changedetection.io 帮你盯住网页变化并在需要时发来提醒"
 category: "开源自托管"
 category_slug: "open-source"
@@ -36,63 +42,11 @@ changedetection.io 可以替你定期检查这些页面，保存变化记录，�
 
 *图片来自 changedetection.io 官方仓库，展示任务列表、变化摘要和商品价格历史。*
 
-## 缩小监控范围可以减少无关提醒
 
-网页上的轮播图、日期和推荐内容经常变化。
-如果把整页都纳入比较，提醒里容易混入你并不关心的信息。
-changedetection.io 提供 CSS 选择器、XPath、关键词与正则表达式等筛选方式，可以限定目标区域、忽略指定文字，或在某段文字出现时触发通知。
+---
 
-配合浏览器抓取器时，还可以使用 Visual Selector，在页面截图上选择关注区域。
-对于刚开始使用的人，可以用一个公告列表练习：选择列表主体，排除导航和页脚，检查保存下来的内容是否覆盖标题与日期。
-监控范围选得合适，后续差异就更容易阅读。
+### 📥 资源高速获取与完整教程
 
-商品页面还提供价格与补货监控选项，可以设定价格条件，并查看变化历史。
-能否提取到正确的商品数据，取决于页面结构和抓取结果；价格提醒到达时，仍需要打开商家页面确认实际售价与库存。
+本项目已通过官方原版校验并同步收录至 **AronShare 资源库**，提供绿色免安装便携版、夸克网盘转存以及详细配置 SOP。
 
-## 动态网页需要浏览器抓取能力
-
-普通静态网页可以使用内置 HTTP 抓取器。
-内容依赖 JavaScript 加载时，需要连接浏览器抓取服务。
-[官方仓库的 Compose 配置](https://github.com/dgtlmoon/changedetection.io/blob/master/docker-compose.yml)提供了相关连接示例，部署时应按配置说明启用相应服务。
-
-Browser Steps 可以在检查前执行填写输入框、点击按钮等操作，适用于获得授权的登录页面或带有搜索条件的页面。
-官方说明中，Browser Steps 与 Visual Selector 需要启用 Playwright。
-这类任务还需要维护登录状态，网站改版、验证码或访问限制也可能让抓取中断。
-设置任务时，应遵守目标网站的访问规则，并选择适当的检查频率。
-
-## 通知可以接到日常使用的渠道
-
-changedetection.io 通过 Apprise 支持邮件、Telegram、Discord、Slack 等通知方式。
-按照[官方通知说明](https://github.com/dgtlmoon/changedetection.io#notifications)，在任务的通知设置中填入相应的通知 URL，就可以指定接收渠道，并定制标题和正文。
-通知 URL 可能包含令牌或密码，需要像账户凭据一样保存，避免出现在公开截图或分享链接中。
-
-如果希望把较长的差异整理成简短说明，项目也提供可选的 AI 摘要和条件判断。
-[官方 AI 配置教程](https://changedetection.io/tutorial/ai-summary-and-change-detection-bring-your-own-key)介绍了接入自己的模型服务，官方 README 也列出 Ollama 等本地模型选择。
-使用在线模型时，需要考虑提交给模型的网页内容及调用费用；普通文字比较和筛选可以独立使用。
-
-## 自托管从本机访问开始更稳妥
-
-准备好 Docker 后，可以参考官方 README 的独立容器方式启动：
-
-```bash
-docker run -d --restart always \
-  -p "127.0.0.1:5000:5000" \
-  -v datastore-volume:/datastore \
-  --name changedetection.io \
-  dgtlmoon/changedetection.io
-```
-
-该示例把服务绑定在本机回环地址，启动后在同一台电脑访问 `http://127.0.0.1:5000`。
-`datastore-volume` 用于持久保存监控数据，备份与迁移时需要照顾这个数据卷。
-如果运行在远程服务器，可以通过安全隧道访问，或配置带认证与 HTTPS 的访问入口。
-上述基础启动方式适合建立普通网页任务；JavaScript 页面和浏览器交互还需要补齐浏览器服务配置。
-
-项目采用 Apache-2.0 许可，自托管的服务器、存储及可选代理费用由自己承担。
-不想维护服务，可以查看[官网的付费托管方案](https://changedetection.io/)，按当前页面确认监控数量、检查条件和价格。
-
-从几个确实需要反复查看的页面开始，设置筛选规则并发出测试通知，确认差异内容与提醒渠道都能满足需求。
-当任务出现抓取错误或网站改版时，及时调整规则，才能持续得到有用的提醒。
-
-- [访问 changedetection.io 官网](https://changedetection.io/)
-- [查看 GitHub 源码与安装说明](https://github.com/dgtlmoon/changedetection.io)
-- [阅读官方教程](https://changedetection.io/tutorials)
+👉 **[点击前往 AronShare 官网获取完整网盘下载与实操指南](https://aronshare.com/posts/changedetection-website-monitor/)**

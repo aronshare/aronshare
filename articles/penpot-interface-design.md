@@ -1,5 +1,11 @@
 # Penpot 让设计师和开发者围绕同一份界面稿讨论布局与交互
 
+> 💡 **资源说明**：本文档为精选摘要镜像，完整高清配置教程、最新版本与网盘高速下载通道请前往 AronShare 官网浏览。
+
+[![封面图片](https://aronshare.com/covers/cover_penpot-interface-design.webp)](https://aronshare.com/posts/penpot-interface-design/)
+
+# Penpot 让设计师和开发者围绕同一份界面稿讨论布局与交互
+
 [网站全文](https://aronshare.com/posts/penpot-interface-design/)
 
 ![Penpot 官方界面](https://aronshare.com/covers/cover_penpot-interface-design.webp)
@@ -23,53 +29,11 @@ Penpot 可以绘制界面、连接交互原型，也允许开发者查看尺寸�
 
 *图片来自 Penpot 官方文档，展示图层面板、字体样例与右侧设计属性。*
 
-## 布局规则可以在设计阶段说明白
 
-Penpot 的 [Flex Layout 与 Grid Layout](https://help.penpot.app/user-guide/flexible-layouts/)分别对应 CSS Flexbox 和 CSS Grid 的布局思路。
-Flex 适合组织一行按钮、列表等内容，可以设置排列方向、间距、内边距和尺寸适配方式。
-Grid 用行和列组织二维布局，适合卡片区域等需要同时考虑两个方向的页面结构。
+---
 
-以产品卡片为例，可以给图片、标题和按钮设置间距，并决定容器如何适应内容。
-修改标题长度或画板宽度时，观察排列是否符合预期，就能把“内容变多怎么办”这个问题提前放进讨论。
-这种做法比只给出固定坐标更容易说明设计意图，开发者也能对应到熟悉的布局属性。
+### 📥 资源高速获取与完整教程
 
-## 用原型连接页面之间的动作
+本项目已通过官方原版校验并同步收录至 **AronShare 资源库**，提供绿色免安装便携版、夸克网盘转存以及详细配置 SOP。
 
-[原型文档](https://help.penpot.app/user-guide/prototyping/)介绍了把画板连接起来的方法。
-在 Prototype 面板中，可以选择触发交互的图层，连接目标画板，设置跳转或弹层等动作，并通过 View mode 预览。
-完成的流程可以通过链接分享。
-
-例如，做一个活动报名页面，可以建立介绍页、填写页和提交结果页，把报名按钮与目标页面相连。
-讨论时沿着用户实际点击的路径检查，容易发现返回入口缺失、提示信息不足等问题。
-这里模拟的是页面行为，真正的网站仍需要开发者完成业务逻辑、数据保存和接口连接。
-
-## 开发者可以直接查看尺寸和样式
-
-Penpot 的 [Inspect 模式](https://help.penpot.app/user-guide/inspect/)提供只读检查界面，可以查看对象属性、距离与尺寸，也能导出素材。
-选择对象后，代码页签可以显示 SVG、HTML 和 CSS 片段。
-
-这对核对边距、字体和颜色尤其直接。
-开发者有明确数值可查，设计师也能指向具体对象讨论，减少在截图上反复画箭头的沟通。
-把这些片段用于实际项目时，还需要按照项目的组件结构、样式约定和响应式规则进行组织。
-
-## 自托管需要维护服务器和设计数据
-
-希望省去部署工作，可以从官方在线服务进入。
-希望自己管理设计资料，可以阅读[自托管指南](https://help.penpot.app/technical-guide/getting-started/)，使用 Docker 和 Docker Compose 运行实例。
-官方提供了 Compose 配置文件，并说明了服务启动、环境变量和数据备份方式。
-
-正式给团队使用时，需要处理访问地址、邮件配置、注册策略和备份。
-文档特别提醒，对外开放实例应启用邮件验证或关闭开放注册；持久数据包括数据库与上传素材，备份方案应覆盖两者。
-维护容器、升级版本和恢复数据，都需要有人负责。
-
-Penpot 采用 MPL 2.0 开源许可，自托管的服务器、存储和维护成本由使用者承担。
-官方另有付费 Enterprise 方案，涉及集中管理、权限和 SSO 等企业功能，并面向云端及自托管场景。
-团队选型时，应把绘图需要和组织管理需要分别列出，按对应方案核对条件。
-
-可以选一个真实页面，把布局、一次页面跳转和开发者需要查看的样式完整做出来。
-让设计师和开发者共同检查这份文件，确认双方都能找到所需信息，再决定是否扩展到整个项目。
-
-- [访问 Penpot 官网](https://penpot.app/)
-- [进入 Penpot 在线服务](https://design.penpot.app/)
-- [查看 Penpot 源码和企业方案说明](https://github.com/penpot/penpot)
-- [阅读自托管文档](https://help.penpot.app/technical-guide/getting-started/)
+👉 **[点击前往 AronShare 官网获取完整网盘下载与实操指南](https://aronshare.com/posts/penpot-interface-design/)**

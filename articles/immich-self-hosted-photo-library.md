@@ -1,5 +1,11 @@
 # Immich 帮你把手机照片整理到自己管理的相册里
 
+> 💡 **资源说明**：本文档为精选摘要镜像，完整高清配置教程、最新版本与网盘高速下载通道请前往 AronShare 官网浏览。
+
+[![封面图片](https://aronshare.com/covers/cover_immich-self-hosted-photo-library.webp)](https://aronshare.com/posts/immich-self-hosted-photo-library/)
+
+# Immich 帮你把手机照片整理到自己管理的相册里
+
 收录日期：2026-10-30
 
 [在 AronShare 阅读](https://aronshare.com/posts/immich-self-hosted-photo-library/)
@@ -25,44 +31,11 @@ Immich 是一款支持自托管的照片和视频管理工具，可以把资料�
 公开分享、共享相册与多用户支持，也让家庭成员能够按需要共同使用一个实例。
 分享之前应检查照片内容与访问范围，包含家庭位置、儿童或证件的照片适合单独管理。
 
-## 服务器需要留出处理照片的余量
 
-[官方硬件要求](https://docs.immich.app/install/requirements)建议使用 Linux 或类 Unix 的 64 位环境，最低 6GB 内存、2 核 CPU，推荐 8GB 内存、4 核 CPU。
-图库上传后还会生成缩略图和转码视频，规划磁盘空间时应把这些派生文件计入容量。
-照片原文件、数据库和机器学习任务也有不同的资源需求，已有 NAS 是否合适，需要结合内存、处理器和文件系统判断。
+---
 
-当前文档对 v3 的 amd64 机器学习容器提出了 x86-64-v2 指令集要求，旧设备和虚拟机需要核对处理器配置。
-数据库目录应使用支持用户与权限的文件系统，官方建议放在本地 SSD，并明确要求不要把数据库放在网络共享目录中。
-这些条件会直接影响安装方式，照搬旧教程容易漏掉版本差异。
+### 📥 资源高速获取与完整教程
 
-## Docker Compose 是官方推荐的部署方式
+本项目已通过官方原版校验并同步收录至 **AronShare 资源库**，提供绿色免安装便携版、夸克网盘转存以及详细配置 SOP。
 
-[安装文档](https://docs.immich.app/install/docker-compose)提供发行版对应的 Compose 文件和环境变量示例。
-需要准备 Docker 与 Compose 插件，将示例环境文件保存为 `.env`，设置上传目录、数据库目录、数据库密码和需要使用的版本。
-完成配置后，在文件所在目录执行 `docker compose up -d` 启动服务。
-
-手机应用连接自己的服务器地址，网页用于浏览和管理图库。
-升级时应对照官方升级说明检查变更，避免把自动拉取镜像当作全部维护工作。
-对于长期保存的家庭资料，稳定的备份与恢复安排比频繁更换版本更重要。
-
-## 备份要同时保存照片和数据库
-
-[备份文档](https://docs.immich.app/administration/backup-and-restore)强调，完整备份需要包含上传文件和 Immich 数据库。
-数据库记录文件路径与用户元数据，自动数据库备份只包含相应数据，照片和视频原文件需要另外复制。
-应用中的手机上传功能解决了照片进入服务器的问题，服务器磁盘损坏、误删等情况仍需要独立备份来应对。
-
-可以按官方建议采用 3-2-1 备份思路，并在迁移大量照片前检查恢复流程。
-直接在图库目录中移动或删除文件会影响应用记录，日常整理应使用应用提供的入口。
-
-## 软件费用与存储费用分开考虑
-
-Immich 采用 AGPL-3.0 开源许可。
-[支持项目页面](https://docs.immich.app/overview/support-the-project)提供按用户或整台服务器购买的方式，并说明功能保持免费，不通过付费墙限制功能。
-自托管仍需要承担硬件、磁盘、电力、网络以及备份空间的成本。
-
-可以从一个相册开始，观察手机上传、人物搜索、视频播放和共享是否符合自己的习惯，同时验证备份文件能够恢复。
-这些环节安排妥当后，把它作为长期图库会更踏实。
-
-- [访问 Immich 官网](https://immich.app/)
-- [查看官方功能列表](https://github.com/immich-app/immich)
-- [阅读 Docker Compose 安装说明](https://docs.immich.app/install/docker-compose)
+👉 **[点击前往 AronShare 官网获取完整网盘下载与实操指南](https://aronshare.com/posts/immich-self-hosted-photo-library/)**
