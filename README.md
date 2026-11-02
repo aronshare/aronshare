@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-02 新增工具
+
+- **Cherry Studio 让你在一个软件里同时调用多家大模型和本地知识库** — [网站全文](https://aronshare.com/posts/cherry-studio-ai-client/) · [GitHub 全文](articles/cherry-studio-ai-client.md)
+
 ### 2026-11-01 新增工具
 
 - **Bruno 让接口请求跟着项目一起保存在 Git 里** — [网站全文](https://aronshare.com/posts/bruno-api-client/) · [GitHub 全文](articles/bruno-api-client.md)
