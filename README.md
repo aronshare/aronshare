@@ -18,6 +18,7 @@
 
 ### 2026-11-02 新增工具
 
+- **QOwnNotes 让你用纯文本本地管理 Markdown 笔记并无缝同步私有云** — [网站全文](https://aronshare.com/posts/qownnotes-markdown-notepad/) · [GitHub 全文](articles/qownnotes-markdown-notepad.md)
 - **UniGetUI 让你用图形界面一键批量安装和更新 Windows 里的所有软件** — [网站全文](https://aronshare.com/posts/unigetui-package-manager/) · [GitHub 全文](articles/unigetui-package-manager.md)
 - **Motrix 帮你用清爽无广告的界面跑满大文件与磁力链接下载速度** — [网站全文](https://aronshare.com/posts/motrix-download-manager/) · [GitHub 全文](articles/motrix-download-manager.md)
 - **Spotube 让你不充会员也能在电脑和手机上安静听歌管歌单** — [网站全文](https://aronshare.com/posts/spotube-music-client/) · [GitHub 全文](articles/spotube-music-client.md)
