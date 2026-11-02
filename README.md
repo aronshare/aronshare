@@ -18,6 +18,7 @@
 
 ### 2026-11-02 新增工具
 
+- **思源笔记 让你把个人资料留在自己电脑里并按段落自由关联** — [网站全文](https://aronshare.com/posts/siyuan-local-knowledge-base/) · [GitHub 全文](articles/siyuan-local-knowledge-base.md)
 - **163MusicLyrics 帮你批量提取云音乐双语滚动歌词并导出本地 LRC 文件** — [网站全文](https://aronshare.com/posts/163musiclyrics-lyric-downloader/) · [GitHub 全文](articles/163musiclyrics-lyric-downloader.md)
 - **Ghost Downloader 3 帮你自动分块多线程榨干宽带下载大文件** — [网站全文](https://aronshare.com/posts/ghost-downloader-3/) · [GitHub 全文](articles/ghost-downloader-3.md)
 - **QOwnNotes 让你用纯文本本地管理 Markdown 笔记并无缝同步私有云** — [网站全文](https://aronshare.com/posts/qownnotes-markdown-notepad/) · [GitHub 全文](articles/qownnotes-markdown-notepad.md)
