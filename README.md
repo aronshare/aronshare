@@ -18,6 +18,7 @@
 
 ### 2026-11-03 新增工具
 
+- **MediaGo 帮你在网页播放视频时直接抓出流地址并存到本地** — [网站全文](https://aronshare.com/posts/mediago-stream-downloader/) · [GitHub 全文](articles/mediago-stream-downloader.md)
 - **Red Panda C++ 让你免配置编译器打开就能直接写代码和调试算法题** — [网站全文](https://aronshare.com/posts/redpanda-cpp-lightweight-ide/) · [GitHub 全文](articles/redpanda-cpp-lightweight-ide.md)
 
 ### 2026-11-02 新增工具
