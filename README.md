@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-03 新增工具
+
+- **Red Panda C++ 让你免配置编译器打开就能直接写代码和调试算法题** — [网站全文](https://aronshare.com/posts/redpanda-cpp-lightweight-ide/) · [GitHub 全文](articles/redpanda-cpp-lightweight-ide.md)
+
 ### 2026-11-02 新增工具
 
 - **思源笔记 让你把个人资料留在自己电脑里并按段落自由关联** — [网站全文](https://aronshare.com/posts/siyuan-local-knowledge-base/) · [GitHub 全文](articles/siyuan-local-knowledge-base.md)
