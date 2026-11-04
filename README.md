@@ -19,6 +19,7 @@
 ### 2026-11-04 新增工具
 
 - **Homebox 帮你记清家里的东西放在哪以及何时买的** — [网站全文](https://aronshare.com/posts/homebox-household-inventory/) · [GitHub 全文](articles/homebox-household-inventory.md)
+- **Homebox 帮你记清家里的东西放在哪以及何时买的** — [网站全文](https://aronshare.com/posts/homebox-household-inventory/) · [GitHub 全文](articles/homebox-household-inventory.md)
 
 ### 2026-11-03 新增工具
 
