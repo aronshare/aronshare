@@ -18,6 +18,7 @@
 
 ### 2026-11-04 新增工具
 
+- **Calibre-Web 让家里的电子书库在浏览器里随时可读** — [网站全文](https://aronshare.com/posts/calibre-web-library/) · [GitHub 全文](articles/calibre-web-library.md)
 - **DBeaver 让你在同一个窗口里查询和管理多种数据库** — [网站全文](https://aronshare.com/posts/dbeaver-database-client/) · [GitHub 全文](articles/dbeaver-database-client.md)
 - **Joplin 让你的笔记离线可读，也能自己选择同步方式** — [网站全文](https://aronshare.com/posts/joplin-offline-notes/) · [GitHub 全文](articles/joplin-offline-notes.md)
 - **Zotero 让收集的论文和网页在写作时找得到出处** — [网站全文](https://aronshare.com/posts/zotero-research-library/) · [GitHub 全文](articles/zotero-research-library.md)
