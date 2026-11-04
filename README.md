@@ -18,6 +18,7 @@
 
 ### 2026-11-04 新增工具
 
+- **Joplin 让你的笔记离线可读，也能自己选择同步方式** — [网站全文](https://aronshare.com/posts/joplin-offline-notes/) · [GitHub 全文](articles/joplin-offline-notes.md)
 - **Zotero 让收集的论文和网页在写作时找得到出处** — [网站全文](https://aronshare.com/posts/zotero-research-library/) · [GitHub 全文](articles/zotero-research-library.md)
 - **Vikunja 让个人待办和团队项目共用一套任务清单** — [网站全文](https://aronshare.com/posts/vikunja-task-projects/) · [GitHub 全文](articles/vikunja-task-projects.md)
 - **Scrutiny 帮你持续观察硬盘健康变化并接收异常提醒** — [网站全文](https://aronshare.com/posts/scrutiny-disk-health/) · [GitHub 全文](articles/scrutiny-disk-health.md)
