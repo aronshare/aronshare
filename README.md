@@ -18,6 +18,7 @@
 
 ### 2026-11-04 新增工具
 
+- **Zotero 让收集的论文和网页在写作时找得到出处** — [网站全文](https://aronshare.com/posts/zotero-research-library/) · [GitHub 全文](articles/zotero-research-library.md)
 - **Vikunja 让个人待办和团队项目共用一套任务清单** — [网站全文](https://aronshare.com/posts/vikunja-task-projects/) · [GitHub 全文](articles/vikunja-task-projects.md)
 - **Scrutiny 帮你持续观察硬盘健康变化并接收异常提醒** — [网站全文](https://aronshare.com/posts/scrutiny-disk-health/) · [GitHub 全文](articles/scrutiny-disk-health.md)
 - **Kdenlive 让你免费完成多轨剪辑、调色和字幕制作** — [网站全文](https://aronshare.com/posts/kdenlive-video-editor/) · [GitHub 全文](articles/kdenlive-video-editor.md)
