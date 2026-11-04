@@ -18,6 +18,7 @@
 
 ### 2026-11-04 新增工具
 
+- **KeePassXC 让你用一个本地文件管理密码** — [网站全文](https://aronshare.com/posts/keepassxc-local-passwords/) · [GitHub 全文](articles/keepassxc-local-passwords.md)
 - **Audiobookshelf 让有声书和播客在不同设备上接着听** — [网站全文](https://aronshare.com/posts/audiobookshelf-audio-library/) · [GitHub 全文](articles/audiobookshelf-audio-library.md)
 - **Homebox 帮你记清家里的东西放在哪以及何时买的** — [网站全文](https://aronshare.com/posts/homebox-household-inventory/) · [GitHub 全文](articles/homebox-household-inventory.md)
 - **Homebox 帮你记清家里的东西放在哪以及何时买的** — [网站全文](https://aronshare.com/posts/homebox-household-inventory/) · [GitHub 全文](articles/homebox-household-inventory.md)
