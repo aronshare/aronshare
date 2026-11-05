@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-05 新增工具
+
+- **Krita 让你在电脑上用专业级笔刷引擎与图层自由进行概念插画和手绘创作** — [网站全文](https://aronshare.com/posts/krita-digital-painting/) · [GitHub 全文](articles/krita-digital-painting.md)
+
 ### 2026-11-04 新增工具
 
 - **Calibre-Web 让家里的电子书库在浏览器里随时可读** — [网站全文](https://aronshare.com/posts/calibre-web-library/) · [GitHub 全文](articles/calibre-web-library.md)
