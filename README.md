@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-06 新增工具
+
+- **FreeCAD 帮你按尺寸设计零件和三维模型** — [网站全文](https://aronshare.com/posts/freecad-parametric-modeling/) · [GitHub 全文](articles/freecad-parametric-modeling.md)
+
 ### 2026-11-05 新增工具
 
 - **Krita 让你在电脑上用专业级笔刷引擎与图层自由进行概念插画和手绘创作** — [网站全文](https://aronshare.com/posts/krita-digital-painting/) · [GitHub 全文](articles/krita-digital-painting.md)
