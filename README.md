@@ -18,6 +18,7 @@
 
 ### 2026-11-06 新增工具
 
+- **Umi-OCR 帮你把截图和扫描件里的文字直接抠出来** — [网站全文](https://aronshare.com/posts/umi-ocr-offline-text-recognition/) · [GitHub 摘要](articles/umi-ocr-offline-text-recognition.md)
 - **PDFsam Basic 帮你在电脑上拆分和合并 PDF 文件** — [网站全文](https://aronshare.com/posts/pdfsam-basic-pdf-pages/) · [GitHub 摘要](articles/pdfsam-basic-pdf-pages.md)
 - **Logseq 帮你把读书笔记和项目记录串成知识库** — [网站全文](https://aronshare.com/posts/logseq-linked-notes/) · [GitHub 摘要](articles/logseq-linked-notes.md)
 - **AppFlowy 帮你用文档和看板管理项目资料** — [网站全文](https://aronshare.com/posts/appflowy-project-workspace/) · [GitHub 全文](articles/appflowy-project-workspace.md)
