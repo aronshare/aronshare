@@ -18,6 +18,7 @@
 
 ### 2026-11-06 新增工具
 
+- **AppFlowy 帮你用文档和看板管理项目资料** — [网站全文](https://aronshare.com/posts/appflowy-project-workspace/) · [GitHub 全文](articles/appflowy-project-workspace.md)
 - **FreeCAD 帮你按尺寸设计零件和三维模型** — [网站全文](https://aronshare.com/posts/freecad-parametric-modeling/) · [GitHub 全文](articles/freecad-parametric-modeling.md)
 
 ### 2026-11-05 新增工具
