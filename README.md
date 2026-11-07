@@ -18,6 +18,7 @@
 
 ### 2026-11-07 新增工具
 
+- **Stirling PDF 把合并压缩加密和 OCR 收进了一个自托管的网页工具箱** — [网站全文](https://aronshare.com/posts/stirling-pdf-toolbox/) · [GitHub 摘要](articles/stirling-pdf-toolbox.md)
 - **n8n 把几个系统之间的重复搬运连成一条自动流程** — [网站全文](https://aronshare.com/posts/n8n-workflow-automation/) · [GitHub 摘要](articles/n8n-workflow-automation.md)
 - **Immich 帮你把手机照片自动备份到自己服务器** — [网站全文](https://aronshare.com/posts/immich-photo-backup/) · [GitHub 摘要](articles/immich-photo-backup.md)
 
