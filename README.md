@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-07 新增工具
+
+- **Immich 帮你把手机照片自动备份到自己服务器** — [网站全文](https://aronshare.com/posts/immich-photo-backup/) · [GitHub 摘要](articles/immich-photo-backup.md)
+
 ### 2026-11-06 新增工具
 
 - **Umi-OCR 帮你把截图和扫描件里的文字直接抠出来** — [网站全文](https://aronshare.com/posts/umi-ocr-offline-text-recognition/) · [GitHub 摘要](articles/umi-ocr-offline-text-recognition.md)
