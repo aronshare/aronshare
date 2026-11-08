@@ -18,6 +18,7 @@
 
 ### 2026-11-08 新增工具
 
+- **WinMerge 帮你对比文件和文件夹里的变化** — [网站全文](https://aronshare.com/posts/winmerge-file-compare-dualpan-20261106/) · [GitHub 摘要](articles/winmerge-file-compare-dualpan-20261106.md)
 - **PhotoPrism 帮你按人物和拍摄信息找回散落的照片** — [网站全文](https://aronshare.com/posts/photoprism-private-photo-library/) · [GitHub 摘要](articles/photoprism-private-photo-library.md)
 - **IT-Tools 把开发和运维常用的小工具收进一个网页** — [网站全文](https://aronshare.com/posts/it-tools-devtoolbox/) · [GitHub 摘要](articles/it-tools-devtoolbox.md)
 - **Linkding 帮你把收藏夹变成能搜索、能存档的私人书签库** — [网站全文](https://aronshare.com/posts/linkding-bookmark-manager/) · [GitHub 摘要](articles/linkding-bookmark-manager.md)
