@@ -18,6 +18,7 @@
 
 ### 2026-11-08 新增工具
 
+- **IT-Tools 把开发和运维常用的小工具收进一个网页** — [网站全文](https://aronshare.com/posts/it-tools-devtoolbox/) · [GitHub 摘要](articles/it-tools-devtoolbox.md)
 - **Linkding 帮你把收藏夹变成能搜索、能存档的私人书签库** — [网站全文](https://aronshare.com/posts/linkding-bookmark-manager/) · [GitHub 摘要](articles/linkding-bookmark-manager.md)
 - **Gitea 帮你把代码仓库放到自己服务器上** — [网站全文](https://aronshare.com/posts/gitea-selfhosted-git/) · [GitHub 摘要](articles/gitea-selfhosted-git.md)
 - **Upscayl 帮你把模糊小图放大成清晰大图** — [网站全文](https://aronshare.com/posts/upscayl-image-upscaler/) · [GitHub 摘要](articles/upscayl-image-upscaler.md)
