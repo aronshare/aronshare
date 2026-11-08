@@ -18,6 +18,7 @@
 
 ### 2026-11-09 新增工具
 
+- **一款可以截图和录屏的开源工具** — [网站全文](https://aronshare.com/posts/sharex-screen-workflow/) · [GitHub 摘要](articles/sharex-screen-workflow.md)
 - **一款能检测局域网陌生设备的开源小工具** — [网站全文](https://aronshare.com/posts/watchyourlan-network-devices/) · [GitHub 摘要](articles/watchyourlan-network-devices.md)
 
 ### 2026-11-08 新增工具
