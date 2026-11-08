@@ -18,6 +18,7 @@
 
 ### 2026-11-08 新增工具
 
+- **Kanboard 帮小团队看清哪些任务正在积压** — [网站全文](https://aronshare.com/posts/kanboard-kanban-workflow/) · [GitHub 摘要](articles/kanboard-kanban-workflow.md)
 - **Beszel 帮你在一个页面看清服务器和容器的运行状态** — [网站全文](https://aronshare.com/posts/beszel-server-monitor/) · [GitHub 摘要](articles/beszel-server-monitor.md)
 
 ### 2026-11-07 新增工具
