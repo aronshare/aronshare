@@ -18,6 +18,7 @@
 
 ### 2026-11-08 新增工具
 
+- **Paperless-ngx 把一柜子票据合同变成能搜索的档案库** — [网站全文](https://aronshare.com/posts/paperless-ngx-documents/) · [GitHub 摘要](articles/paperless-ngx-documents.md)
 - **Glance 让你把所有想看的资讯拼成早上打开就看完的一页** — [网站全文](https://aronshare.com/posts/glance-selfhosted-dashboard/) · [GitHub 摘要](articles/glance-selfhosted-dashboard.md)
 - **Docmost 让你在自己服务器上搭一套多人同时编辑的文档库** — [网站全文](https://aronshare.com/posts/docmost-collaborative-wiki/) · [GitHub 摘要](articles/docmost-collaborative-wiki.md)
 - **Wallos 帮你盯住那些每月自动扣钱的订阅** — [网站全文](https://aronshare.com/posts/wallos-subscription-tracker/) · [GitHub 摘要](articles/wallos-subscription-tracker.md)
