@@ -18,6 +18,7 @@
 
 ### 2026-11-08 新增工具
 
+- **Gitea 帮你把代码仓库放到自己服务器上** — [网站全文](https://aronshare.com/posts/gitea-selfhosted-git/) · [GitHub 摘要](articles/gitea-selfhosted-git.md)
 - **Upscayl 帮你把模糊小图放大成清晰大图** — [网站全文](https://aronshare.com/posts/upscayl-image-upscaler/) · [GitHub 摘要](articles/upscayl-image-upscaler.md)
 - **Paperless-ngx 把一柜子票据合同变成能搜索的档案库** — [网站全文](https://aronshare.com/posts/paperless-ngx-documents/) · [GitHub 摘要](articles/paperless-ngx-documents.md)
 - **Glance 让你把所有想看的资讯拼成早上打开就看完的一页** — [网站全文](https://aronshare.com/posts/glance-selfhosted-dashboard/) · [GitHub 摘要](articles/glance-selfhosted-dashboard.md)
