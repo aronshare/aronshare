@@ -18,6 +18,7 @@
 
 ### 2026-11-09 新增工具
 
+- **一款截图后能画箭头标注的开源工具** — [网站全文](https://aronshare.com/posts/flameshot-screenshot-annotation/) · [GitHub 摘要](articles/flameshot-screenshot-annotation.md)
 - **Zulip 让你把团队聊天按话题收好不再被刷屏冲散** — [网站全文](https://aronshare.com/posts/zulip-team-chat/) · [GitHub 摘要](articles/zulip-team-chat.md)
 - **NocoDB 让你把现成数据库变成能直接填写的表格** — [网站全文](https://aronshare.com/posts/nocodb-database-ui/) · [GitHub 摘要](articles/nocodb-database-ui.md)
 - **Navidrome 让你在手机和浏览器里听自己收藏的音乐** — [网站全文](https://aronshare.com/posts/navidrome-music-server/) · [GitHub 摘要](articles/navidrome-music-server.md)
