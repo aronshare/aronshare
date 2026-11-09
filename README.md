@@ -18,6 +18,7 @@
 
 ### 2026-11-09 新增工具
 
+- **NocoDB 让你把现成数据库变成能直接填写的表格** — [网站全文](https://aronshare.com/posts/nocodb-database-ui/) · [GitHub 摘要](articles/nocodb-database-ui.md)
 - **Navidrome 让你在手机和浏览器里听自己收藏的音乐** — [网站全文](https://aronshare.com/posts/navidrome-music-server/) · [GitHub 摘要](articles/navidrome-music-server.md)
 - **Nextcloud 让你把网盘、日历和联系人搬回自己的服务器** — [网站全文](https://aronshare.com/posts/nextcloud-personal-cloud/) · [GitHub 摘要](articles/nextcloud-personal-cloud.md)
 - **Jellyfin 让你把硬盘里的电影变成家里随时能看的视频库** — [网站全文](https://aronshare.com/posts/jellyfin-media-server/) · [GitHub 摘要](articles/jellyfin-media-server.md)
