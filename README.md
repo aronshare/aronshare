@@ -18,6 +18,7 @@
 
 ### 2026-11-09 新增工具
 
+- **Zed 让你在编辑器里带着文件上下文和 AI 一起改代码** — [网站全文](https://aronshare.com/posts/zed-ai-code-editor/) · [GitHub 摘要](articles/zed-ai-code-editor.md)
 - **Glances 让你用一块面板看清这台机器的负载** — [网站全文](https://aronshare.com/posts/glances-system-monitor/) · [GitHub 摘要](articles/glances-system-monitor.md)
 - **一款管收支和分类预算的开源记账工具** — [网站全文](https://aronshare.com/posts/firefly-iii-personal-finance/) · [GitHub 摘要](articles/firefly-iii-personal-finance.md)
 - **一款可以截图和录屏的开源工具** — [网站全文](https://aronshare.com/posts/sharex-screen-workflow/) · [GitHub 摘要](articles/sharex-screen-workflow.md)
