@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-10 新增工具
+
+- **ComfyUI 把一张图的生成步骤摆成能复用的节点图** — [网站全文](https://aronshare.com/posts/comfyui-node-workflow/) · [GitHub 摘要](articles/comfyui-node-workflow.md)
+
 ### 2026-11-09 新增工具
 
 - **一款能开 rar、7z、zip 的解压开源工具** — [网站全文](https://aronshare.com/posts/peazip-archive-manager/) · [GitHub 摘要](articles/peazip-archive-manager.md)
