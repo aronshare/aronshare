@@ -18,6 +18,7 @@
 
 ### 2026-11-10 新增工具
 
+- **Listmonk 用一个二进制文件发邮件，七百万封只占 57MB 内存** — [网站全文](https://aronshare.com/posts/listmonk-newsletter/) · [GitHub 摘要](articles/listmonk-newsletter.md)
 - **Postiz 是能自己部署的社媒排期工具，账号和次数都不限量** — [网站全文](https://aronshare.com/posts/postiz-social-scheduler/) · [GitHub 摘要](articles/postiz-social-scheduler.md)
 - **Photoview 让你按硬盘目录直接浏览上万张照片** — [网站全文](https://aronshare.com/posts/photoview-photo-server/) · [GitHub 摘要](articles/photoview-photo-server.md)
 - **Metabase 让不会写 SQL 的同事自己查数据** — [网站全文](https://aronshare.com/posts/metabase-bi-dashboard/) · [GitHub 摘要](articles/metabase-bi-dashboard.md)
