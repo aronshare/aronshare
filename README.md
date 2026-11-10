@@ -18,6 +18,7 @@
 
 ### 2026-11-10 新增工具
 
+- **Nginx Proxy Manager 用鼠标配好反向代理和证书** — [网站全文](https://aronshare.com/posts/nginx-proxy-manager/) · [GitHub 摘要](articles/nginx-proxy-manager.md)
 - **Buzz 把录音和视频转成字幕全程不联网** — [网站全文](https://aronshare.com/posts/buzz-audio-transcription/) · [GitHub 摘要](articles/buzz-audio-transcription.md)
 - **Plane 让项目排期回到自己服务器上** — [网站全文](https://aronshare.com/posts/plane-project-tracking/) · [GitHub 摘要](articles/plane-project-tracking.md)
 - **Woodpecker 把 CI 流水线搬回自己的服务器** — [网站全文](https://aronshare.com/posts/woodpecker-ci-pipeline/) · [GitHub 摘要](articles/woodpecker-ci-pipeline.md)
