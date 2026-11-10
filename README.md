@@ -18,6 +18,7 @@
 
 ### 2026-11-10 新增工具
 
+- **Photoview 让你按硬盘目录直接浏览上万张照片** — [网站全文](https://aronshare.com/posts/photoview-photo-server/) · [GitHub 摘要](articles/photoview-photo-server.md)
 - **Metabase 让不会写 SQL 的同事自己查数据** — [网站全文](https://aronshare.com/posts/metabase-bi-dashboard/) · [GitHub 摘要](articles/metabase-bi-dashboard.md)
 - **Nginx Proxy Manager 用鼠标配好反向代理和证书** — [网站全文](https://aronshare.com/posts/nginx-proxy-manager/) · [GitHub 摘要](articles/nginx-proxy-manager.md)
 - **Buzz 把录音和视频转成字幕全程不联网** — [网站全文](https://aronshare.com/posts/buzz-audio-transcription/) · [GitHub 摘要](articles/buzz-audio-transcription.md)
