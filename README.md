@@ -18,6 +18,7 @@
 
 ### 2026-11-10 新增工具
 
+- **Frigate 让家用摄像头在本地认出人和车** — [网站全文](https://aronshare.com/posts/frigate-nvr-camera/) · [GitHub 摘要](articles/frigate-nvr-camera.md)
 - **Dozzle 让你在浏览器里盯住每个容器的日志** — [网站全文](https://aronshare.com/posts/dozzle-docker-log-viewer/) · [GitHub 摘要](articles/dozzle-docker-log-viewer.md)
 - **ComfyUI 把一张图的生成步骤摆成能复用的节点图** — [网站全文](https://aronshare.com/posts/comfyui-node-workflow/) · [GitHub 摘要](articles/comfyui-node-workflow.md)
 
