@@ -18,6 +18,7 @@
 
 ### 2026-11-10 新增工具
 
+- **Woodpecker 把 CI 流水线搬回自己的服务器** — [网站全文](https://aronshare.com/posts/woodpecker-ci-pipeline/) · [GitHub 摘要](articles/woodpecker-ci-pipeline.md)
 - **Memos 把零散想法按时间线记在自己服务器上** — [网站全文](https://aronshare.com/posts/memos-quick-notes/) · [GitHub 摘要](articles/memos-quick-notes.md)
 - **Home Assistant 把家里各种品牌的设备收进一个面板** — [网站全文](https://aronshare.com/posts/home-assistant-hub/) · [GitHub 摘要](articles/home-assistant-hub.md)
 - **Frigate 让家用摄像头在本地认出人和车** — [网站全文](https://aronshare.com/posts/frigate-nvr-camera/) · [GitHub 摘要](articles/frigate-nvr-camera.md)
