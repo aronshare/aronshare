@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-11 新增工具
+
+- **Twenty 把 CRM 写成代码，字段和视图跟着业务改** — [网站全文](https://aronshare.com/posts/twenty-crm/) · [GitHub 摘要](articles/twenty-crm.md)
+
 ### 2026-11-10 新增工具
 
 - **Listmonk 用一个二进制文件发邮件，七百万封只占 57MB 内存** — [网站全文](https://aronshare.com/posts/listmonk-newsletter/) · [GitHub 摘要](articles/listmonk-newsletter.md)
