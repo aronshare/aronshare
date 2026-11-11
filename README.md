@@ -18,6 +18,7 @@
 
 ### 2026-11-11 新增工具
 
+- **Grist 让表格里的列写 Python，数据存一个 SQLite 文件** — [网站全文](https://aronshare.com/posts/grist-spreadsheet-db/) · [GitHub 摘要](articles/grist-spreadsheet-db.md)
 - **DocuSeal 发合同给对方签，签名文件留在自己服务器上** — [网站全文](https://aronshare.com/posts/docuseal-document-signing/) · [GitHub 摘要](articles/docuseal-document-signing.md)
 - **Twenty 把 CRM 写成代码，字段和视图跟着业务改** — [网站全文](https://aronshare.com/posts/twenty-crm/) · [GitHub 摘要](articles/twenty-crm.md)
 
