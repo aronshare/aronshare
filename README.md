@@ -18,6 +18,7 @@
 
 ### 2026-11-11 新增工具
 
+- **LibreChat 把七八家模型塞进一个聊天框，还能自己部署** — [网站全文](https://aronshare.com/posts/librechat-ai-chat/) · [GitHub 摘要](articles/librechat-ai-chat.md)
 - **Umami 装上就能看访问来源，不必给访客挂 Cookie** — [网站全文](https://aronshare.com/posts/umami-web-analytics/) · [GitHub 摘要](articles/umami-web-analytics.md)
 - **Grist 让表格里的列写 Python，数据存一个 SQLite 文件** — [网站全文](https://aronshare.com/posts/grist-spreadsheet-db/) · [GitHub 摘要](articles/grist-spreadsheet-db.md)
 - **DocuSeal 发合同给对方签，签名文件留在自己服务器上** — [网站全文](https://aronshare.com/posts/docuseal-document-signing/) · [GitHub 摘要](articles/docuseal-document-signing.md)
