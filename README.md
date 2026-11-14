@@ -18,6 +18,7 @@
 
 ### 2026-11-11 新增工具
 
+- **RomM 把几千个 ROM 整理成游戏库，浏览器里点开就能玩** — [网站全文](https://aronshare.com/posts/romm-game-library/) · [GitHub 摘要](articles/romm-game-library.md)
 - **Miniflux 跑 RSS 阅读器只用一个文件，几百个源几 MB** — [网站全文](https://aronshare.com/posts/miniflux-rss-reader/) · [GitHub 摘要](articles/miniflux-rss-reader.md)
 - **LibreChat 把七八家模型塞进一个聊天框，还能自己部署** — [网站全文](https://aronshare.com/posts/librechat-ai-chat/) · [GitHub 摘要](articles/librechat-ai-chat.md)
 - **Umami 装上就能看访问来源，不必给访客挂 Cookie** — [网站全文](https://aronshare.com/posts/umami-web-analytics/) · [GitHub 摘要](articles/umami-web-analytics.md)
