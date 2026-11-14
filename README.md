@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-14 新增工具
+
+- **Chatwoot 把网站聊天和邮件汇进同一个客服收件箱** — [网站全文](https://aronshare.com/posts/chatwoot-support-inbox/) · [GitHub 摘要](articles/chatwoot-support-inbox.md)
+
 ### 2026-11-11 新增工具
 
 - **RomM 把几千个 ROM 整理成游戏库，浏览器里点开就能玩** — [网站全文](https://aronshare.com/posts/romm-game-library/) · [GitHub 摘要](articles/romm-game-library.md)
