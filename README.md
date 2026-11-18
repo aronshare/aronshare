@@ -16,6 +16,10 @@
 
 ## 最新收录
 
+### 2026-11-18 新增工具
+
+- **Formbricks 把站内问卷的编辑和结果分析放在一个后台** — [网站全文](https://aronshare.com/posts/formbricks-surveys/) · [GitHub 摘要](articles/formbricks-surveys.md)
+
 ### 2026-11-14 新增工具
 
 - **Ghost 把博客会员和邮件订阅装进一个开源后台** — [网站全文](https://aronshare.com/posts/ghost-cms-selfhosted/) · [GitHub 摘要](articles/ghost-cms-selfhosted.md)
