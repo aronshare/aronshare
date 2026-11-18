@@ -18,6 +18,7 @@
 
 ### 2026-11-14 新增工具
 
+- **Ghost 把博客会员和邮件订阅装进一个开源后台** — [网站全文](https://aronshare.com/posts/ghost-cms-selfhosted/) · [GitHub 摘要](articles/ghost-cms-selfhosted.md)
 - **Chatwoot 把网站聊天和邮件汇进同一个客服收件箱** — [网站全文](https://aronshare.com/posts/chatwoot-support-inbox/) · [GitHub 摘要](articles/chatwoot-support-inbox.md)
 
 ### 2026-11-11 新增工具
