@@ -18,6 +18,7 @@
 
 ### 2026-11-18 新增工具
 
+- **VeraCrypt 用一个密码锁住整块硬盘和 U 盘** — [网站全文](https://aronshare.com/posts/veracrypt-disk-encryption-dualpan-20261114/) · [GitHub 摘要](articles/veracrypt-disk-encryption-dualpan-20261114.md)
 - **Formbricks 把站内问卷的编辑和结果分析放在一个后台** — [网站全文](https://aronshare.com/posts/formbricks-surveys/) · [GitHub 摘要](articles/formbricks-surveys.md)
 
 ### 2026-11-14 新增工具
